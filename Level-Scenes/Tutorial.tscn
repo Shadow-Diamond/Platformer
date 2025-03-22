@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=4 uid="uid://d0q5wqqade5qg"]
+
+[ext_resource type="Script" path="res://Scripts/LevelController.gd" id="1_eipfp"]
+[ext_resource type="PackedScene" uid="uid://ir14n1jx3qm8" path="res://Character-Scenes/Player.tscn" id="1_rr58k"]
+[ext_resource type="PackedScene" uid="uid://dsm7nf1e7xnrp" path="res://TileMaps/TempGround.tscn" id="2_yi76w"]
+[ext_resource type="PackedScene" uid="uid://dpopc56aigxfc" path="res://Character-Scenes/Stationary-Enemy.tscn" id="3_w1ktb"]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_eipfp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextEdit" type="TextEdit" parent="Control"]
+layout_mode = 0
+offset_left = -143.0
+offset_top = -198.0
+offset_right = 144.0
+offset_bottom = -96.0
+theme_override_font_sizes/font_size = 64
+text = "Text Box"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="TempGround" parent="." instance=ExtResource("2_yi76w")]
+tile_map_data = PackedByteArray("AAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAP//AAAAAAAAAAAKAP7/AAAAAAAAAAALAP3/AAAAAAAAAAAMAP3/AAAAAAAAAAANAP3/AAAAAAAAAAA=")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(704, -284)
+
+[node name="Stationary-Enemy" parent="." instance=ExtResource("3_w1ktb")]
+position = Vector2(755, 0)
+collision_mask = 2
+
+[node name="Player" parent="." instance=ExtResource("1_rr58k")]
+position = Vector2(0, -2)
+collision_mask = 1

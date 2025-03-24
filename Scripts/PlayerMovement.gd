@@ -3,10 +3,10 @@ extends CharacterBody2D
 @export var Speed : float
 @export var Jump_Velocity : float
 var dead = false
-var health
+var health = 1
 
 func _ready() -> void:
-	connect("hitPlayer", takeDmg)
+	connect("hitPlayer", takeDmg.bind())
 
 func _physics_process(delta: float) -> void:
 	
@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func takeDmg():
+	print("Signal Received")
 	match(health):
 		1:
 			death()

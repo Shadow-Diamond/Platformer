@@ -11,6 +11,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.get_parent().get_name() == "Player":
-		print("Hit Player")
+	if (body.get_parent().is_in_group("PlayerChar") or body.is_in_group("PlayerChar")):
 		hitPlayer.emit()

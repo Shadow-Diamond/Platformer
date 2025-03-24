@@ -21,7 +21,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xwky"]
 size = Vector2(128, 128)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["PlayerChar"]]
 collision_mask = 3
 script = ExtResource("1_0ipoa")
 Speed = 400.0

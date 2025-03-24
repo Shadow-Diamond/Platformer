@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://d0q5wqqade5qg"]
 
-[ext_resource type="Script" path="res://Scripts/LevelController.gd" id="1_eipfp"]
+[ext_resource type="Script" uid="uid://cbad8ade1qqaa" path="res://Scripts/LevelController.gd" id="1_eipfp"]
 [ext_resource type="PackedScene" uid="uid://ir14n1jx3qm8" path="res://Character-Scenes/Player.tscn" id="1_rr58k"]
 [ext_resource type="PackedScene" uid="uid://dsm7nf1e7xnrp" path="res://TileMaps/TempGround.tscn" id="2_yi76w"]
 [ext_resource type="PackedScene" uid="uid://dpopc56aigxfc" path="res://Character-Scenes/Stationary-Enemy.tscn" id="3_w1ktb"]

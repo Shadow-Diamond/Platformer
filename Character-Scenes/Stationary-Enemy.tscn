@@ -41,6 +41,11 @@ shape = SubResource("RectangleShape2D_p64vs")
 wait_time = 0.5
 one_shot = true
 
+[node name="delay_timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="body_entered" from="kill_box" to="." method="_on_kill_box_body_entered"]
 [connection signal="body_entered" from="death_box" to="." method="_on_death_box_body_entered"]
 [connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="delay_timer" to="." method="_on_delay_timer_timeout"]

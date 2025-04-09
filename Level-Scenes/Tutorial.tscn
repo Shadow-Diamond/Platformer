@@ -36,6 +36,7 @@ tile_map_data = PackedByteArray("AAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAA
 position = Vector2(704, -284)
 
 [node name="Player" parent="." instance=ExtResource("1_rr58k")]
+Jump_Velocity = 1250.0
 
 [node name="Stationary-Enemy" parent="." instance=ExtResource("3_w1ktb")]
 position = Vector2(838, -18)

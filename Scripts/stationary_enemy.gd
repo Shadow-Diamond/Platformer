@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var player: CharacterBody2D = $"../Player"
 @onready var kill_box: Area2D = $kill_box
 @onready var death_timer: Timer = $death_timer
+@onready var delay_timer: Timer = $delay_timer
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -14,12 +15,15 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_kill_box_body_entered(body: CharacterBody2D) -> void:
-	if body == player:
+	if body == player and !delayed:
 		print("Enemy damage player signal")
 		player.emit_signal("hit_player")
 
 var timer_started: bool = false
+var delayed: bool = false
 func _on_death_box_body_entered(body: CharacterBody2D) -> void:
+	delayed = true
+	delay_timer.start()
 	if body == player:
 		print("Player killed enemy")
 		kill_box.queue_free()
@@ -31,3 +35,7 @@ func _on_death_box_body_entered(body: CharacterBody2D) -> void:
 
 func _on_death_timer_timeout() -> void:
 	self.queue_free()
+
+
+func _on_delay_timer_timeout() -> void:
+	delayed = false

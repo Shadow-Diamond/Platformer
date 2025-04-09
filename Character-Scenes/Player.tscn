@@ -22,10 +22,11 @@ animations = [{
 size = Vector2(128, 128)
 
 [node name="Player" type="CharacterBody2D" groups=["PlayerChar"]]
-collision_mask = 3
+collision_mask = 5
 script = ExtResource("1_0ipoa")
 Speed = 400.0
 Jump_Velocity = 900.0
+kill_bounce_decrease = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7bgj6")

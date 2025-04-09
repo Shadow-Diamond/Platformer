@@ -10,7 +10,8 @@ texture = ExtResource("1_5fsrk")
 
 [sub_resource type="TileSet" id="TileSet_ydgnk"]
 tile_size = Vector2i(128, 128)
-physics_layer_0/collision_layer = 3
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 4
 sources/0 = SubResource("TileSetAtlasSource_ssqrc")
 
 [node name="TemporaryGround" type="TileMapLayer"]

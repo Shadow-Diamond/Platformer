@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://d0q5wqqade5qg"]
+[gd_scene load_steps=4 format=4 uid="uid://d0q5wqqade5qg"]
 
-[ext_resource type="Script" uid="uid://cbad8ade1qqaa" path="res://Scripts/LevelController.gd" id="1_eipfp"]
 [ext_resource type="PackedScene" uid="uid://ir14n1jx3qm8" path="res://Character-Scenes/Player.tscn" id="1_rr58k"]
 [ext_resource type="PackedScene" uid="uid://dsm7nf1e7xnrp" path="res://TileMaps/TempGround.tscn" id="2_yi76w"]
 [ext_resource type="PackedScene" uid="uid://dpopc56aigxfc" path="res://Character-Scenes/Stationary-Enemy.tscn" id="3_w1ktb"]
 
 [node name="Tutorial" type="Node2D"]
-script = ExtResource("1_eipfp")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -37,11 +35,7 @@ tile_map_data = PackedByteArray("AAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAA
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(704, -284)
 
-[node name="Stationary-Enemy" parent="." instance=ExtResource("3_w1ktb")]
-position = Vector2(755, 0)
-collision_mask = 2
-
 [node name="Player" parent="." instance=ExtResource("1_rr58k")]
-position = Vector2(0, -2)
-collision_mask = 1
-Jump_Velocity = 1800.0
+
+[node name="Stationary-Enemy" parent="." instance=ExtResource("3_w1ktb")]
+position = Vector2(838, -18)

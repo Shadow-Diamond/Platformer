@@ -2,11 +2,17 @@ extends CharacterBody2D
 
 @export var Speed : float
 @export var Jump_Velocity : float
+@export var kill_bounce_decrease: int
+
 var dead = false
 var health = 1
 
+signal hit_player
+signal kill_bounce
+
 func _ready() -> void:
-	connect("hitPlayer", takeDmg.bind())
+	connect("hit_player", Callable(self, "_on_hit_player"))
+	connect("kill_bounce", Callable(self, "_on_kill_bounce"))
 
 func _physics_process(delta: float) -> void:
 	
@@ -31,15 +37,16 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func takeDmg():
-	print("Signal Received")
+func _on_hit_player():
+	print("Damage signal received")
 	match(health):
 		1:
-			death()
+			dead = true
+			health -= 1
 		2:
 			health -= 1
 		3:
 			health -= 1
 
-func death():
-	dead = true
+func _on_kill_bounce():
+	velocity.y = -Jump_Velocity/kill_bounce_decrease

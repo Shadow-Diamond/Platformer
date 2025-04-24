@@ -25,11 +25,24 @@ size = Vector2(128, 128)
 collision_mask = 5
 script = ExtResource("1_0ipoa")
 Speed = 400.0
-Jump_Velocity = 900.0
+Jump_Velocity = 600.0
 kill_bounce_decrease = 2
+mc_left_marg = 0.6
+mc_top_marg = 0.6
+mc_right_marg = 0.2
+mc_bottom_marg = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7bgj6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8xwky")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_bottom = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.6
+drag_top_margin = 0.6

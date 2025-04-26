@@ -6,3 +6,15 @@ Ground: Glassy black rock that fractures into hexagonal patterns
 Gravity: .6 times Earth (600*.6+600 = 960)
 Climate/Vegitation: Sparse patches of groves and plants, but otherwise desert-like.
 Background Stuff: Crystalline spires in the background
+
+Enemies:
+	Shardback Crawler:
+		A stationary enemy that is crab-like. Fused to its shell are translucent crystals that
+		glow blue. These crystals are jagged, and hurt the player when touched.
+		
+	Future Scarab:
+		A moving enemy that is about the size of a backpack (probably gonna be bigger).
+		It has a reflective black carapace and is covered in thin glowing lines that pulse as
+		it moves. This enemy is quick, but never intentionally chases the player. It moves in
+		a straight line until it hits something or reaches the edge of a platform, waits a
+		second, then turns around and continues walking.

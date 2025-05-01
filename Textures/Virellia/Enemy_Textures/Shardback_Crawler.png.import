@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6imw6oceduil"
-path="res://.godot/imported/silver-black_Hex_tiles.png-8d3bdb2d2eacbff1961ade1affe9a0ca.ctex"
+uid="uid://di7u3ure5gtnt"
+path="res://.godot/imported/Shardback_Crawler.png-7c56d49122e0bbd0aac3eb48aecfec98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Ground Textures/silver-black_Hex_tiles.png"
-dest_files=["res://.godot/imported/silver-black_Hex_tiles.png-8d3bdb2d2eacbff1961ade1affe9a0ca.ctex"]
+source_file="res://Textures/Virellia/Enemy_Textures/Shardback_Crawler.png"
+dest_files=["res://.godot/imported/Shardback_Crawler.png-7c56d49122e0bbd0aac3eb48aecfec98.ctex"]
 
 [params]
 

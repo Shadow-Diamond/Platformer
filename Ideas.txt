@@ -7,7 +7,7 @@ Gravity: .6 times Earth (600*.6+600 = 960)
 Climate/Vegitation: Sparse patches of groves and plants, but otherwise desert-like.
 Background Stuff: Crystalline spires in the background
 
-Enemies:
+Enemies: Wanted
 	Shardback Crawler:
 		A stationary enemy that is crab-like. Fused to its shell are translucent crystals that
 		glow blue. These crystals are jagged, and hurt the player when touched.
@@ -18,3 +18,9 @@ Enemies:
 		it moves. This enemy is quick, but never intentionally chases the player. It moves in
 		a straight line until it hits something or reaches the edge of a platform, waits a
 		second, then turns around and continues walking.
+
+Enemies: Recieved
+	Shardback Crawler:
+		An enemy that has two modes, Stationary and Moving. It is a turtle-like creature with
+		a purple outer-shell. Blue crystals protrude from the creature's back, making it
+		impossible to kill by landing ontop of it.

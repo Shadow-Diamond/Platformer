@@ -46,3 +46,13 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.6
 drag_top_margin = 0.6
+
+[node name="death_delay" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="respawn_delay" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="death_delay" to="." method="_on_death_delay_timeout"]
+[connection signal="timeout" from="respawn_delay" to="." method="_on_respawn_delay_timeout"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6imw6oceduil"
-path="res://.godot/imported/silver-black_Hex_tiles.png-22535f42e609ebf799c028bf39f95648.ctex"
+uid="uid://q40w3652nrq3"
+path="res://.godot/imported/Virellia.png-ad2f56c7e254e819695d6e251437db85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Virellia/ground_textures/silver-black_Hex_tiles.png"
-dest_files=["res://.godot/imported/silver-black_Hex_tiles.png-22535f42e609ebf799c028bf39f95648.ctex"]
+source_file="res://Textures/Virellia/other_textures/Virellia.png"
+dest_files=["res://.godot/imported/Virellia.png-ad2f56c7e254e819695d6e251437db85.ctex"]
 
 [params]
 

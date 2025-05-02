@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://n8w37b6pwmen"]
 
 [ext_resource type="Script" uid="uid://35ffb8r8ldlu" path="res://Scripts/Virellia/shardback_crawler.gd" id="1_vk2dh"]
-[ext_resource type="Texture2D" uid="uid://di7u3ure5gtnt" path="res://Textures/Virellia/Enemy_Textures/Shardback_Crawler.png" id="2_d572j"]
+[ext_resource type="Texture2D" uid="uid://di7u3ure5gtnt" path="res://Textures/Virellia/enemy_textures/Shardback_Crawler.png" id="2_d572j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55rtx"]
 atlas = ExtResource("2_d572j")

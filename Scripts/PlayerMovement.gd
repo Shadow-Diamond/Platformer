@@ -12,7 +12,8 @@ extends CharacterBody2D
 
 @onready var death_delay: Timer = $death_delay
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var respawn_delay: Timer = $respawn_delay
+@onready var restart_timer = $restart_timer
+
 
 var dead = false
 var health = 1
@@ -59,7 +60,8 @@ func _physics_process(delta: float) -> void:
 			collision_shape_2d.queue_free()
 			player_death = true
 			velocity.y = -Jump_Velocity/kill_bounce_decrease
-			respawn_delay.start()
+			main_camera.enabled = false
+			restart_timer.start()
 		velocity += get_gravity() * delta
 		
 	
@@ -85,5 +87,17 @@ func _on_death_delay_timeout() -> void:
 	death_delay_passed = true
 
 
-func _on_respawn_delay_timeout() -> void:
-	pass # Replace with function body.
+func restart():
+	if (GameManager.remaining_lives - 1) > 0:
+		GameManager.load_scene(GameManager.current_level)
+		GameManager.remaining_lives -= 1
+		print(GameManager.remaining_lives)
+	else:
+		var level = GameManager.Levels["Misc"]["LevelSelect"]
+		GameManager.load_scene(level)
+
+func death():
+	return player_death
+
+func cam_pos():
+	return self.main_camera.get_screen_center_position()

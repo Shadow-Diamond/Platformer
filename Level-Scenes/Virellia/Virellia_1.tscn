@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://d1mq3j5dynrpm"]
+[gd_scene load_steps=5 format=4 uid="uid://d1mq3j5dynrpm"]
 
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps/Virellia_Ground.tscn" id="1_vupj3"]
 [ext_resource type="PackedScene" uid="uid://ir14n1jx3qm8" path="res://Character-Scenes/Player-Scenes/Player.tscn" id="3_jpxfj"]
 [ext_resource type="PackedScene" uid="uid://n8w37b6pwmen" path="res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn" id="3_vupj3"]
+[ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/follow_cam.gd" id="4_21lb3"]
 
 [node name="Virellia" type="Node2D"]
 
@@ -14,4 +15,44 @@ position = Vector2(196, -241)
 Jump_Velocity = 960.0
 
 [node name="ShardbackCrawler" parent="." instance=ExtResource("3_vupj3")]
-position = Vector2(1365, -377)
+position = Vector2(2489, -755)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 33.0
+offset_top = -619.0
+offset_right = 547.0
+offset_bottom = -417.0
+theme_override_font_sizes/font_size = 64
+text = "A to move Left
+D to move Right"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+offset_left = 1389.0
+offset_top = -602.0
+offset_right = 1903.0
+offset_bottom = -496.0
+theme_override_font_sizes/font_size = 64
+text = "Press W to Jump"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_21lb3")

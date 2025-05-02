@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://crrp8ng8lxo4o"]
 
-[ext_resource type="Texture2D" uid="uid://b6imw6oceduil" path="res://Textures/Virellia/Ground_textures/silver-black_Hex_tiles.png" id="1_hsfuu"]
+[ext_resource type="Texture2D" uid="uid://b6imw6oceduil" path="res://Textures/Virellia/ground_textures/silver-black_Hex_tiles.png" id="1_hsfuu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uxngc"]
 texture = ExtResource("1_hsfuu")

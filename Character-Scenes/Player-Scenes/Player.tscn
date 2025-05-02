@@ -51,8 +51,9 @@ drag_top_margin = 0.6
 wait_time = 0.5
 one_shot = true
 
-[node name="respawn_delay" type="Timer" parent="."]
+[node name="restart_timer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [connection signal="timeout" from="death_delay" to="." method="_on_death_delay_timeout"]
-[connection signal="timeout" from="respawn_delay" to="." method="_on_respawn_delay_timeout"]
+[connection signal="timeout" from="restart_timer" to="." method="restart"]

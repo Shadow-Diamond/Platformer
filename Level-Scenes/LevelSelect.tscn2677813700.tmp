@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://db5iqo73sxwwa"]
+
+[ext_resource type="Script" uid="uid://54rojnvcotxl" path="res://Scripts/level_select.gd" id="1_avrp6"]
+[ext_resource type="Texture2D" uid="uid://q40w3652nrq3" path="res://Textures/Virellia/other_textures/Virellia.png" id="2_gy62r"]
+
+[node name="LevelSelect" type="Node2D"]
+script = ExtResource("1_avrp6")
+
+[node name="Virellia" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Virellia"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_gy62r")
+
+[node name="TextEdit" type="TextEdit" parent="Virellia"]
+offset_left = -114.0
+offset_top = -288.0
+offset_right = 114.0
+offset_bottom = -187.0
+theme_override_font_sizes/font_size = 64
+text = "Virellia"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="Virellia2" type="Node2D" parent="."]
+position = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Virellia2"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_gy62r")
+
+[node name="TextEdit" type="TextEdit" parent="Virellia2"]
+offset_left = -114.0
+offset_top = -288.0
+offset_right = 114.0
+offset_bottom = -187.0
+theme_override_font_sizes/font_size = 64
+text = "Virellia"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="Virellia3" type="Node2D" parent="."]
+position = Vector2(960, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Virellia3"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_gy62r")
+
+[node name="TextEdit" type="TextEdit" parent="Virellia3"]
+offset_left = -114.0
+offset_top = -288.0
+offset_right = 114.0
+offset_bottom = -187.0
+theme_override_font_sizes/font_size = 64
+text = "Virellia"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -14,7 +14,6 @@ extends CharacterBody2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var restart_timer = $restart_timer
 
-
 var dead = false
 var health = 1
 var death_delay_passed: bool = false

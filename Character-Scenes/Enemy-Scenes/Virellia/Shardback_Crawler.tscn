@@ -104,11 +104,13 @@ animation = &"Idle"
 frame_progress = 0.493093
 
 [node name="enemy_hit_box" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 5.51336)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_6so4c")
 
 [node name="kill_box" type="Area2D" parent="."]
+visible = false
 scale = Vector2(4, 4)
 collision_layer = 2
 collision_mask = 3
@@ -121,5 +123,20 @@ shape = SubResource("RectangleShape2D_vk2dh")
 [node name="delay_timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="GroundDetector1" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(52, 0)
+target_position = Vector2(0, 100)
+collision_mask = 4
+
+[node name="GroundDetector2" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(-52, 0)
+target_position = Vector2(0, 100)
+collision_mask = 4
+
+[node name="ground_detector_delay" type="Timer" parent="."]
+
 [connection signal="body_entered" from="kill_box" to="." method="_on_kill_box_body_entered"]
 [connection signal="timeout" from="delay_timer" to="." method="_on_delay_timer_timeout"]
+[connection signal="timeout" from="ground_detector_delay" to="." method="_on_ground_detector_delay_timeout"]

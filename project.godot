@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Scripts/GameManager.gd"
+ValidItems="*res://Scripts/valid_items.gd"
 
 [display]
 
@@ -58,3 +59,4 @@ Right={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+lights_and_shadows/use_physical_light_units=true

@@ -21,10 +21,12 @@ var player_death: bool = false
 
 signal hit_player
 signal kill_bounce
+signal kill_player
 
 func _ready() -> void:
 	connect("hit_player", Callable(self, "_on_hit_player"))
 	connect("kill_bounce", Callable(self, "_on_kill_bounce"))
+	connect("kill_player", Callable(self, "_on_kill_player"))
 	if mc_bottom_marg >= 0 || mc_bottom_marg <= 1:
 		main_camera.drag_bottom_margin = mc_bottom_marg
 	if mc_left_marg >= 0 || mc_left_marg <= 1:
@@ -100,3 +102,9 @@ func death():
 
 func cam_pos():
 	return self.main_camera.get_screen_center_position()
+
+func _on_kill_player():
+	if !dead:
+		health = 0
+		dead = true
+		death_delay.start()

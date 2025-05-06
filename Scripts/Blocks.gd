@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var left_block: bool
 @export var middle_block: bool
 @export var right_block: bool
-@export var item: String
+@export var itemName: String
 
 @onready var sprite = $AnimatedSprite2D
 @onready var deletion_timer = $DeletionTimer
@@ -13,7 +13,7 @@ extends CharacterBody2D
 func _ready():
 	self.z_index = 1
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if left_block and right_block or left_block and middle_block or right_block and middle_block or left_block and middle_block and right_block:
 		left_block = false
 		middle_block = false
@@ -28,16 +28,16 @@ func _physics_process(delta):
 	else:
 		sprite.play("SoloBlock")
 	
-	if item not in ItemDB.ITEMS:
-		item = ""
+	if itemName not in ItemDB.ITEMS:
+		itemName = ""
 	
-	if item == "":
+	if itemName == "":
 		self.queue_free()
 
 
 func _on_player_detector_body_entered(body):
 	if body == player:
-		var item = ItemDB.ITEMS[item]
+		var item = ItemDB.ITEMS[itemName]
 		var itemScene = load(item["path"])
 		var item_instance = itemScene.instantiate()
 		

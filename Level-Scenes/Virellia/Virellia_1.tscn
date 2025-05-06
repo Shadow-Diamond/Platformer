@@ -53,10 +53,10 @@ tile_map_data = PackedByteArray("AAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAA
 [node name="VirelliaBlock" parent="." instance=ExtResource("7_oayy4")]
 position = Vector2(7102, -448)
 middle_block = true
-item = "shardback_crawler_mobile_not_fallable"
+itemName = "future_spider_mobile_fallable"
 
 [node name="Player" parent="." instance=ExtResource("3_jpxfj")]
-position = Vector2(211, -242)
+position = Vector2(330, -287)
 Jump_Velocity = 960.0
 
 [node name="ShardbackCrawler" parent="." instance=ExtResource("3_vupj3")]

@@ -15,5 +15,15 @@ const ITEMS = {
 		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn",
 		"stationary": false,
 		"fallable": false
+	},
+	"future_spider_mobile_fallable": {
+		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider.tscn",
+		"stationary": false,
+		"fallable": true
+	},
+	"future_spider_mobile_not_fallable": {
+		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider.tscn",
+		"stationary": false,
+		"fallable": true
 	}
 }

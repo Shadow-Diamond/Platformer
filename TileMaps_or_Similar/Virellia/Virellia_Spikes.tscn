@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://tie7m42q5wke"]
 
-[ext_resource type="Script" uid="uid://bimayh37mqdbu" path="res://Scripts/virellia_spikes.gd" id="1_x1215"]
+[ext_resource type="Script" uid="uid://bimayh37mqdbu" path="res://Scripts/Virellia/virellia_spikes.gd" id="1_x1215"]
 [ext_resource type="Texture2D" uid="uid://bgb5fhgysfsvf" path="res://Textures/Virellia/enemy_textures/VirelliaSpikes.png" id="2_vhs4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnj01"]

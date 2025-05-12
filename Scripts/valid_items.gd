@@ -25,5 +25,8 @@ const ITEMS = {
 		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider.tscn",
 		"stationary": false,
 		"fallable": true
+	},
+	"food_item" : {
+		"path": "res://Item-Scenes/Food_Item.tscn"
 	}
 }

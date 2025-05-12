@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://di7u3ure5gtnt"
-path="res://.godot/imported/Shardback_Crawler.png-c1ec5073dedd8860e07a7bd971dbdc14.ctex"
+path="res://.godot/imported/Shardback_Crawler.png-7c56d49122e0bbd0aac3eb48aecfec98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Virellia/enemy_textures/Shardback_Crawler.png"
-dest_files=["res://.godot/imported/Shardback_Crawler.png-c1ec5073dedd8860e07a7bd971dbdc14.ctex"]
+source_file="res://Textures/Virellia/Enemy_Textures/Shardback_Crawler.png"
+dest_files=["res://.godot/imported/Shardback_Crawler.png-7c56d49122e0bbd0aac3eb48aecfec98.ctex"]
 
 [params]
 

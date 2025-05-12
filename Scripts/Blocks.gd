@@ -10,6 +10,8 @@ extends CharacterBody2D
 
 @onready var player = $"../Player"
 
+var hit = false
+
 func _ready():
 	self.z_index = 1
 
@@ -36,7 +38,8 @@ func _physics_process(_delta):
 
 
 func _on_player_detector_body_entered(body):
-	if body == player:
+	if body == player and not hit:
+		hit = true
 		var item = ItemDB.ITEMS[itemName]
 		var itemScene = load(item["path"])
 		var item_instance = itemScene.instantiate()
@@ -59,4 +62,6 @@ func animate_pop_out(node):
 	var tween = create_tween()
 	tween.tween_property(node, "global_position", node.global_position + Vector2(0,-128), 5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	await tween.finished
-	node.start_behavior()
+	print(node)
+	if node.has_method("start_behavior"):
+		node.start_behavior()

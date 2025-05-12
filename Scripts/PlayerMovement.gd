@@ -13,17 +13,21 @@ extends CharacterBody2D
 @onready var death_delay: Timer = $death_delay
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var restart_timer = $restart_timer
+@onready var hit_timer: Timer = $hit_timer
 
 var dead = false
 var health = 1
 var death_delay_passed: bool = false
 var player_death: bool = false
+var hit = false
 
 signal hit_player
 signal kill_bounce
 signal kill_player
+signal power_up
 
 func _ready() -> void:
+	connect("power_up", Callable(self, "_power_up"))
 	connect("hit_player", Callable(self, "_on_hit_player"))
 	connect("kill_bounce", Callable(self, "_on_kill_bounce"))
 	connect("kill_player", Callable(self, "_on_kill_player"))
@@ -70,15 +74,18 @@ func _physics_process(delta: float) -> void:
 
 func _on_hit_player():
 	print("Damage signal received")
-	match(health):
-		1:
-			dead = true
-			health -= 1
-			death_delay.start()
-		2:
-			health -= 1
-		3:
-			health -= 1
+	if not hit:
+		hit_timer.start()
+		hit = true
+		match(health):
+			1:
+				dead = true
+				health -= 1
+				death_delay.start()
+			2:
+				health -= 1
+			3:
+				health -= 1
 
 func _on_kill_bounce():
 	velocity.y = -Jump_Velocity/kill_bounce_decrease
@@ -92,7 +99,6 @@ func restart():
 	if (GameManager.remaining_lives - 1) > 0:
 		GameManager.load_scene(GameManager.current_level)
 		GameManager.remaining_lives -= 1
-		print(GameManager.remaining_lives)
 	else:
 		var level = GameManager.Levels["Misc"]["LevelSelect"]
 		GameManager.load_scene(level)
@@ -108,3 +114,15 @@ func _on_kill_player():
 		health = 0
 		dead = true
 		death_delay.start()
+
+func _power_up(power_up_name):
+	if power_up_name == "food":
+		if health < 2:
+			health_gain()
+
+func health_gain():
+	health += 1
+
+
+func _on_hit_timer_timeout() -> void:
+	hit = false

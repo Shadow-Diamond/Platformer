@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://c2pv7qi65u4qc"]
+[gd_scene load_steps=22 format=3 uid="uid://cuuprx1uutrsb"]
 
-[ext_resource type="Texture2D" uid="uid://c54x45h844ypr" path="res://Textures/Virellia/enemy_textures/Future_Spider.png" id="1_ggsoe"]
-[ext_resource type="Script" uid="uid://b1d4g6w2xosoa" path="res://Scripts/Virellia/future_spider.gd" id="1_ktht0"]
+[ext_resource type="Texture2D" uid="uid://c54x45h844ypr" path="res://Textures/Virellia/Enemy_Textures/Future_Spider.png" id="1_ggsoe"]
+[ext_resource type="Script" path="res://Scripts/Virellia/future_spider.gd" id="1_ktht0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktht0"]
 atlas = ExtResource("1_ggsoe")

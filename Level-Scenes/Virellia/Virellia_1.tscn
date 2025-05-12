@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dswg81h0jwfl1" path="res://TileMaps_or_Similar/Virellia/Virellia_Bricks.tscn" id="1_bnbdv"]
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_vupj3"]
-[ext_resource type="Texture2D" uid="uid://buinfsot23wx7" path="res://Textures/Virellia/ground_textures/silver-black_Hex_Floating_Bricks.png" id="2_iqfl5"]
+[ext_resource type="Texture2D" uid="uid://buinfsot23wx7" path="res://Textures/Virellia/Ground_textures/silver-black_Hex_Floating_Bricks.png" id="2_iqfl5"]
 [ext_resource type="PackedScene" uid="uid://ir14n1jx3qm8" path="res://Character-Scenes/Player-Scenes/Player.tscn" id="3_jpxfj"]
 [ext_resource type="PackedScene" uid="uid://n8w37b6pwmen" path="res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn" id="3_vupj3"]
 [ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/follow_cam.gd" id="4_21lb3"]
@@ -62,7 +62,7 @@ Jump_Velocity = 960.0
 [node name="ShardbackCrawler" parent="." instance=ExtResource("3_vupj3")]
 position = Vector2(2486, -707)
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="side_to_side_tut" type="TextEdit" parent="."]
 offset_left = 33.0
 offset_top = -619.0
 offset_right = 547.0
@@ -81,13 +81,71 @@ virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
-[node name="TextEdit2" type="TextEdit" parent="."]
+[node name="jump_tut" type="TextEdit" parent="."]
 offset_left = 1389.0
 offset_top = -602.0
 offset_right = 1903.0
 offset_bottom = -496.0
 theme_override_font_sizes/font_size = 64
 text = "Press W to Jump"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="item_box_tut" type="TextEdit" parent="."]
+offset_left = 6845.0
+offset_top = -763.0
+offset_right = 7384.0
+offset_bottom = -553.0
+theme_override_font_sizes/font_size = 64
+text = "Power Up Box
+Hit it from Below"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="item_box_warning_tut" type="TextEdit" parent="."]
+offset_left = 7662.0
+offset_top = -641.0
+offset_right = 8284.0
+offset_bottom = -345.0
+theme_override_font_sizes/font_size = 64
+text = "Power Up Boxes
+May have Enemies
+Or Items"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="food_tut" type="TextEdit" parent="."]
+offset_left = 8417.0
+offset_top = -970.0
+offset_right = 9119.0
+offset_bottom = -770.0
+theme_override_font_sizes/font_size = 64
+text = "This Item Makes You
+Grow"
 editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
@@ -107,19 +165,24 @@ position = Vector2(4295, -196)
 stationary = false
 
 [node name="VirelliaSpikes" parent="." instance=ExtResource("8_50bb1")]
-position = Vector2(5248, -105)
+position = Vector2(5248, -64)
 
 [node name="VirelliaSpikes2" parent="." instance=ExtResource("8_50bb1")]
-position = Vector2(5376, -105)
+position = Vector2(5376, -64)
 
 [node name="VirelliaSpikes3" parent="." instance=ExtResource("8_50bb1")]
-position = Vector2(5504, -105)
+position = Vector2(5504, -64)
 
 [node name="VirelliaSpikes4" parent="." instance=ExtResource("8_50bb1")]
-position = Vector2(5633, -105)
+position = Vector2(5633, -64)
 
 [node name="VirelliaSpikes5" parent="." instance=ExtResource("8_50bb1")]
-position = Vector2(5760, -105)
+position = Vector2(5760, -64)
 
 [node name="VirelliaSpikes6" parent="." instance=ExtResource("8_50bb1")]
-position = Vector2(5888, -105)
+position = Vector2(5888, -64)
+
+[node name="VirelliaBlock2" parent="." instance=ExtResource("7_oayy4")]
+position = Vector2(8766, -576)
+middle_block = true
+itemName = "food_item"

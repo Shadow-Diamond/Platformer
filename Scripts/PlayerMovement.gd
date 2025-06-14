@@ -14,12 +14,17 @@ extends CharacterBody2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var restart_timer = $restart_timer
 @onready var hit_timer: Timer = $hit_timer
+@onready var basic_spacesuit: AnimatedSprite2D = $basic_spacesuit
+@onready var better_spacesuit: AnimatedSprite2D = $better_spacesuit
 
+var activeSprite: AnimatedSprite2D
 var dead = false
 var health = 1
 var death_delay_passed: bool = false
 var player_death: bool = false
 var hit = false
+var dir = "right"
+var ability = "none"
 
 signal hit_player
 signal kill_bounce
@@ -39,6 +44,8 @@ func _ready() -> void:
 		main_camera.drag_right_margin = mc_right_marg
 	if mc_top_marg >= 0 || mc_top_marg <= 1:
 		main_camera.drag_top_margin = mc_top_marg
+	activeSprite = basic_spacesuit
+	better_spacesuit.hide()
 
 func _physics_process(delta: float) -> void:
 	
@@ -46,17 +53,26 @@ func _physics_process(delta: float) -> void:
 		# Handles the gravity of the Character
 		if not is_on_floor():
 			velocity += get_gravity() * delta
+			# activeSprite.play("Falling")
 		
 		if is_on_floor() and Input.is_action_just_pressed("Up"):
 			velocity.y = -Jump_Velocity
 		
 		# Handles the X-axis movement of the Character
 		if Input.is_action_pressed("Left"):
+			activeSprite.play("WalkLeft")
+			dir = "left"
 			velocity.x = -Speed
 		elif Input.is_action_pressed("Right"):
+			activeSprite.play("WalkRight")
+			dir = "right"
 			velocity.x = Speed
 		else:
 			velocity.x = 0
+			if dir == "left":
+				activeSprite.play("IdleLeft")
+			elif dir == "right":
+				activeSprite.play("IdleRight")
 	elif not death_delay_passed:
 		velocity.x = 0
 		velocity.y = 0
@@ -82,10 +98,16 @@ func _on_hit_player():
 				dead = true
 				health -= 1
 				death_delay.start()
+				# activeSprite.play("Death")
 			2:
 				health -= 1
+				activeSprite = basic_spacesuit
+				better_spacesuit.hide()
 			3:
 				health -= 1
+				activeSprite = better_spacesuit
+				basic_spacesuit.hide()
+		activeSprite.show()
 
 func _on_kill_bounce():
 	velocity.y = -Jump_Velocity/kill_bounce_decrease
@@ -116,9 +138,12 @@ func _on_kill_player():
 		death_delay.start()
 
 func _power_up(power_up_name):
-	if power_up_name == "food":
+	if power_up_name == "better_suit":
+		activeSprite = better_spacesuit
 		if health < 2:
+			basic_spacesuit.hide()
 			health_gain()
+	activeSprite.show()
 
 func health_gain():
 	health += 1

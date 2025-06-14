@@ -26,7 +26,7 @@ const ITEMS = {
 		"stationary": false,
 		"fallable": true
 	},
-	"food_item" : {
-		"path": "res://Item-Scenes/Food_Item.tscn"
+	"better_suit_item" : {
+		"path": "res://Item-Scenes/better_suit_item.tscn"
 	}
 }

@@ -1,35 +1,32 @@
 [gd_scene load_steps=10 format=3 uid="uid://lomvjieeudgl"]
 
-[ext_resource type="Script" uid="uid://8ej7m84lmk0s" path="res://Scripts/food_item.gd" id="1_jy1tl"]
-[ext_resource type="Texture2D" uid="uid://ebdxsxsucvk4" path="res://Textures/Interplanetary_textures/FoodBar.png" id="1_t44ip"]
+[ext_resource type="Script" uid="uid://8ej7m84lmk0s" path="res://Scripts/suit_upgrade.gd" id="1_lolfv"]
+[ext_resource type="Texture2D" uid="uid://b2hgxf1hxbrrf" path="res://Textures/Interplanetary_textures/Better-Spacesuit-Upgrade.png" id="2_o2y46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b47bb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgb8e"]
-size = Vector2(28, 11)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jy1tl"]
-atlas = ExtResource("1_t44ip")
-region = Rect2(0, 0, 32, 32)
+size = Vector2(28, 28.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b47bb"]
-atlas = ExtResource("1_t44ip")
-region = Rect2(32, 0, 32, 32)
+atlas = ExtResource("2_o2y46")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wgb8e"]
-atlas = ExtResource("1_t44ip")
-region = Rect2(64, 0, 32, 32)
+atlas = ExtResource("2_o2y46")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u30ps"]
-atlas = ExtResource("1_t44ip")
+atlas = ExtResource("2_o2y46")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88nc0"]
+atlas = ExtResource("2_o2y46")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_88nc0"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jy1tl")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b47bb")
 }, {
@@ -38,14 +35,17 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u30ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88nc0")
 }],
 "loop": true,
 "name": &"Idle",
 "speed": 2.0
 }]
 
-[node name="Food_Item" type="CharacterBody2D"]
-script = ExtResource("1_jy1tl")
+[node name="Suit_Upgrade" type="CharacterBody2D"]
+script = ExtResource("1_lolfv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -57,13 +57,13 @@ disabled = true
 scale = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
-position = Vector2(0, 0.5)
+position = Vector2(0, -1.25)
 shape = SubResource("RectangleShape2D_wgb8e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_88nc0")
 animation = &"Idle"
-frame_progress = 0.718369
+frame_progress = 0.810096
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]

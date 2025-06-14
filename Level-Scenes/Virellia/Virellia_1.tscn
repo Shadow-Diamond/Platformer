@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://d1mq3j5dynrpm"]
+[gd_scene load_steps=12 format=4 uid="uid://d1mq3j5dynrpm"]
 
 [ext_resource type="PackedScene" uid="uid://dswg81h0jwfl1" path="res://TileMaps_or_Similar/Virellia/Virellia_Bricks.tscn" id="1_bnbdv"]
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_vupj3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/follow_cam.gd" id="4_21lb3"]
 [ext_resource type="PackedScene" uid="uid://cmqahtnb45q02" path="res://TileMaps_or_Similar/Virellia/Virellia_Block.tscn" id="7_oayy4"]
 [ext_resource type="PackedScene" uid="uid://tie7m42q5wke" path="res://TileMaps_or_Similar/Virellia/Virellia_Spikes.tscn" id="8_50bb1"]
+[ext_resource type="PackedScene" uid="uid://lomvjieeudgl" path="res://Item-Scenes/better_suit_item.tscn" id="9_5k8pu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oayy4"]
 texture = ExtResource("2_iqfl5")
@@ -44,20 +45,20 @@ sources/0 = SubResource("TileSetAtlasSource_oayy4")
 [node name="Virellia" type="Node2D"]
 
 [node name="VirelliaBricks" parent="." instance=ExtResource("1_bnbdv")]
-tile_map_data = PackedByteArray("AAA5APz/AAAIAAAAAAA4APz/AAAIAAAAAAA3APz/AAAIAAAAAAA2APz/AAAIAAAAAAA1APz/AAAAAAAAAAA6APz/AAAQAAAAAAA+APn/AAAQAAAAAAA8APn/AAAAAAAAAABFAPv/AAAIAAAAAABEAPv/AAAIAAAAAABDAPv/AAAIAAAAAABCAPv/AAAAAAAAAABGAPv/AAAQAAAAAAA9APn/AAAIAAAAAAA/AP//AAAIAAAAAABAAP//AAAQAAAAAAA+AP//AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAA2APv/AAAIAAAAAAA3APv/AAAIAAAAAAA1APv/AAAAAAAAAAA4APv/AAAIAAAAAAA5APv/AAAIAAAAAAA6APv/AAAQAAAAAAA9APj/AAAIAAAAAAA+APj/AAAQAAAAAAA8APj/AAAAAAAAAABDAPr/AAAIAAAAAABEAPr/AAAIAAAAAABCAPr/AAAAAAAAAABFAPr/AAAIAAAAAABGAPr/AAAQAAAAAAA=")
 tile_set = SubResource("TileSet_50bb1")
 
 [node name="VirelliaGround" parent="." instance=ExtResource("1_vupj3")]
 tile_map_data = PackedByteArray("AAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAAAAAAGAP//AAAAAAAAAAAFAP//AAAAAAAAAAAEAP//AAAAAAAAAAADAP//AAAAAAAAAAACAP//AAAAAAAAAAABAP//AAAAAAAAAAAAAP//AAAAAAAAAAAJAP//AAAAAAAAAAAJAP7/AAAAAAAAAAAJAP3/AAAAAAAAAAAKAP//AAAAAAAAAAAKAP7/AAAAAAAAAAAKAP3/AAAAAAAAAAAKAPz/AAAAAAAAAAALAP//AAAAAAAAAAALAPv/AAAAAAAAAAALAPz/AAAAAAAAAAALAP3/AAAAAAAAAAALAP7/AAAAAAAAAAAMAPv/AAAAAAAAAAAMAPz/AAAAAAAAAAAMAP3/AAAAAAAAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAANAP7/AAAAAAAAAAANAP3/AAAAAAAAAAANAPz/AAAAAAAAAAANAPv/AAAAAAAAAAAOAPv/AAAAAAAAAAAOAPz/AAAAAAAAAAAOAP3/AAAAAAAAAAAOAP7/AAAAAAAAAAAOAP//AAAAAAAAAAAPAPz/AAAAAAAAAAAPAP3/AAAAAAAAAAAQAP7/AAAAAAAAAAAPAP7/AAAAAAAAAAAPAP//AAAAAAAAAAAQAP//AAAAAAAAAAAQAP3/AAAAAAAAAAARAP7/AAAAAAAAAAARAP//AAAAAAAAAAD/////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAD///z/AAAAAAAAAAD///v/AAAAAAAAAAD///r/AAAAAAAAAAD///n/AAAAAAAAAAD///j/AAAAAAAAAAD///f/AAAAAAAAAAASAP//AAAAAAAAAAATAP//AAAAAAAAAAAUAP//AAAAAAAAAAAVAP//AAAAAAAAAAAWAP//AAAAAAAAAAAXAP//AAAAAAAAAAAYAP//AAAAAAAAAAAZAP//AAAAAAAAAAAaAP//AAAAAAAAAAAfAP//AAAAAAAAAAAgAP//AAAAAAAAAAAhAP//AAAAAAAAAAAYAP7/AAAAAAAAAAAZAP7/AAAAAAAAAAAZAP3/AAAAAAAAAAAaAP7/AAAAAAAAAAAaAP3/AAAAAAAAAAAaAPz/AAAAAAAAAAAfAP7/AAAAAAAAAAAfAP3/AAAAAAAAAAAgAP7/AAAAAAAAAAAiAP//AAAAAAAAAAAjAP//AAAAAAAAAAAkAP//AAAAAAAAAAAlAP//AAAAAAAAAAAmAP//AAAAAAAAAAAnAP//AAAAAAAAAAAoAP//AAAAAAAAAAApAP//AAAAAAAAAAAqAP//AAAAAAAAAAArAP//AAAAAAAAAAAsAP//AAAAAAAAAAAtAP//AAAAAAAAAAAuAP//AAAAAAAAAAAvAP//AAAAAAAAAAA=")
 
 [node name="VirelliaBlock" parent="." instance=ExtResource("7_oayy4")]
-position = Vector2(7102, -448)
+position = Vector2(7102, -576)
 middle_block = true
 itemName = "future_spider_mobile_fallable"
 
 [node name="Player" parent="." instance=ExtResource("3_jpxfj")]
 position = Vector2(330, -287)
-Jump_Velocity = 960.0
+Jump_Velocity = 1100.0
 
 [node name="ShardbackCrawler" parent="." instance=ExtResource("3_vupj3")]
 position = Vector2(2486, -707)
@@ -139,13 +140,34 @@ middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
 [node name="food_tut" type="TextEdit" parent="."]
-offset_left = 8417.0
-offset_top = -970.0
-offset_right = 9119.0
-offset_bottom = -770.0
+offset_left = 8389.0
+offset_top = -1100.0
+offset_right = 9148.0
+offset_bottom = -783.0
 theme_override_font_sizes/font_size = 64
-text = "This Item Makes You
-Grow"
+text = "This Item Will Give You
+One Health Point, 
+Turning Your Suit White"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="final_tut" type="TextEdit" parent="."]
+offset_left = 7572.0
+offset_top = -2361.0
+offset_right = 8545.0
+offset_bottom = -2069.0
+theme_override_font_sizes/font_size = 64
+text = "From This Point Onward,
+You Are On Your Own,
+Except For Rare Circumstances"
 editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
@@ -183,6 +205,9 @@ position = Vector2(5760, -64)
 position = Vector2(5888, -64)
 
 [node name="VirelliaBlock2" parent="." instance=ExtResource("7_oayy4")]
-position = Vector2(8766, -576)
+position = Vector2(8766, -704)
 middle_block = true
-itemName = "food_item"
+itemName = "better_suit_item"
+
+[node name="Suit_Upgrade" parent="." instance=ExtResource("9_5k8pu")]
+position = Vector2(736, -241)

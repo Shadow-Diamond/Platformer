@@ -11,5 +11,5 @@ func _ready() -> void:
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body == player and not hit:
 		hit = true
-		player.emit_signal("power_up", "food")
+		player.emit_signal("power_up", "better_suit")
 		self.queue_free()

@@ -14,6 +14,8 @@ var current_level = null
 
 var remaining_lives = 3
 
+var currency : int = 0
+
 func _ready():
 	current_level = Levels["Misc"]["LevelSelect"]
 

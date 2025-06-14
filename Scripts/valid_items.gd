@@ -28,5 +28,8 @@ const ITEMS = {
 	},
 	"better_suit_item" : {
 		"path": "res://Item-Scenes/better_suit_item.tscn"
+	},
+	"virellia_diamond" : {
+		"path" :"res://Item-Scenes/Virellia/Diamond.tscn"
 	}
 }

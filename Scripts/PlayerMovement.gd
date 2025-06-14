@@ -25,17 +25,21 @@ var player_death: bool = false
 var hit = false
 var dir = "right"
 var ability = "none"
+var walk_pause : bool = false
+var score : int = 0
 
 signal hit_player
 signal kill_bounce
 signal kill_player
 signal power_up
+signal collectable
 
 func _ready() -> void:
 	connect("power_up", Callable(self, "_power_up"))
 	connect("hit_player", Callable(self, "_on_hit_player"))
 	connect("kill_bounce", Callable(self, "_on_kill_bounce"))
 	connect("kill_player", Callable(self, "_on_kill_player"))
+	connect("collectable", Callable(self, "_on_collect_currency"))
 	if mc_bottom_marg >= 0 || mc_bottom_marg <= 1:
 		main_camera.drag_bottom_margin = mc_bottom_marg
 	if mc_left_marg >= 0 || mc_left_marg <= 1:
@@ -53,18 +57,25 @@ func _physics_process(delta: float) -> void:
 		# Handles the gravity of the Character
 		if not is_on_floor():
 			velocity += get_gravity() * delta
-			# activeSprite.play("Falling")
+			var jumpAnim = "Jump" + dir
+			activeSprite.play(jumpAnim)
+			walk_pause = true
+		
+		if is_on_floor():
+			walk_pause = false
 		
 		if is_on_floor() and Input.is_action_just_pressed("Up"):
 			velocity.y = -Jump_Velocity
 		
 		# Handles the X-axis movement of the Character
 		if Input.is_action_pressed("Left"):
-			activeSprite.play("WalkLeft")
+			if !walk_pause:
+				activeSprite.play("WalkLeft")
 			dir = "left"
 			velocity.x = -Speed
 		elif Input.is_action_pressed("Right"):
-			activeSprite.play("WalkRight")
+			if !walk_pause:
+				activeSprite.play("WalkRight")
 			dir = "right"
 			velocity.x = Speed
 		else:
@@ -73,9 +84,11 @@ func _physics_process(delta: float) -> void:
 				activeSprite.play("IdleLeft")
 			elif dir == "right":
 				activeSprite.play("IdleRight")
+	
 	elif not death_delay_passed:
 		velocity.x = 0
 		velocity.y = 0
+	
 	else:
 		if !player_death:
 			collision_shape_2d.queue_free()
@@ -85,7 +98,6 @@ func _physics_process(delta: float) -> void:
 			restart_timer.start()
 		velocity += get_gravity() * delta
 		
-	
 	move_and_slide()
 
 func _on_hit_player():
@@ -98,7 +110,7 @@ func _on_hit_player():
 				dead = true
 				health -= 1
 				death_delay.start()
-				# activeSprite.play("Death")
+				activeSprite.play("Death")
 			2:
 				health -= 1
 				activeSprite = basic_spacesuit
@@ -111,6 +123,7 @@ func _on_hit_player():
 
 func _on_kill_bounce():
 	velocity.y = -Jump_Velocity/kill_bounce_decrease
+	score += 1
 
 
 func _on_death_delay_timeout() -> void:
@@ -133,6 +146,7 @@ func cam_pos():
 
 func _on_kill_player():
 	if !dead:
+		activeSprite.play("Death")
 		health = 0
 		dead = true
 		death_delay.start()
@@ -151,3 +165,12 @@ func health_gain():
 
 func _on_hit_timer_timeout() -> void:
 	hit = false
+
+func _on_collect_currency():
+	score += 10
+
+func _send_score():
+	GameManager.currency += score
+
+func _get_score():
+	return score

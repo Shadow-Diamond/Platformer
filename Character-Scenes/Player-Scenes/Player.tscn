@@ -1,8 +1,12 @@
-[gd_scene load_steps=47 format=3 uid="uid://ir14n1jx3qm8"]
+[gd_scene load_steps=53 format=3 uid="uid://ir14n1jx3qm8"]
 
 [ext_resource type="Script" uid="uid://chj7pxe5sy4o3" path="res://Scripts/PlayerMovement.gd" id="1_0ipoa"]
 [ext_resource type="Texture2D" uid="uid://opuc8o4btmai" path="res://Textures/Interplanetary_textures/Basic_Spacesuit-Spritesheet.png" id="2_mu4mh"]
 [ext_resource type="Texture2D" uid="uid://byrwahuf0bds1" path="res://Textures/Interplanetary_textures/Better_Spacesuit-Spritesheet.png" id="3_ebljd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s87u2"]
+atlas = ExtResource("2_mu4mh")
+region = Rect2(0, 192, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebljd"]
 atlas = ExtResource("2_mu4mh")
@@ -35,6 +39,14 @@ region = Rect2(96, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d78gw"]
 atlas = ExtResource("2_mu4mh")
 region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxnbr"]
+atlas = ExtResource("2_mu4mh")
+region = Rect2(96, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lypsj"]
+atlas = ExtResource("2_mu4mh")
+region = Rect2(192, 192, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mu4mh"]
 atlas = ExtResource("2_mu4mh")
@@ -88,6 +100,14 @@ region = Rect2(240, 96, 48, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_s87u2")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ebljd")
 }, {
 "duration": 1.0,
@@ -119,6 +139,22 @@ animations = [{
 "loop": true,
 "name": &"IdleRight",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxnbr")
+}],
+"loop": true,
+"name": &"Jumpleft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lypsj")
+}],
+"loop": true,
+"name": &"Jumpright",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -167,6 +203,10 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4cmu"]
+atlas = ExtResource("3_ebljd")
+region = Rect2(0, 192, 48, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_crqvp"]
 atlas = ExtResource("3_ebljd")
 region = Rect2(0, 48, 48, 48)
@@ -198,6 +238,14 @@ region = Rect2(96, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nqfxo"]
 atlas = ExtResource("3_ebljd")
 region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx8op"]
+atlas = ExtResource("3_ebljd")
+region = Rect2(96, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfucn"]
+atlas = ExtResource("3_ebljd")
+region = Rect2(192, 192, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w330j"]
 atlas = ExtResource("3_ebljd")
@@ -251,6 +299,14 @@ region = Rect2(240, 96, 48, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_f4cmu")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_crqvp")
 }, {
 "duration": 1.0,
@@ -281,6 +337,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"IdleRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx8op")
+}],
+"loop": true,
+"name": &"Jumpleft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfucn")
+}],
+"loop": true,
+"name": &"Jumpright",
 "speed": 5.0
 }, {
 "frames": [{
@@ -347,15 +419,14 @@ mc_bottom_marg = 0.2
 [node name="basic_spacesuit" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_7bgj6")
-animation = &"WalkRight"
+animation = &"Jumpright"
 
 [node name="better_spacesuit" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_s87u2")
-animation = &"WalkRight"
+animation = &"Jumpleft"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-9, 12)
 shape = SubResource("RectangleShape2D_8xwky")
 
@@ -365,7 +436,6 @@ limit_bottom = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_left_margin = 0.6
 drag_top_margin = 0.6
 
 [node name="death_delay" type="Timer" parent="."]

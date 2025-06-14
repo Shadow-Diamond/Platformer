@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqah8e7vsn7c8"]
+
+[ext_resource type="Script" uid="uid://c10uudardip3p" path="res://Scripts/currency.gd" id="1_ggvql"]
+[ext_resource type="Texture2D" uid="uid://dnogqpmhn7pll" path="res://Textures/Virellia/other_textures/Diamond.png" id="2_mbl21"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwlkx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk6e4"]
+size = Vector2(28, 28.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6wp0"]
+atlas = ExtResource("2_mbl21")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apjko"]
+atlas = ExtResource("2_mbl21")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i85s"]
+atlas = ExtResource("2_mbl21")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fswae"]
+atlas = ExtResource("2_mbl21")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5fltn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6wp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apjko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i85s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fswae")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}]
+
+[node name="Diamond" type="CharacterBody2D"]
+script = ExtResource("1_ggvql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_kwlkx")
+disabled = true
+
+[node name="detection_area" type="Area2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(0, -1.25)
+shape = SubResource("RectangleShape2D_gk6e4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5fltn")
+animation = &"Idle"
+frame_progress = 0.179673
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]

@@ -65,3 +65,5 @@ func animate_pop_out(node):
 	print(node)
 	if node.has_method("start_behavior"):
 		node.start_behavior()
+	elif node.has_method("collision_activate"):
+		node.collision_activate()

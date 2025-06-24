@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://n8w37b6pwmen"]
 
 [ext_resource type="Script" uid="uid://35ffb8r8ldlu" path="res://Scripts/Virellia/shardback_crawler.gd" id="1_vk2dh"]
-[ext_resource type="Texture2D" uid="uid://di7u3ure5gtnt" path="res://Textures/Virellia/enemy_textures/Shardback_Crawler.png" id="2_d572j"]
+[ext_resource type="Texture2D" uid="uid://di7u3ure5gtnt" path="res://Textures/Virellia/Enemy_Textures/Shardback_Crawler.png" id="2_d572j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55rtx"]
 atlas = ExtResource("2_d572j")
@@ -113,7 +113,7 @@ shape = SubResource("RectangleShape2D_6so4c")
 visible = false
 scale = Vector2(4, 4)
 collision_layer = 2
-collision_mask = 3
+collision_mask = 7
 
 [node name="kill_box_collision" type="CollisionShape2D" parent="kill_box"]
 position = Vector2(-1.07068e-06, 1.49692)

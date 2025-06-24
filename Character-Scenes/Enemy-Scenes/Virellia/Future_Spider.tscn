@@ -152,9 +152,8 @@ scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_eh3pj")
 
 [node name="kill_box" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
-collision_mask = 3
+collision_mask = 7
 
 [node name="kill_box_collision" type="CollisionShape2D" parent="kill_box"]
 position = Vector2(0, 23.75)

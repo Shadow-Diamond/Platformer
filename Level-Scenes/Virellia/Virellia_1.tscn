@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=4 uid="uid://d1mq3j5dynrpm"]
+[gd_scene load_steps=20 format=4 uid="uid://d1mq3j5dynrpm"]
 
+[ext_resource type="Texture2D" uid="uid://b1cgkpme7gkxp" path="res://Textures/Virellia/other_textures/Virellia_Background_Gradiant.png" id="1_0udbm"]
 [ext_resource type="PackedScene" uid="uid://dswg81h0jwfl1" path="res://TileMaps_or_Similar/Virellia/Virellia_Bricks.tscn" id="1_bnbdv"]
-[ext_resource type="Texture2D" uid="uid://bh8w0hei2vklg" path="res://Textures/Virellia/other_textures/VirelliaSky.png" id="1_rqiau"]
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_vupj3"]
 [ext_resource type="Texture2D" uid="uid://buinfsot23wx7" path="res://Textures/Virellia/Ground_textures/silver-black_Hex_Floating_Bricks.png" id="2_iqfl5"]
 [ext_resource type="PackedScene" uid="uid://ir14n1jx3qm8" path="res://Character-Scenes/Player-Scenes/Player.tscn" id="3_jpxfj"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://tie7m42q5wke" path="res://TileMaps_or_Similar/Virellia/Virellia_Spikes.tscn" id="8_50bb1"]
 [ext_resource type="PackedScene" uid="uid://cuuprx1uutrsb" path="res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider.tscn" id="9_5k8pu"]
 [ext_resource type="Script" uid="uid://ciwj7xines8od" path="res://Scripts/ScoreBox.gd" id="10_wmi34"]
+[ext_resource type="PackedScene" uid="uid://dn0ix17a3tkkg" path="res://Item-Scenes/Rocket_Finish.tscn" id="11_rqiau"]
+[ext_resource type="PackedScene" uid="uid://bmuu40tqixmye" path="res://TileMaps_or_Similar/Virellia/virellia_cloud.tscn" id="13_iqfph"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oayy4"]
 texture = ExtResource("2_iqfl5")
@@ -54,22 +56,27 @@ sources/0 = SubResource("TileSetAtlasSource_oayy4")
 
 [node name="Virellia" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9135, -1004)
-scale = Vector2(9.72083, 1.62593)
-texture = ExtResource("1_rqiau")
+[node name="VirelliaBackgroundGradiant" type="Sprite2D" parent="."]
+z_as_relative = false
+position = Vector2(9137.75, -1175.5)
+scale = Vector2(72.4434, 9.29297)
+texture = ExtResource("1_0udbm")
 
 [node name="VirelliaBricks" parent="." instance=ExtResource("1_bnbdv")]
+z_index = 2
 tile_map_data = PackedByteArray("AAA2APv/AAAIAAAAAAA3APv/AAAIAAAAAAA1APv/AAAAAAAAAAA4APv/AAAIAAAAAAA5APv/AAAIAAAAAAA6APv/AAAQAAAAAAA9APj/AAAIAAAAAAA+APj/AAAQAAAAAAA8APj/AAAAAAAAAABDAPr/AAAIAAAAAABEAPr/AAAIAAAAAABCAPr/AAAAAAAAAABFAPr/AAAIAAAAAABGAPr/AAAQAAAAAABXAPn/AAAIAAAAAABYAPn/AAAIAAAAAABWAPn/AAAAAAAAAABZAPn/AAAIAAAAAABaAPn/AAAQAAAAAAByAPv/AAAIAAAAAABzAPv/AAAIAAAAAABxAPv/AAAAAAAAAAB0APv/AAAIAAAAAAB1APv/AAAQAAAAAAA=")
 tile_set = SubResource("TileSet_50bb1")
 
 [node name="VirelliaGround" parent="." instance=ExtResource("1_vupj3")]
+z_index = 1
 tile_map_data = PackedByteArray("AAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAAAAAAGAP//AAAAAAAAAAAFAP//AAAAAAAAAAAEAP//AAAAAAAAAAADAP//AAAAAAAAAAACAP//AAAAAAAAAAABAP//AAAAAAAAAAAAAP//AAAAAAAAAAAJAP//AAAAAAAAAAAJAP7/AAAAAAAAAAAJAP3/AAAAAAAAAAAKAP//AAAAAAAAAAAKAP7/AAAAAAAAAAAKAP3/AAAAAAAAAAAKAPz/AAAAAAAAAAALAP//AAAAAAAAAAALAPv/AAAAAAAAAAALAPz/AAAAAAAAAAALAP3/AAAAAAAAAAALAP7/AAAAAAAAAAAMAPv/AAAAAAAAAAAMAPz/AAAAAAAAAAAMAP3/AAAAAAAAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAANAP7/AAAAAAAAAAANAP3/AAAAAAAAAAANAPz/AAAAAAAAAAANAPv/AAAAAAAAAAAOAPv/AAAAAAAAAAAOAPz/AAAAAAAAAAAOAP3/AAAAAAAAAAAOAP7/AAAAAAAAAAAOAP//AAAAAAAAAAAPAPz/AAAAAAAAAAAPAP3/AAAAAAAAAAAQAP7/AAAAAAAAAAAPAP7/AAAAAAAAAAAPAP//AAAAAAAAAAAQAP//AAAAAAAAAAAQAP3/AAAAAAAAAAARAP7/AAAAAAAAAAARAP//AAAAAAAAAAD/////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAD///z/AAAAAAAAAAD///v/AAAAAAAAAAD///r/AAAAAAAAAAD///n/AAAAAAAAAAD///j/AAAAAAAAAAD///f/AAAAAAAAAAASAP//AAAAAAAAAAATAP//AAAAAAAAAAAUAP//AAAAAAAAAAAVAP//AAAAAAAAAAAWAP//AAAAAAAAAAAXAP//AAAAAAAAAAAYAP//AAAAAAAAAAAZAP//AAAAAAAAAAAaAP//AAAAAAAAAAAfAP//AAAAAAAAAAAgAP//AAAAAAAAAAAhAP//AAAAAAAAAAAYAP7/AAAAAAAAAAAZAP7/AAAAAAAAAAAZAP3/AAAAAAAAAAAaAP7/AAAAAAAAAAAaAP3/AAAAAAAAAAAaAPz/AAAAAAAAAAAfAP7/AAAAAAAAAAAfAP3/AAAAAAAAAAAgAP7/AAAAAAAAAAAiAP//AAAAAAAAAAAjAP//AAAAAAAAAAAkAP//AAAAAAAAAAAlAP//AAAAAAAAAAAmAP//AAAAAAAAAAAnAP//AAAAAAAAAAAoAP//AAAAAAAAAAApAP//AAAAAAAAAAAqAP//AAAAAAAAAAArAP//AAAAAAAAAAAsAP//AAAAAAAAAAAtAP//AAAAAAAAAAAuAP//AAAAAAAAAAAvAP//AAAAAAAAAAAwAP//AAAAAAAAAAA4AP//AAAAAAAAAAA5AP//AAAAAAAAAAA6AP//AAAAAAAAAAA7AP//AAAAAAAAAAA8AP//AAAAAAAAAAA9AP//AAAAAAAAAAA+AP7/AAAAAAAAAAA/AP7/AAAAAAAAAABAAP7/AAAAAAAAAABBAP3/AAAAAAAAAAA+AP//AAAAAAAAAAA/AP//AAAAAAAAAABAAP//AAAAAAAAAABBAP//AAAAAAAAAABBAP7/AAAAAAAAAABKAP//AAAAAAAAAABLAP//AAAAAAAAAABMAP//AAAAAAAAAABNAP//AAAAAAAAAABOAP//AAAAAAAAAABPAP//AAAAAAAAAABQAP//AAAAAAAAAAA9AP7/AAAAAAAAAAA8AP7/AAAAAAAAAAA7AP7/AAAAAAAAAAA6AP7/AAAAAAAAAAA5AP7/AAAAAAAAAAA4AP7/AAAAAAAAAABAAP3/AAAAAAAAAAA/AP3/AAAAAAAAAAA+AP3/AAAAAAAAAAA9AP3/AAAAAAAAAAAxAP//AAAAAAAAAAAyAP//AAAAAAAAAAAzAP7/AAAAAAAAAAA0AP7/AAAAAAAAAAA1AP7/AAAAAAAAAAA2AP7/AAAAAAAAAAA3AP7/AAAAAAAAAAA3AP//AAAAAAAAAAA2AP//AAAAAAAAAAA1AP//AAAAAAAAAAA0AP//AAAAAAAAAAAzAP//AAAAAAAAAAA4AP3/AAAAAAAAAAA5AP3/AAAAAAAAAAA6AP3/AAAAAAAAAAA7AP3/AAAAAAAAAAA8AP3/AAAAAAAAAABBAPz/AAAAAAAAAABAAPz/AAAAAAAAAAA/APz/AAAAAAAAAABGAP3/AAAAAAAAAABGAP7/AAAAAAAAAABGAP//AAAAAAAAAABHAP//AAAAAAAAAABHAP7/AAAAAAAAAABIAP//AAAAAAAAAABJAP//AAAAAAAAAABRAP//AAAAAAAAAABSAP//AAAAAAAAAABTAP//AAAAAAAAAABUAP//AAAAAAAAAABVAP//AAAAAAAAAABWAP//AAAAAAAAAABXAP//AAAAAAAAAABYAP//AAAAAAAAAABZAP//AAAAAAAAAABaAP//AAAAAAAAAABaAP7/AAAAAAAAAABaAP3/AAAAAAAAAABaAPz/AAAAAAAAAABaAPv/AAAAAAAAAABaAPr/AAAAAAAAAABaAPn/AAAAAAAAAABaAPj/AAAAAAAAAABaAPf/AAAAAAAAAABbAPf/AAAAAAAAAABcAPf/AAAAAAAAAABdAPf/AAAAAAAAAABeAPf/AAAAAAAAAABfAPf/AAAAAAAAAABfAPj/AAAAAAAAAABeAPj/AAAAAAAAAABdAPj/AAAAAAAAAABcAPj/AAAAAAAAAABbAPj/AAAAAAAAAABbAPn/AAAAAAAAAABcAPn/AAAAAAAAAABdAPn/AAAAAAAAAABeAPn/AAAAAAAAAABfAPn/AAAAAAAAAABfAPr/AAAAAAAAAABeAPr/AAAAAAAAAABdAPr/AAAAAAAAAABcAPr/AAAAAAAAAABbAPr/AAAAAAAAAABbAPv/AAAAAAAAAABcAPv/AAAAAAAAAABdAPv/AAAAAAAAAABeAPv/AAAAAAAAAABfAPv/AAAAAAAAAABfAPz/AAAAAAAAAABeAPz/AAAAAAAAAABdAPz/AAAAAAAAAABcAPz/AAAAAAAAAABbAPz/AAAAAAAAAABbAP3/AAAAAAAAAABcAP3/AAAAAAAAAABdAP3/AAAAAAAAAABeAP3/AAAAAAAAAABfAP3/AAAAAAAAAABfAP7/AAAAAAAAAABeAP7/AAAAAAAAAABdAP7/AAAAAAAAAABcAP7/AAAAAAAAAABbAP7/AAAAAAAAAABbAP//AAAAAAAAAABcAP//AAAAAAAAAABdAP//AAAAAAAAAABeAP//AAAAAAAAAABfAP//AAAAAAAAAAA=")
 
 [node name="ShardbackCrawler" parent="." instance=ExtResource("3_vupj3")]
+z_index = 3
 position = Vector2(2486, -707)
 
 [node name="side_to_side_tut" type="TextEdit" parent="."]
+z_index = 1
 offset_left = 33.0
 offset_top = -619.0
 offset_right = 547.0
@@ -91,6 +98,7 @@ middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
 [node name="jump_tut" type="TextEdit" parent="."]
+z_index = 1
 offset_left = 1389.0
 offset_top = -602.0
 offset_right = 1903.0
@@ -111,10 +119,11 @@ middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
 [node name="item_box_tut" type="TextEdit" parent="."]
-offset_left = 6845.0
-offset_top = -984.0
-offset_right = 7384.0
-offset_bottom = -774.0
+z_index = 1
+offset_left = 6229.0
+offset_top = -673.0
+offset_right = 6768.0
+offset_bottom = -463.0
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wmi34")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_rqiau")
@@ -132,16 +141,19 @@ middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
 [node name="item_box_warning_tut" type="TextEdit" parent="."]
-offset_left = 7662.0
-offset_top = -641.0
-offset_right = 8284.0
-offset_bottom = -345.0
+z_index = 1
+offset_left = 6853.0
+offset_top = -1132.0
+offset_right = 7475.0
+offset_bottom = -671.0
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wmi34")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_rqiau")
 text = "Power Up Boxes
 May have Enemies
-Or Items"
+Or Items. This Left
+One Holds An
+Enemy."
 editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
@@ -154,6 +166,7 @@ middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
 [node name="food_tut" type="TextEdit" parent="."]
+z_index = 1
 offset_left = 8389.0
 offset_top = -1268.0
 offset_right = 9148.0
@@ -176,6 +189,7 @@ middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
 [node name="final_tut" type="TextEdit" parent="."]
+z_index = 1
 offset_left = 11937.0
 offset_top = -1155.0
 offset_right = 12783.0
@@ -197,88 +211,107 @@ virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
-[node name="Player" parent="." instance=ExtResource("3_jpxfj")]
-position = Vector2(330, -287)
-Jump_Velocity = 1100.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("4_21lb3")
+[node name="Rocket" parent="." instance=ExtResource("11_rqiau")]
+position = Vector2(16909, -639)
 
 [node name="ShardbackCrawler2" parent="." instance=ExtResource("3_vupj3")]
+z_index = 3
 position = Vector2(4295, -196)
 stationary = false
 
 [node name="VirelliaSpikes" parent="." instance=ExtResource("8_50bb1")]
+z_index = 1
 position = Vector2(5248, -64)
 
 [node name="VirelliaSpikes2" parent="." instance=ExtResource("8_50bb1")]
+z_index = 1
 position = Vector2(5376, -64)
 
 [node name="VirelliaSpikes3" parent="." instance=ExtResource("8_50bb1")]
+z_index = 1
 position = Vector2(5504, -64)
 
 [node name="VirelliaSpikes4" parent="." instance=ExtResource("8_50bb1")]
+z_index = 1
 position = Vector2(5633, -64)
 
 [node name="VirelliaSpikes5" parent="." instance=ExtResource("8_50bb1")]
+z_index = 1
 position = Vector2(5760, -64)
 
 [node name="VirelliaSpikes6" parent="." instance=ExtResource("8_50bb1")]
+z_index = 1
 position = Vector2(5888, -64)
 
 [node name="VirelliaSpikes7" parent="." instance=ExtResource("8_50bb1")]
+z_index = 1
 position = Vector2(13376, -64)
 
 [node name="VirelliaSpikes8" parent="." instance=ExtResource("8_50bb1")]
+z_index = 1
 position = Vector2(13248, -64)
 
 [node name="VirelliaSpikes9" parent="." instance=ExtResource("8_50bb1")]
+z_index = 1
 position = Vector2(12736, -64)
 
 [node name="VirelliaSpikes10" parent="." instance=ExtResource("8_50bb1")]
+z_index = 1
 position = Vector2(12864, -64)
 
 [node name="VirelliaSpikes11" parent="." instance=ExtResource("8_50bb1")]
+z_index = 1
 position = Vector2(12992, -64)
 
 [node name="VirelliaSpikes12" parent="." instance=ExtResource("8_50bb1")]
+z_index = 1
 position = Vector2(13120, -64)
 
 [node name="FutureSpider" parent="." instance=ExtResource("9_5k8pu")]
+z_index = 3
 position = Vector2(11632, -604)
 
 [node name="FutureSpider2" parent="." instance=ExtResource("9_5k8pu")]
+z_index = 3
 position = Vector2(10579, -416)
 
 [node name="VirelliaBlock" parent="." instance=ExtResource("7_oayy4")]
+z_index = 5
 position = Vector2(6974, -576)
 middle_block = true
 itemName = "future_spider_mobile_fallable"
 
 [node name="VirelliaBlock7" parent="." instance=ExtResource("7_oayy4")]
+z_index = 5
 position = Vector2(7230, -576)
 middle_block = true
 itemName = "virellia_diamond"
 
 [node name="VirelliaBlock2" parent="." instance=ExtResource("7_oayy4")]
+z_index = 5
 position = Vector2(8766, -704)
 middle_block = true
 itemName = "better_suit_item"
+spawning_suit_power = true
 
 [node name="VirelliaBlock3" parent="." instance=ExtResource("7_oayy4")]
+z_index = 5
 position = Vector2(11326, -832)
 middle_block = true
 itemName = "virellia_diamond"
 
 [node name="VirelliaBlock4" parent="." instance=ExtResource("7_oayy4")]
+z_index = 5
 position = Vector2(14654, -576)
 itemName = "virellia_diamond"
 
 [node name="VirelliaBlock5" parent="." instance=ExtResource("7_oayy4")]
+z_index = 5
 position = Vector2(14782, -576)
 itemName = "virellia_diamond"
 
 [node name="VirelliaBlock6" parent="." instance=ExtResource("7_oayy4")]
+z_index = 5
 position = Vector2(14910, -576)
 itemName = "virellia_diamond"
 
@@ -300,3 +333,102 @@ virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 script = ExtResource("10_wmi34")
+
+[node name="Player" parent="." instance=ExtResource("3_jpxfj")]
+z_index = 3
+position = Vector2(330, -287)
+Jump_Velocity = 1100.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 3
+script = ExtResource("4_21lb3")
+
+[node name="Cloud" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(1064, -1582)
+
+[node name="Cloud2" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(1025, -898)
+
+[node name="Cloud3" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(2376, -1821)
+
+[node name="Cloud4" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(1959, -1193)
+
+[node name="Cloud5" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(3644, -976)
+
+[node name="Cloud6" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(3132, -1393)
+
+[node name="Cloud7" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(4556, -1326)
+
+[node name="Cloud8" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(4033, -1738)
+
+[node name="Cloud9" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(6618, -1021)
+
+[node name="Cloud10" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(5746, -1115)
+
+[node name="Cloud11" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(7291, -1488)
+
+[node name="Cloud12" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(5401, -1693)
+
+[node name="Cloud13" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(8047, -1866)
+
+[node name="Cloud14" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(6346, -1643)
+
+[node name="Cloud15" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(9460, -1221)
+
+[node name="Cloud16" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(8842, -1538)
+
+[node name="Cloud17" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(11105, -1571)
+
+[node name="Cloud18" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(10338, -1771)
+
+[node name="Cloud19" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(10360, -1009)
+
+[node name="Cloud20" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(12162, -2010)
+
+[node name="Cloud21" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(11739, -1343)
+
+[node name="Cloud22" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(12762, -1654)
+
+[node name="Cloud23" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(13463, -1287)
+
+[node name="Cloud24" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(13841, -1949)
+
+[node name="Cloud25" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(14180, -1076)
+
+[node name="Cloud26" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(14330, -1521)
+
+[node name="Cloud27" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(15570, -1560)
+
+[node name="Cloud28" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(16165, -987)
+
+[node name="Cloud29" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(15125, -1243)
+
+[node name="Cloud30" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(16560, -1510)

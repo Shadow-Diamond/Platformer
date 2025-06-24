@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var middle_block: bool
 @export var right_block: bool
 @export var itemName: String
+@export var spawning_suit_power: bool
 
 @onready var sprite = $AnimatedSprite2D
 @onready var deletion_timer = $DeletionTimer
@@ -13,7 +14,7 @@ extends CharacterBody2D
 var hit = false
 
 func _ready():
-	self.z_index = 1
+	self.z_index = 5
 
 func _physics_process(_delta):
 	if left_block and right_block or left_block and middle_block or right_block and middle_block or left_block and middle_block and right_block:
@@ -38,19 +39,26 @@ func _physics_process(_delta):
 
 
 func _on_player_detector_body_entered(body):
+	var item_instance = null
+	var item = null
 	if body == player and not hit:
 		hit = true
-		var item = ItemDB.ITEMS[itemName]
-		var itemScene = load(item["path"])
-		var item_instance = itemScene.instantiate()
-		
+		if GameManager.player_suit == "basic_suit" and spawning_suit_power:
+			item = ItemDB.ITEMS["better_suit_item"]
+			var itemScene = load(item["path"])
+			item_instance = itemScene.instantiate()
+		else:
+			item = ItemDB.ITEMS[itemName]
+			var itemScene = load(item["path"])
+			item_instance = itemScene.instantiate()
+		item_instance.z_as_relative = false
+		item_instance.z_index = 1
 		if "stationary" in item_instance:
 			item_instance.stationary = item["stationary"]
 			if "fallable" in item_instance:
 				item_instance.fallable = item["fallable"]
 			item_instance.behavior = false
 		item_instance.global_position = self.global_position
-		item_instance.z_index = -1
 		get_tree().current_scene.add_child(item_instance)
 		animate_pop_out(item_instance)
 		deletion_timer.start()

@@ -33,6 +33,7 @@ signal kill_bounce
 signal kill_player
 signal power_up
 signal collectable
+signal score_sig
 
 func _ready() -> void:
 	connect("power_up", Callable(self, "_power_up"))
@@ -40,6 +41,7 @@ func _ready() -> void:
 	connect("kill_bounce", Callable(self, "_on_kill_bounce"))
 	connect("kill_player", Callable(self, "_on_kill_player"))
 	connect("collectable", Callable(self, "_on_collect_currency"))
+	connect("score_sig", Callable(self,"_send_score"))
 	if mc_bottom_marg >= 0 || mc_bottom_marg <= 1:
 		main_camera.drag_bottom_margin = mc_bottom_marg
 	if mc_left_marg >= 0 || mc_left_marg <= 1:
@@ -48,8 +50,14 @@ func _ready() -> void:
 		main_camera.drag_right_margin = mc_right_marg
 	if mc_top_marg >= 0 || mc_top_marg <= 1:
 		main_camera.drag_top_margin = mc_top_marg
-	activeSprite = basic_spacesuit
-	better_spacesuit.hide()
+	match(GameManager.player_suit):
+		"basic_suit":
+			better_spacesuit.hide()
+			activeSprite = basic_spacesuit
+		"better_suit":
+			health = 2
+			basic_spacesuit.hide()
+			activeSprite = better_spacesuit
 
 func _physics_process(delta: float) -> void:
 	
@@ -115,10 +123,12 @@ func _on_hit_player():
 				health -= 1
 				activeSprite = basic_spacesuit
 				better_spacesuit.hide()
+				GameManager.player_suit = "basic_suit"
 			3:
 				health -= 1
 				activeSprite = better_spacesuit
 				basic_spacesuit.hide()
+				GameManager.player_suit = "better_suit"
 		activeSprite.show()
 
 func _on_kill_bounce():
@@ -146,6 +156,7 @@ func cam_pos():
 
 func _on_kill_player():
 	if !dead:
+		GameManager.player_suit = "basic_suit"
 		activeSprite.play("Death")
 		health = 0
 		dead = true
@@ -153,6 +164,7 @@ func _on_kill_player():
 
 func _power_up(power_up_name):
 	if power_up_name == "better_suit":
+		GameManager.player_suit = "better_suit"
 		activeSprite = better_spacesuit
 		if health < 2:
 			basic_spacesuit.hide()

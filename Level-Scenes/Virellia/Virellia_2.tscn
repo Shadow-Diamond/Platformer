@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=4 uid="uid://3vqa1g5upv3h"]
+
+[ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_sfody"]
+[ext_resource type="PackedScene" uid="uid://dswg81h0jwfl1" path="res://TileMaps_or_Similar/Virellia/Virellia_Bricks.tscn" id="2_5era0"]
+[ext_resource type="PackedScene" uid="uid://ir14n1jx3qm8" path="res://Character-Scenes/Player-Scenes/Player.tscn" id="2_8tkvh"]
+[ext_resource type="Script" uid="uid://ciwj7xines8od" path="res://Scripts/ScoreBox.gd" id="3_p4u50"]
+[ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/follow_cam.gd" id="4_k4x2y"]
+[ext_resource type="PackedScene" uid="uid://tie7m42q5wke" path="res://TileMaps_or_Similar/Virellia/Virellia_Spikes.tscn" id="5_rf26d"]
+[ext_resource type="PackedScene" uid="uid://cuuprx1uutrsb" path="res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider.tscn" id="6_5era0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rf26d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5era0"]
+
+[node name="Virellia-LVL2" type="Node2D"]
+
+[node name="VirelliaGround" parent="." instance=ExtResource("1_sfody")]
+position = Vector2(1, 0)
+tile_map_data = PackedByteArray("AAAEAP//AAAAAAAAAAADAP//AAAAAAAAAAACAP//AAAAAAAAAAABAP//AAAAAAAAAAAAAP//AAAAAAAAAAD/////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAD///z/AAAAAAAAAAD///v/AAAAAAAAAAD///r/AAAAAAAAAAD///n/AAAAAAAAAAD///j/AAAAAAAAAAD///f/AAAAAAAAAAD///b/AAAAAAAAAAD///X/AAAAAAAAAAD///T/AAAAAAAAAAD///P/AAAAAAAAAAD///L/AAAAAAAAAAD///H/AAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAADAP7/AAAAAAAAAAACAP7/AAAAAAAAAAABAP7/AAAAAAAAAAAAAP7/AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAAOAP//AAAAAAAAAAAPAP7/AAAAAAAAAAAQAP7/AAAAAAAAAAARAP3/AAAAAAAAAAASAPz/AAAAAAAAAAATAPz/AAAAAAAAAAAUAPv/AAAAAAAAAAAPAP//AAAAAAAAAAAQAP//AAAAAAAAAAARAP//AAAAAAAAAAASAP//AAAAAAAAAAATAP//AAAAAAAAAAAUAP//AAAAAAAAAAAUAP7/AAAAAAAAAAAUAP3/AAAAAAAAAAAUAPz/AAAAAAAAAAATAP3/AAAAAAAAAAASAP7/AAAAAAAAAAATAP7/AAAAAAAAAAARAP7/AAAAAAAAAAASAP3/AAAAAAAAAAAZAP//AAAAAAAAAAAZAP7/AAAAAAAAAAAZAP3/AAAAAAAAAAAaAP//AAAAAAAAAAAbAP//AAAAAAAAAAAaAP7/AAAAAAAAAAAcAP//AAAAAAAAAAAdAP//AAAAAAAAAAAeAP//AAAAAAAAAAAfAP//AAAAAAAAAAAgAP//AAAAAAAAAAA=")
+
+[node name="VirelliaBricks" parent="." instance=ExtResource("2_5era0")]
+tile_map_data = PackedByteArray("AAD/////AAAIAAAAAAD+////AAAAAAAAAAAAAP//AAAQAAAAAAAMAPr/AAAIAAAAAAANAPr/AAAIAAAAAAAOAPr/AAAIAAAAAAAPAPr/AAAIAAAAAAAQAPr/AAAQAAAAAAALAPr/AAAAAAAAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("2_8tkvh")]
+position = Vector2(137, -463)
+Jump_Velocity = 1100.0
+mc_left_marg = 0.2
+
+[node name="ScoreBox" type="TextEdit" parent="."]
+offset_left = -941.0
+offset_top = -517.0
+offset_right = -507.0
+offset_bottom = -402.0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rf26d")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_5era0")
+text = "Score: 0"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+script = ExtResource("3_p4u50")
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+z_index = 3
+script = ExtResource("4_k4x2y")
+
+[node name="VirelliaSpikes" parent="." instance=ExtResource("5_rf26d")]
+position = Vector2(4097, -64)
+
+[node name="VirelliaSpikes2" parent="." instance=ExtResource("5_rf26d")]
+position = Vector2(4225, -64)
+
+[node name="VirelliaSpikes3" parent="." instance=ExtResource("5_rf26d")]
+position = Vector2(4353, -64)
+
+[node name="VirelliaSpikes4" parent="." instance=ExtResource("5_rf26d")]
+position = Vector2(4481, -64)
+
+[node name="VirelliaSpikes5" parent="." instance=ExtResource("5_rf26d")]
+position = Vector2(4609, -64)
+
+[node name="VirelliaSpikes6" parent="." instance=ExtResource("5_rf26d")]
+position = Vector2(4737, -64)
+
+[node name="FutureSpider" parent="." instance=ExtResource("6_5era0")]
+position = Vector2(1340, -211)
+
+[node name="FutureSpider2" parent="." instance=ExtResource("6_5era0")]
+position = Vector2(1989, -211)
+
+[node name="FutureSpider3" parent="." instance=ExtResource("6_5era0")]
+position = Vector2(2597, -203)

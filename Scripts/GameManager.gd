@@ -6,12 +6,13 @@ extends Node
 		"LevelSelect": "res://Level-Scenes/LevelSelect.tscn"
 	},
 	"Virellia": {
-		1: "res://Level-Scenes/Virellia/Virellia_1.tscn"
+		1: "res://Level-Scenes/Virellia/Virellia_1.tscn",
+		2: "res://Level-Scenes/Virellia/Virellia_2.tscn"
 	}
 }
 
 @onready var num_levels_per_planet = {
-	"Virellia": 1
+	"Virellia": 2
 }
 
 var current_level = null
@@ -63,3 +64,6 @@ func num_levels_remaining():
 		return 0
 	var remaining = num_levels_per_planet[level_cat]
 	return max(0, remaining - level_num)
+
+func get_num_levels():
+	return num_levels_per_planet

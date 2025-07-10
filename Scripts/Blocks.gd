@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var player = $"../Player"
 
 var hit = false
+var time_to_pop_out = 5
 
 func _ready():
 	self.z_index = 5
@@ -50,6 +51,9 @@ func _on_player_detector_body_entered(body):
 		else:
 			item = ItemDB.ITEMS[itemName]
 			var itemScene = load(item["path"])
+			print("Item: ", item)
+			print("Path: ", item["path"])
+			print("Loaded: ", itemScene)
 			item_instance = itemScene.instantiate()
 		item_instance.z_as_relative = false
 		item_instance.z_index = 1
@@ -58,6 +62,8 @@ func _on_player_detector_body_entered(body):
 			if "fallable" in item_instance:
 				item_instance.fallable = item["fallable"]
 			item_instance.behavior = false
+		if item_instance.has_signal("collected"):
+			item_instance.collected.connect(_on_item_collected)
 		item_instance.global_position = self.global_position
 		get_tree().current_scene.add_child(item_instance)
 		animate_pop_out(item_instance)
@@ -66,12 +72,19 @@ func _on_player_detector_body_entered(body):
 func _on_deletion_timer_timeout():
 	self.queue_free()
 
+var tween
 func animate_pop_out(node):
-	var tween = create_tween()
-	tween.tween_property(node, "global_position", node.global_position + Vector2(0,-128), 5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween = create_tween()
+	tween.tween_property(node, "global_position", node.global_position + Vector2(0,-128), time_to_pop_out).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	await tween.finished
-	print(node)
-	if node.has_method("start_behavior"):
-		node.start_behavior()
-	elif node.has_method("collision_activate"):
-		node.collision_activate()
+	if is_instance_valid(node) and tween:
+		if node.has_method("start_behavior"):
+			node.start_behavior()
+	#elif node.has_method("collision_activate"):
+		#node.collision_activate()
+
+func _on_item_collected():
+	if tween:
+		tween.kill()
+	if is_instance_valid(self):
+		self.queue_free()

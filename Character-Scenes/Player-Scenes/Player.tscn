@@ -402,11 +402,11 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xwky"]
-size = Vector2(36, 264)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebljd"]
-size = Vector2(124, 263)
+size = Vector2(54, 252)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tru5r"]
+size = Vector2(114, 276)
 
 [node name="Player" type="CharacterBody2D" groups=["PlayerChar"]]
 collision_mask = 5
@@ -429,16 +429,6 @@ scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_s87u2")
 animation = &"IdleRight"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 12)
-shape = SubResource("RectangleShape2D_8xwky")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-light_mask = 4
-visibility_layer = 4
-position = Vector2(-9, 12.5)
-shape = SubResource("RectangleShape2D_ebljd")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
 limit_bottom = 0
@@ -457,6 +447,18 @@ one_shot = true
 
 [node name="hit_timer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="GroundCollision" type="CollisionShape2D" parent="."]
+position = Vector2(3, 18)
+shape = SubResource("RectangleShape2D_ebljd")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(3, 6)
+shape = SubResource("RectangleShape2D_tru5r")
 
 [connection signal="timeout" from="death_delay" to="." method="_on_death_delay_timeout"]
 [connection signal="timeout" from="restart_timer" to="." method="restart"]

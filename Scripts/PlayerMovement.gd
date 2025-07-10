@@ -11,12 +11,14 @@ extends CharacterBody2D
 @export var mc_bottom_marg: float
 
 @onready var death_delay: Timer = $death_delay
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var hurt_box: Area2D = $HurtBox
 @onready var restart_timer = $restart_timer
 @onready var hit_timer: Timer = $hit_timer
 @onready var basic_spacesuit: AnimatedSprite2D = $basic_spacesuit
 @onready var better_spacesuit: AnimatedSprite2D = $better_spacesuit
+@onready var ground_collision: CollisionShape2D = $GroundCollision
 
+var tap_jump = Jump_Velocity / 10
 var activeSprite: AnimatedSprite2D
 var dead = false
 var health = 1
@@ -27,6 +29,7 @@ var dir = "right"
 var ability = "none"
 var walk_pause : bool = false
 var score : int = 0
+var jump_held : bool = false
 
 signal hit_player
 signal kill_bounce
@@ -74,6 +77,11 @@ func _physics_process(delta: float) -> void:
 		
 		if is_on_floor() and Input.is_action_just_pressed("Up"):
 			velocity.y = -Jump_Velocity
+			jump_held = true
+		
+		if Input.is_action_just_released("Up") and jump_held:
+			jump_held = false
+			velocity.y *= .5
 		
 		# Handles the X-axis movement of the Character
 		if Input.is_action_pressed("Left"):
@@ -99,7 +107,8 @@ func _physics_process(delta: float) -> void:
 	
 	else:
 		if !player_death:
-			collision_shape_2d.queue_free()
+			hurt_box.queue_free()
+			ground_collision.queue_free()
 			player_death = true
 			velocity.y = -Jump_Velocity/kill_bounce_decrease
 			main_camera.enabled = false

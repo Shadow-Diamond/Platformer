@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cuuprx1uutrsb"]
+[gd_scene load_steps=23 format=3 uid="uid://cuuprx1uutrsb"]
 
 [ext_resource type="Texture2D" uid="uid://c54x45h844ypr" path="res://Textures/Virellia/Enemy_Textures/Future_Spider.png" id="1_ggsoe"]
 [ext_resource type="Script" uid="uid://b1d4g6w2xosoa" path="res://Scripts/Virellia/future_spider.gd" id="1_ktht0"]
@@ -132,9 +132,12 @@ animations = [{
 size = Vector2(30, 19.875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggsoe"]
-size = Vector2(56, 20)
+size = Vector2(85, 20)
 
-[node name="FutureSpider" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2afx2"]
+size = Vector2(132, 79)
+
+[node name="FutureSpider" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 6
 script = ExtResource("1_ktht0")
@@ -146,14 +149,13 @@ animation = &"Walking"
 frame_progress = 0.181067
 
 [node name="enemy_hit_box" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 23.75)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_eh3pj")
 
 [node name="kill_box" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 26
 
 [node name="kill_box_collision" type="CollisionShape2D" parent="kill_box"]
 position = Vector2(0, 23.75)
@@ -179,19 +181,26 @@ collision_mask = 4
 
 [node name="death_box" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 19
 
 [node name="death_box_detector" type="CollisionShape2D" parent="death_box"]
-position = Vector2(8, -26)
+position = Vector2(1.5, -26)
 shape = SubResource("RectangleShape2D_ggsoe")
 
 [node name="death_timer" type="Timer" parent="."]
 
 [node name="death_delay_timer" type="Timer" parent="."]
 
-[connection signal="body_entered" from="kill_box" to="." method="_on_kill_box_body_entered"]
+[node name="ally_detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ally_detector"]
+position = Vector2(1, 23.5)
+shape = SubResource("RectangleShape2D_2afx2")
+
+[connection signal="area_entered" from="kill_box" to="." method="_on_kill_box_area_entered"]
 [connection signal="timeout" from="delay_timer" to="." method="_on_delay_timer_timeout"]
 [connection signal="timeout" from="ground_detector_delay" to="." method="_on_ground_detector_delay_timeout"]
 [connection signal="body_entered" from="death_box" to="." method="_on_death_box_body_entered"]
 [connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="death_delay_timer" to="." method="_on_death_delay_timer_timeout"]
+[connection signal="area_entered" from="ally_detector" to="." method="_on_ally_detector_area_entered"]

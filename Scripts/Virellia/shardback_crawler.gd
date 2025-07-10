@@ -36,7 +36,10 @@ func _physics_process(delta: float) -> void:
 			sprite.flip_h = flip_val
 			velocity.x = speed * flip_mult
 			cur_pos = self.position.x
-			if cur_pos == prev_pos and !delayed or !ground_detector_1.is_colliding() and !delayed and !fallable or !ground_detector_2.is_colliding() and !delayed and !fallable:
+			var stuck = cur_pos == prev_pos and !delayed
+			var no_ground = !ground_detector_1.is_colliding() or !ground_detector_2.is_colliding()
+			var should_flip = no_ground and !delayed and !fallable
+			if should_flip or stuck:
 				flip_mult *= -1
 				flip_val = !flip_val
 				delay_timer.start()
@@ -45,8 +48,8 @@ func _physics_process(delta: float) -> void:
 		
 		move_and_slide()
 
-func _on_kill_box_body_entered(body: CharacterBody2D) -> void:
-	if body == player:
+func _on_kill_box_area_entered(area: Area2D) -> void:
+	if area.get_parent() == player:
 		print("Enemy damage player signal")
 		player.emit_signal("hit_player")
 
@@ -61,3 +64,12 @@ func start_behavior():
 func _on_ground_detector_delay_timeout():
 	ground_detector_1.enabled = true
 	ground_detector_2.enabled = true
+
+
+func _on_ally_detector_area_entered(area: Area2D) -> void:
+	if area.get_parent().is_in_group("enemies") and not delayed:
+		flip_mult *= -1
+		flip_val = !flip_val
+		position.x += flip_mult * 5
+		delay_timer.start()
+		delayed = true 

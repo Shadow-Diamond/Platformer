@@ -132,7 +132,7 @@ animations = [{
 size = Vector2(30, 19.875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggsoe"]
-size = Vector2(85, 20)
+size = Vector2(101, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2afx2"]
 size = Vector2(132, 79)
@@ -155,7 +155,7 @@ shape = SubResource("RectangleShape2D_eh3pj")
 
 [node name="kill_box" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 26
+collision_mask = 3
 
 [node name="kill_box_collision" type="CollisionShape2D" parent="kill_box"]
 position = Vector2(0, 23.75)
@@ -181,10 +181,10 @@ collision_mask = 4
 
 [node name="death_box" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 19
+collision_mask = 3
 
 [node name="death_box_detector" type="CollisionShape2D" parent="death_box"]
-position = Vector2(1.5, -26)
+position = Vector2(9.5, -26)
 shape = SubResource("RectangleShape2D_ggsoe")
 
 [node name="death_timer" type="Timer" parent="."]

@@ -24,10 +24,15 @@ const ITEMS = {
 	"future_spider_mobile_not_fallable": {
 		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider.tscn",
 		"stationary": false,
-		"fallable": true
+		"fallable": false
 	},
 	"better_suit_item" : {
-		"path": "res://Item-Scenes/better_suit_item.tscn"
+		"path": "res://Item-Scenes/better_suit_item.tscn",
+		"suit_type": "better_suit"
+	},
+	"jump_suit_item" : {
+		"path": "res://Item-Scenes/jump_suit_item.tscn",
+		"suit_type": "jump_suit"
 	},
 	"virellia_diamond" : {
 		"path" :"res://Item-Scenes/Virellia/Diamond.tscn"

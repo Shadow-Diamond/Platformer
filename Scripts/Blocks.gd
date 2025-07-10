@@ -56,12 +56,14 @@ func _on_player_detector_body_entered(body):
 			print("Loaded: ", itemScene)
 			item_instance = itemScene.instantiate()
 		item_instance.z_as_relative = false
-		item_instance.z_index = 1
+		item_instance.z_index = -1
 		if "stationary" in item_instance:
 			item_instance.stationary = item["stationary"]
 			if "fallable" in item_instance:
 				item_instance.fallable = item["fallable"]
 			item_instance.behavior = false
+		if "suit_type" in item_instance:
+			item_instance.suit_type = item["suit_type"]
 		if item_instance.has_signal("collected"):
 			item_instance.collected.connect(_on_item_collected)
 		item_instance.global_position = self.global_position
@@ -77,11 +79,9 @@ func animate_pop_out(node):
 	tween = create_tween()
 	tween.tween_property(node, "global_position", node.global_position + Vector2(0,-128), time_to_pop_out).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	await tween.finished
-	if is_instance_valid(node) and tween:
+	if is_instance_valid(node):
 		if node.has_method("start_behavior"):
 			node.start_behavior()
-	#elif node.has_method("collision_activate"):
-		#node.collision_activate()
 
 func _on_item_collected():
 	if tween:

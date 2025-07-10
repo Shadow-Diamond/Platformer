@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var mc_top_marg: float
 @export var mc_right_marg: float
 @export var mc_bottom_marg: float
+@export var mc_upper_bound: int = 0
 
 @onready var death_delay: Timer = $death_delay
 @onready var hurt_box: Area2D = $HurtBox
@@ -16,6 +17,7 @@ extends CharacterBody2D
 @onready var hit_timer: Timer = $hit_timer
 @onready var basic_spacesuit: AnimatedSprite2D = $basic_spacesuit
 @onready var better_spacesuit: AnimatedSprite2D = $better_spacesuit
+@onready var jump_spacesuit: AnimatedSprite2D = $jump_spacesuit
 @onready var ground_collision: CollisionShape2D = $GroundCollision
 
 var tap_jump = Jump_Velocity / 10
@@ -30,6 +32,7 @@ var ability = "none"
 var walk_pause : bool = false
 var score : int = 0
 var jump_held : bool = false
+var djed : bool = false
 
 signal hit_player
 signal kill_bounce
@@ -45,6 +48,7 @@ func _ready() -> void:
 	connect("kill_player", Callable(self, "_on_kill_player"))
 	connect("collectable", Callable(self, "_on_collect_currency"))
 	connect("score_sig", Callable(self,"_send_score"))
+	main_camera.limit_bottom = mc_upper_bound
 	if mc_bottom_marg >= 0 || mc_bottom_marg <= 1:
 		main_camera.drag_bottom_margin = mc_bottom_marg
 	if mc_left_marg >= 0 || mc_left_marg <= 1:
@@ -56,11 +60,18 @@ func _ready() -> void:
 	match(GameManager.player_suit):
 		"basic_suit":
 			better_spacesuit.hide()
+			jump_spacesuit.hide()
 			activeSprite = basic_spacesuit
 		"better_suit":
 			health = 2
 			basic_spacesuit.hide()
+			jump_spacesuit.hide()
 			activeSprite = better_spacesuit
+		"jump_suit":
+			health = 3
+			basic_spacesuit.hide()
+			better_spacesuit.hide()
+			activeSprite = jump_spacesuit
 
 func _physics_process(delta: float) -> void:
 	
@@ -74,10 +85,16 @@ func _physics_process(delta: float) -> void:
 		
 		if is_on_floor():
 			walk_pause = false
+			djed = false
 		
 		if is_on_floor() and Input.is_action_just_pressed("Up"):
 			velocity.y = -Jump_Velocity
 			jump_held = true
+		
+		if !is_on_floor() and Input.is_action_just_pressed("Up") and activeSprite == jump_spacesuit and !djed:
+			velocity.y = -Jump_Velocity
+			jump_held = true
+			djed = true
 		
 		if Input.is_action_just_released("Up") and jump_held:
 			jump_held = false
@@ -132,11 +149,13 @@ func _on_hit_player():
 				health -= 1
 				activeSprite = basic_spacesuit
 				better_spacesuit.hide()
+				jump_spacesuit.hide()
 				GameManager.player_suit = "basic_suit"
 			3:
 				health -= 1
 				activeSprite = better_spacesuit
 				basic_spacesuit.hide()
+				jump_spacesuit.hide()
 				GameManager.player_suit = "better_suit"
 		activeSprite.show()
 
@@ -155,6 +174,7 @@ func restart():
 		GameManager.remaining_lives -= 1
 	else:
 		var level = GameManager.Levels["Misc"]["LevelSelect"]
+		GameManager.remaining_lives = 3
 		GameManager.load_scene(level)
 
 func death():
@@ -177,6 +197,16 @@ func _power_up(power_up_name):
 		activeSprite = better_spacesuit
 		if health < 2:
 			basic_spacesuit.hide()
+			health_gain()
+	elif power_up_name == "jump_suit":
+		GameManager.player_suit = "jump_suit"
+		activeSprite = jump_spacesuit
+		if health < 2:
+			basic_spacesuit.hide()
+			health_gain()
+			health_gain()
+		elif health < 3:
+			better_spacesuit.hide()
 			health_gain()
 	activeSprite.show()
 

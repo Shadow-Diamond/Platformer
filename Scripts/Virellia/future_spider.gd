@@ -57,8 +57,8 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func _on_kill_box_area_entered(area: Area2D) -> void:
-	death_box.monitoring= false
-	if area.get_parent() == player and behavior and false:
+	if area.get_parent() == player and behavior:
+		death_box.monitoring= false
 		print("Enemy damage player signal")
 		player.emit_signal("hit_player")
 		kill_delay = true
@@ -79,12 +79,9 @@ func _on_ground_detector_delay_timeout():
 var death_timer_started: bool = false
 var delayed_death: bool = false
 func _on_death_box_body_entered(body: CharacterBody2D) -> void:
-	print (body)
-	print(player)
 	if dead:
 		return
 	if body == player and is_instance_valid(self) and kill_box.monitoring == true:
-		print("OUCH")
 		kill_box.monitoring = false
 	if body == player and !kill_delay and !delayed_death:
 		dead = true
@@ -113,3 +110,7 @@ func _on_ally_detector_area_entered(area: Area2D) -> void:
 		position.x += flip_mult * 5
 		delay_timer.start()
 		delayed = true 
+
+
+func _on_death_box_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

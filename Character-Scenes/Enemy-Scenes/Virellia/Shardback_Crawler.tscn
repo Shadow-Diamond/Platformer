@@ -114,7 +114,7 @@ shape = SubResource("RectangleShape2D_6so4c")
 [node name="kill_box" type="Area2D" parent="."]
 scale = Vector2(4, 4)
 collision_layer = 2
-collision_mask = 26
+collision_mask = 3
 
 [node name="kill_box_collision" type="CollisionShape2D" parent="kill_box"]
 position = Vector2(-1.07068e-06, 1.49692)

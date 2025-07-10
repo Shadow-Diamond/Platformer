@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://ciwj7xines8od" path="res://Scripts/ScoreBox.gd" id="10_wmi34"]
 [ext_resource type="PackedScene" uid="uid://dn0ix17a3tkkg" path="res://Item-Scenes/Rocket_Finish.tscn" id="11_rqiau"]
 [ext_resource type="PackedScene" uid="uid://bmuu40tqixmye" path="res://TileMaps_or_Similar/Virellia/virellia_cloud.tscn" id="13_iqfph"]
-[ext_resource type="PackedScene" uid="uid://24c8byfyybe" path="res://TileMaps_or_Similar/Virellia/crystal_spire.tscn" id="14_8ddll"]
+[ext_resource type="PackedScene" uid="uid://24c8byfyybe" path="res://crystal_spire.tscn" id="14_8ddll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oayy4"]
 texture = ExtResource("2_iqfl5")
@@ -59,28 +59,35 @@ sources/0 = SubResource("TileSetAtlasSource_oayy4")
 [node name="Virellia-LVL1" type="Node2D"]
 
 [node name="VirelliaBackgroundGradiant" type="Sprite2D" parent="."]
+z_index = -4
 z_as_relative = false
 position = Vector2(9137.75, -1175.5)
 scale = Vector2(72.4434, 9.29297)
 texture = ExtResource("1_0udbm")
 
 [node name="CrystalSpire" parent="." instance=ExtResource("14_8ddll")]
+z_index = -3
 position = Vector2(1231, -573)
 
 [node name="CrystalSpire2" parent="." instance=ExtResource("14_8ddll")]
+z_index = -3
 position = Vector2(4061, -577)
 animation = &"Spire1"
 
 [node name="CrystalSpire3" parent="." instance=ExtResource("14_8ddll")]
+z_index = -3
 position = Vector2(6239, -572)
 
 [node name="CrystalSpire4" parent="." instance=ExtResource("14_8ddll")]
+z_index = -3
 position = Vector2(9878, -572)
 
 [node name="CrystalSpire5" parent="." instance=ExtResource("14_8ddll")]
+z_index = -3
 position = Vector2(14775, -574)
 
 [node name="VirelliaBackgroundGradiantTransparent" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(9137.75, -1175.5)
 scale = Vector2(72.443, 9.293)
 texture = ExtResource("3_f2h58")

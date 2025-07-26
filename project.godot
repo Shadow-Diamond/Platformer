@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/GameManager.gd"
 ValidItems="*res://Scripts/valid_items.gd"
+SignalBus="*res://Scripts/signal_bus.gd"
 
 [display]
 

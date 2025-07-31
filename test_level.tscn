@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=4 uid="uid://brpr8d7p0wxfv"]
+[gd_scene load_steps=5 format=4 uid="uid://brpr8d7p0wxfv"]
 
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_f7g2b"]
 [ext_resource type="PackedScene" uid="uid://cuuprx1uutrsb" path="res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider.tscn" id="2_4ptq8"]
+[ext_resource type="PackedScene" uid="uid://ir14n1jx3qm8" path="res://Character-Scenes/Player-Scenes/Player.tscn" id="3_f7g2b"]
 [ext_resource type="PackedScene" uid="uid://ybpt61khq1fn" path="res://Character-Scenes/Enemy-Scenes/Virellia/test_Future_Spider.tscn" id="3_sb12i"]
 
 [node name="Test Level" type="Node2D"]
 
 [node name="VirelliaGround" parent="." instance=ExtResource("1_f7g2b")]
-tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAADAP7/AAAAAAAAAAACAP7/AAAAAAAAAAABAP7/AAAAAAAAAAAAAP7/AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AAAAAAAAAAD9//7/AAAAAAAAAAD8//7/AAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAACAAEAAAAMAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAA=")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="FutureSpider" parent="." instance=ExtResource("2_4ptq8")]
-position = Vector2(-197, -439)
-
 [node name="FutureSpider2" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(-121, 106)
+position = Vector2(132, 18)
 _mobile = true
+
+[node name="Player" parent="." instance=ExtResource("3_f7g2b")]
+position = Vector2(-531, -102)
+
+[node name="FutureSpider" parent="." instance=ExtResource("2_4ptq8")]
+position = Vector2(657, 59)

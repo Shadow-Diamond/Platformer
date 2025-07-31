@@ -29,6 +29,7 @@ window/size/viewport_height=1080
 [global_group]
 
 enemies="Enemies for the game"
+player=""
 
 [input]
 

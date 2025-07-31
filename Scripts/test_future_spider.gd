@@ -1,5 +1,4 @@
 extends "res://Scripts/enemy_template.gd"
 
-static var speed = 200
-
-var mobile = true
+func _ready() -> void:
+	_speed = 200

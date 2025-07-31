@@ -608,7 +608,7 @@ size = Vector2(54, 252)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tru5r"]
 size = Vector2(114, 276)
 
-[node name="Player" type="CharacterBody2D" groups=["PlayerChar"]]
+[node name="Player" type="CharacterBody2D" groups=["PlayerChar", "player"]]
 collision_mask = 5
 script = ExtResource("1_0ipoa")
 Speed = 400.0
@@ -658,7 +658,6 @@ position = Vector2(3, 18)
 shape = SubResource("RectangleShape2D_ebljd")
 
 [node name="HurtBox" type="Area2D" parent="."]
-collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(3, 6)

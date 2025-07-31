@@ -1,3 +1,5 @@
+extends Node
+
 # Signals related to the player
 signal bounce
 signal collect

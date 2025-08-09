@@ -5,8 +5,6 @@ extends CharacterBody2D
 @onready var _ground_detector_2 : RayCast2D = $GroundDetector2
 @onready var _player_kill_box  : Area2D = $PKillBox
 @onready var _self_kill_box : Area2D = $SKillBox
-@onready var _self_death_delay : Timer = $DeathDelay
-@onready var _flip_delay_timer : Timer = $FlipDelay
 
 @export var _mobile : bool = false
 @export var _fallable : bool = false
@@ -22,14 +20,11 @@ var _flip_delay : bool = false
 var _has_gravity : bool = true
 
 func _ready():
+	# Intra-Script Signals
 	_player_kill_box.body_entered.connect(_attempt_to_hurt_player)
 	_self_kill_box.body_entered.connect(_enemy_death)
-	_self_death_delay.timeout.connect(_on_self_death_delay_timeout)
-	_self_death_delay.wait_time = 0.01
-	_self_death_delay.one_shot = false
-	_flip_delay_timer.timeout.connect(_on_flip_delay_timer_timeout)
-	_flip_delay_timer.wait_time = 0.01
-	_flip_delay_timer.one_shot = false
+	
+	# Inter-Script Signals
 
 func _physics_process(delta: float) -> void:
 	_move(delta)
@@ -40,22 +35,23 @@ func _attempt_to_hurt_player(object):
 		return
 	
 	if object.is_in_group("player"):
-		print(self, " Hit Player")
+		print(self.name, " hit Player")
 		_self_kill_box.monitoring = false
 		SignalBus.hurt_player.emit(self)
 	elif object.is_in_group("enemies"):
 		_move_flip(null)
 
 # When the enemy this script is on dies
-func _enemy_death(): 
-	print("Test")
+func _enemy_death(object): 
 	if _dead:
 		return
-	print("Hit by Player")
-	_dead = true
-	SignalBus.bounce.emit()
-	SignalBus.e_death.emit(self)
-	_self_death_delay.start()
+	
+	if object.is_in_group("player"):
+		_dead = true
+		print(self.name, " killed by Player")
+		SignalBus.bounce.emit()
+		SignalBus.e_death.emit()
+		GameManager.create_timer(self, 1, _on_self_death_delay_timeout)
 
 # Calls both falling and movement functions depending on variables
 func _move(delta):
@@ -97,7 +93,7 @@ func _move_flip(called):
 	_flip_mult *= -1
 	_flip_val = !_flip_val
 	if called == "move":
-		_flip_delay_timer.start()
+		GameManager.create_timer(self, 0.1, _on_flip_delay_timer_timeout)
 		_flip_delay = true
 
 func _on_self_death_delay_timeout():

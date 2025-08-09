@@ -180,17 +180,10 @@ shape = SubResource("RectangleShape2D_ydbv4")
 light_mask = 2
 visibility_layer = 3
 collision_layer = 2
-collision_mask = 3
 
 [node name="death_box_detector" type="CollisionShape2D" parent="SKillBox"]
 position = Vector2(9.5, -26)
 shape = SubResource("RectangleShape2D_ggsoe")
 
-[node name="DeathDelay" type="Timer" parent="."]
-
-[node name="FlipDelay" type="Timer" parent="."]
-
 [connection signal="body_entered" from="PKillBox" to="." method="_attempt_to_hurt_player"]
 [connection signal="body_entered" from="SKillBox" to="." method="_enemy_death"]
-[connection signal="timeout" from="DeathDelay" to="." method="_on_death_delay_timer_timeout"]
-[connection signal="timeout" from="FlipDelay" to="." method="_on_flip_delay_timer_timeout"]

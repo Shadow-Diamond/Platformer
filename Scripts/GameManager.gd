@@ -27,6 +27,10 @@ var currency : int = 0
 
 func _ready():
 	current_level = Levels["Misc"]["LevelSelect"]
+	
+	# Signals from SignalBus
+	SignalBus.e_death.connect(_enemy_died)
+	#SignalBus.collect.connect()
 
 func load_scene(scene):
 	if scene == null:
@@ -67,3 +71,20 @@ func num_levels_remaining():
 
 func get_num_levels():
 	return num_levels_per_planet
+
+func _enemy_died():
+	_increase_score(1)
+
+func _increase_score(value: int):
+	currency += value
+	SignalBus.score_increase.emit(value)
+
+func create_timer(parent: Node, wait: float, callback: Callable):
+	var t := Timer.new()
+	t.one_shot = true
+	t.wait_time = wait
+	parent.add_child(t)
+	t.timeout.connect(callback)
+	t.timeout.connect(func(): t.queue_free())
+	t.start()
+	return t

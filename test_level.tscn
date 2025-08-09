@@ -8,16 +8,16 @@
 [node name="Test Level" type="Node2D"]
 
 [node name="VirelliaGround" parent="." instance=ExtResource("1_f7g2b")]
-tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAACAAEAAAAMAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAACAAEAAAAMAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAA=")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="FutureSpider2" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(132, 18)
-_mobile = true
 
 [node name="Player" parent="." instance=ExtResource("3_f7g2b")]
 position = Vector2(-531, -102)
 
-[node name="FutureSpider" parent="." instance=ExtResource("2_4ptq8")]
-position = Vector2(657, 59)
+[node name="FutureSpider-Test" parent="." instance=ExtResource("3_sb12i")]
+position = Vector2(-77, 162)
+_mobile = true
+
+[node name="FutureSpider2" parent="." instance=ExtResource("2_4ptq8")]
+position = Vector2(782, 162)

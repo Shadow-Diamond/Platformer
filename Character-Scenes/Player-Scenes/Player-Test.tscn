@@ -121,7 +121,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_w7vfq")
 }],
 "loop": true,
-"name": &"IdleLeft",
+"name": &"Idleleft",
 "speed": 2.0
 }, {
 "frames": [{
@@ -138,7 +138,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_d78gw")
 }],
 "loop": true,
-"name": &"IdleRight",
+"name": &"Idleright",
 "speed": 2.0
 }, {
 "frames": [{
@@ -177,7 +177,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_e4cbj")
 }],
 "loop": true,
-"name": &"WalkLeft",
+"name": &"Walkleft",
 "speed": 6.0
 }, {
 "frames": [{
@@ -200,7 +200,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jdweg")
 }],
 "loop": true,
-"name": &"WalkRight",
+"name": &"Walkright",
 "speed": 6.0
 }]
 
@@ -320,7 +320,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_g53s2")
 }],
 "loop": true,
-"name": &"IdleLeft",
+"name": &"Idleleft",
 "speed": 2.0
 }, {
 "frames": [{
@@ -337,7 +337,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_nqfxo")
 }],
 "loop": true,
-"name": &"IdleRight",
+"name": &"Idleright",
 "speed": 2.0
 }, {
 "frames": [{
@@ -376,7 +376,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_wim5b")
 }],
 "loop": true,
-"name": &"WalkLeft",
+"name": &"Walkleft",
 "speed": 6.0
 }, {
 "frames": [{
@@ -399,7 +399,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_g0jbd")
 }],
 "loop": true,
-"name": &"WalkRight",
+"name": &"Walkright",
 "speed": 6.0
 }]
 
@@ -519,7 +519,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_a8wot")
 }],
 "loop": true,
-"name": &"IdleLeft",
+"name": &"Idleleft",
 "speed": 2.0
 }, {
 "frames": [{
@@ -536,7 +536,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_w4np8")
 }],
 "loop": true,
-"name": &"IdleRight",
+"name": &"Idleright",
 "speed": 2.0
 }, {
 "frames": [{
@@ -575,7 +575,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_y6fpk")
 }],
 "loop": true,
-"name": &"WalkLeft",
+"name": &"Walkleft",
 "speed": 6.0
 }, {
 "frames": [{
@@ -598,7 +598,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ohhh1")
 }],
 "loop": true,
-"name": &"WalkRight",
+"name": &"Walkright",
 "speed": 6.0
 }]
 
@@ -611,21 +611,28 @@ size = Vector2(114, 276)
 [node name="Player" type="CharacterBody2D" groups=["PlayerChar", "player"]]
 collision_mask = 5
 script = ExtResource("1_xeemy")
+_speed = 400
+_jump_velocity = 600
+_kill_bounce_decrease = 2
+_mc_left_marg = 0.6
+_mc_top_marg = 0.6
+_mc_right_marg = 0.2
+_mc_bottom_marg = 0.2
 
 [node name="basic_spacesuit" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_7bgj6")
-animation = &"IdleRight"
+animation = &"Walkright"
 
 [node name="better_spacesuit" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_s87u2")
-animation = &"IdleRight"
+animation = &"Walkright"
 
 [node name="jump_spacesuit" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_plc44")
-animation = &"IdleRight"
+animation = &"Walkright"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0

@@ -11,6 +11,9 @@ extends CharacterBody2D
 @export var _mc_bottom_marg: float
 @export var _mc_upper_bound: int = 0
 
+@onready var hitbox = $HurtBox
+@onready var ground_coll = $GroundCollision
+
 # Space Suits
 @onready var _basic_suit : AnimatedSprite2D = $basic_spacesuit
 @onready var _better_suit : AnimatedSprite2D = $better_spacesuit
@@ -20,10 +23,24 @@ extends CharacterBody2D
 var _health : int = 1
 var _active_suit : AnimatedSprite2D
 var _dead : bool = false
+var _dir : String = "right"
+var _djed : bool = false
+var _anim : String
+
+func _physics_process(delta):
+	if not _dead:
+		_horizontal(delta)
+		_vertical(delta)
+	else:
+		velocity += get_gravity() * delta
+	if is_on_floor():
+		_djed = false
+	move_and_slide()
 
 func _ready():
 	SignalBus.hurt_player.connect(_got_hurt)
 	SignalBus.bounce.connect(_bouncy)
+	SignalBus.collect.connect(_collect)
 	
 	match(GameManager.player_suit):
 		"basic_suit":
@@ -45,6 +62,7 @@ func _got_hurt():
 	match(_health):
 		1:
 			_dead = true
+			_death()
 		2:
 			_health-=1
 			_active_suit = _basic_suit
@@ -54,3 +72,60 @@ func _got_hurt():
 
 func _bouncy():
 	velocity.y = -_jump_velocity/_kill_bounce_decrease
+
+func _vertical(delta):
+	if Input.is_action_just_pressed("Up"):
+		if _active_suit == _jump_suit and not _djed and not is_on_floor():
+			velocity.y = -_jump_velocity
+			_djed = true
+		elif is_on_floor():
+			velocity.y = -_jump_velocity
+	elif Input.is_action_just_released("Up"):
+		velocity.y *= .5
+	elif not is_on_floor():
+		velocity += get_gravity() * delta
+		var _jumpAnim = "Jump" + _dir
+		_active_suit.play(_jumpAnim)
+
+var _walking : bool = false
+func _horizontal(delta):
+	var _active_animation
+	if Input.is_action_pressed("Left"):
+		_dir = "left"
+		_walking = true
+	elif Input.is_action_pressed("Right"):
+		_dir = "right"
+		_walking = true
+	else:
+		_walking = false
+	
+	if _walking:
+		_active_animation = "Walk" + _dir
+		if _dir == "left":
+			velocity.x = -_speed
+		else:
+			velocity.x = _speed
+	else:
+		_active_animation = "Idle" + _dir
+		velocity.x = 0
+	_active_suit.play(_active_animation)
+
+func _death():
+	SignalBus.player_pos.emit(self._main_camera.get_screen_center_position())
+	GameManager.player_suit = "basic_suit"
+	_active_suit.play("Death")
+	_health = 0
+	GameManager.create_timer(self, 0.5, _death_timeout)
+
+func _death_timeout():
+	hitbox.queue_free()
+	ground_coll.queue_free()
+	velocity.y = -_jump_velocity/_kill_bounce_decrease
+	_main_camera.enabled = false
+	GameManager.create_timer(self, 3.0, _restart)
+
+func _restart():
+	SignalBus.emit_signal("reset")
+
+func _collect(amount):
+	pass

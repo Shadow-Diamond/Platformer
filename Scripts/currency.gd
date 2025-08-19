@@ -1,22 +1,13 @@
 extends CharacterBody2D
 
-@onready var player: CharacterBody2D = $"../Player"
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var detection_area: Area2D = $detection_area
-
-var hit = false
-signal collected
+@onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _detection_area: Area2D = $detection_area
 
 func _ready() -> void:
-	sprite.play("Idle")
-	#detection_area.monitoring = false
+	_sprite.play("Idle")
+	_detection_area.body_entered.connect(_collision)
 
-func _on_detection_area_body_entered(body: Node2D) -> void:
-	if body == player and not hit:
-		hit = true
-		emit_signal("collected")
-		player.emit_signal("collectable")
+func _collision(object):
+	if object.is_in_group("player"):
+		SignalBus.collect.emit(10)
 		self.queue_free()
-
-#func collision_activate():
-	#detection_area.monitoring = true

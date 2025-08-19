@@ -1,23 +1,26 @@
-[gd_scene load_steps=5 format=4 uid="uid://brpr8d7p0wxfv"]
+[gd_scene load_steps=6 format=4 uid="uid://brpr8d7p0wxfv"]
 
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_f7g2b"]
-[ext_resource type="PackedScene" uid="uid://cuuprx1uutrsb" path="res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider.tscn" id="2_4ptq8"]
-[ext_resource type="PackedScene" uid="uid://ir14n1jx3qm8" path="res://Character-Scenes/Player-Scenes/Player.tscn" id="3_f7g2b"]
 [ext_resource type="PackedScene" uid="uid://ybpt61khq1fn" path="res://Character-Scenes/Enemy-Scenes/Virellia/test_Future_Spider.tscn" id="3_sb12i"]
+[ext_resource type="PackedScene" uid="uid://caa1vw0im8uy8" path="res://Character-Scenes/Player-Scenes/Player-Test.tscn" id="4_4ptq8"]
+[ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/follow_cam.gd" id="5_sb12i"]
+[ext_resource type="PackedScene" uid="uid://cqah8e7vsn7c8" path="res://Item-Scenes/Virellia/Diamond.tscn" id="6_gbhdq"]
 
 [node name="Test Level" type="Node2D"]
+position = Vector2(765, -382)
 
 [node name="VirelliaGround" parent="." instance=ExtResource("1_f7g2b")]
 tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAACAAEAAAAMAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAA=")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Player" parent="." instance=ExtResource("3_f7g2b")]
-position = Vector2(-531, -102)
 
 [node name="FutureSpider-Test" parent="." instance=ExtResource("3_sb12i")]
 position = Vector2(-77, 162)
 _mobile = true
 
-[node name="FutureSpider2" parent="." instance=ExtResource("2_4ptq8")]
-position = Vector2(782, 162)
+[node name="Player2" parent="." instance=ExtResource("4_4ptq8")]
+position = Vector2(-492, -63)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("5_sb12i")
+
+[node name="Diamond" parent="." instance=ExtResource("6_gbhdq")]
+position = Vector2(483, 59)

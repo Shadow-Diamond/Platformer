@@ -30,7 +30,8 @@ func _ready():
 	
 	# Signals from SignalBus
 	SignalBus.e_death.connect(_enemy_died)
-	#SignalBus.collect.connect()
+	SignalBus.collect.connect(_collect)
+	SignalBus.reset.connect(_reset)
 
 func load_scene(scene):
 	if scene == null:
@@ -88,3 +89,9 @@ func create_timer(parent: Node, wait: float, callback: Callable):
 	t.timeout.connect(func(): t.queue_free())
 	t.start()
 	return t
+
+func _reset():
+	load_scene(current_level)
+
+func _collect(amount):
+	currency += amount

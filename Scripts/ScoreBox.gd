@@ -13,10 +13,10 @@ func _physics_process(_delta):
 	player_cam_pos.y -= 530
 	
 	self.global_position = player_cam_pos
-	update_score()
+	_update_score()
 
-func update_score():
-	current_score = player._get_score()
+func _update_score():
+	current_score = player.get_score()
 	if score_display != current_score:
 		score_display = current_score
 		score_box.text = "Score: " + str(score_display)

@@ -5,16 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_vupj3"]
 [ext_resource type="Texture2D" uid="uid://buinfsot23wx7" path="res://Textures/Virellia/Ground_textures/silver-black_Hex_Floating_Bricks.png" id="2_iqfl5"]
 [ext_resource type="Texture2D" uid="uid://cpvyapimqa8ud" path="res://Textures/Virellia/other_textures/Virellia_Background_Gradiant_transparent.png" id="3_f2h58"]
-[ext_resource type="PackedScene" uid="uid://ir14n1jx3qm8" path="res://Character-Scenes/Player-Scenes/Player.tscn" id="3_jpxfj"]
 [ext_resource type="PackedScene" uid="uid://n8w37b6pwmen" path="res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn" id="3_vupj3"]
 [ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/follow_cam.gd" id="4_21lb3"]
 [ext_resource type="PackedScene" uid="uid://cmqahtnb45q02" path="res://TileMaps_or_Similar/Virellia/Virellia_Block.tscn" id="7_oayy4"]
 [ext_resource type="PackedScene" uid="uid://tie7m42q5wke" path="res://TileMaps_or_Similar/Virellia/Virellia_Spikes.tscn" id="8_50bb1"]
-[ext_resource type="PackedScene" uid="uid://cuuprx1uutrsb" path="res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider.tscn" id="9_5k8pu"]
 [ext_resource type="Script" uid="uid://ciwj7xines8od" path="res://Scripts/ScoreBox.gd" id="10_wmi34"]
 [ext_resource type="PackedScene" uid="uid://dn0ix17a3tkkg" path="res://Item-Scenes/Rocket_Finish.tscn" id="11_rqiau"]
 [ext_resource type="PackedScene" uid="uid://bmuu40tqixmye" path="res://TileMaps_or_Similar/Virellia/virellia_cloud.tscn" id="13_iqfph"]
 [ext_resource type="PackedScene" uid="uid://24c8byfyybe" path="res://crystal_spire.tscn" id="14_8ddll"]
+[ext_resource type="PackedScene" uid="uid://caa1vw0im8uy8" path="res://Character-Scenes/Player-Scenes/PlayerNew.tscn" id="15_f2h58"]
+[ext_resource type="PackedScene" uid="uid://ybpt61khq1fn" path="res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider_new.tscn" id="15_nq3b4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oayy4"]
 texture = ExtResource("2_iqfl5")
@@ -295,14 +295,6 @@ position = Vector2(12992, -64)
 z_index = 1
 position = Vector2(13120, -64)
 
-[node name="FutureSpider" parent="." instance=ExtResource("9_5k8pu")]
-z_index = 3
-position = Vector2(11627, -470)
-
-[node name="FutureSpider2" parent="." instance=ExtResource("9_5k8pu")]
-z_index = 3
-position = Vector2(10579, -366)
-
 [node name="VirelliaBlock" parent="." instance=ExtResource("7_oayy4")]
 z_index = 5
 position = Vector2(6974, -576)
@@ -361,12 +353,6 @@ virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 script = ExtResource("10_wmi34")
-
-[node name="Player" parent="." instance=ExtResource("3_jpxfj")]
-z_index = 3
-position = Vector2(330, -287)
-Jump_Velocity = 1100.0
-mc_left_marg = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 3
@@ -461,3 +447,14 @@ position = Vector2(15125, -1243)
 
 [node name="Cloud30" parent="." instance=ExtResource("13_iqfph")]
 position = Vector2(16560, -1510)
+
+[node name="Player" parent="." instance=ExtResource("15_f2h58")]
+z_index = 5
+position = Vector2(6853, -306)
+_jump_velocity = 960.0
+
+[node name="FutureSpider2" parent="." instance=ExtResource("15_nq3b4")]
+position = Vector2(10505, -347)
+
+[node name="FutureSpider" parent="." instance=ExtResource("15_nq3b4")]
+position = Vector2(11555, -474)

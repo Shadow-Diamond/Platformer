@@ -17,13 +17,13 @@ const ITEMS = {
 		"fallable": false
 	},
 	"future_spider_mobile_fallable": {
-		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider.tscn",
-		"stationary": false,
+		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider_new.tscn",
+		"mobile": true,
 		"fallable": true
 	},
 	"future_spider_mobile_not_fallable": {
-		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider.tscn",
-		"stationary": false,
+		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider_new.tscn",
+		"stationary": true,
 		"fallable": false
 	},
 	"better_suit_item" : {

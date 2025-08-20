@@ -69,9 +69,9 @@ func _on_player_detector_body_entered(body):
 		item_instance.global_position = self.global_position
 		get_tree().current_scene.add_child(item_instance)
 		animate_pop_out(item_instance)
-		deletion_timer.start()
+		GameManager.create_timer(self, 5, _delete)
 
-func _on_deletion_timer_timeout():
+func _delete():
 	self.queue_free()
 
 var tween

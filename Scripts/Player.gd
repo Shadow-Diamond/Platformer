@@ -27,19 +27,22 @@ var _dead : bool = false
 var _dir : String = "right"
 var _djed : bool = false
 var _walking : bool = false
+var score : int = 0
+var _death_fall : bool = false
 
 func _physics_process(delta):
 	if not _dead:
 		_horizontal()
 		_vertical(delta)
-	else:
+	elif _death_fall:
 		velocity += get_gravity() * delta
 	if is_on_floor():
 		_djed = false
 	move_and_slide()
 
 func _ready():
-	SignalBus.hurt_player.connect(_got_hurt)
+	main_camera.make_current()
+	#SignalBus.hurt_player.connect(_got_hurt)
 	SignalBus.bounce.connect(_bouncy)
 	SignalBus.collect.connect(_collect)
 	
@@ -74,6 +77,8 @@ func _bouncy():
 	velocity.y = -_jump_velocity/_kill_bounce_decrease
 
 func _vertical(delta):
+	if _dead:
+		return
 	if Input.is_action_just_pressed("Up"):
 		if _active_suit == _jump_suit and not _djed and not is_on_floor():
 			velocity.y = -_jump_velocity
@@ -88,6 +93,8 @@ func _vertical(delta):
 		_active_suit.play(_jumpAnim)
 
 func _horizontal():
+	if _dead:
+		return
 	var _active_animation
 	if Input.is_action_pressed("Left"):
 		_dir = "left"
@@ -112,14 +119,16 @@ func _horizontal():
 func _death():
 	SignalBus.player_pos.emit(self.main_camera.get_screen_center_position())
 	GameManager.player_suit = "basic_suit"
+	velocity = Vector2(0,0)
 	_active_suit.play("Death")
 	_health = 0
 	GameManager.create_timer(self, 0.5, _death_timeout)
 
 func _death_timeout():
+	_death_fall = true
 	hitbox.queue_free()
 	ground_coll.queue_free()
-	velocity.y = -_jump_velocity/_kill_bounce_decrease
+	velocity.y = -_jump_velocity / _kill_bounce_decrease
 	main_camera.enabled = false
 	GameManager.create_timer(self, 3.0, _restart)
 
@@ -157,3 +166,6 @@ func _toggle_anims(_current):
 				_child.show()
 			else:
 				_child.hide()
+
+func get_score():
+	return score

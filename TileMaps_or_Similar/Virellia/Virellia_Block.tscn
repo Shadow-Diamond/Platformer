@@ -122,8 +122,4 @@ visible = false
 position = Vector2(0, 68)
 shape = SubResource("RectangleShape2D_by8jm")
 
-[node name="DeletionTimer" type="Timer" parent="."]
-wait_time = 5.0
-
 [connection signal="body_entered" from="Player_Detector" to="." method="_on_player_detector_body_entered"]
-[connection signal="timeout" from="DeletionTimer" to="." method="_on_deletion_timer_timeout"]

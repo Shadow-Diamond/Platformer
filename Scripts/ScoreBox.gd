@@ -1,6 +1,6 @@
 extends TextEdit
 
-@onready var player: CharacterBody2D = $"../Player"
+@onready var player: CharacterBody2D = get_node("../Player")
 @onready var score_box: TextEdit = $"."
 
 var player_cam_pos

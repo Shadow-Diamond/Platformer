@@ -28,11 +28,13 @@ const ITEMS = {
 	},
 	"better_suit_item" : {
 		"path": "res://Item-Scenes/better_suit_item.tscn",
-		"suit_type": "better_suit"
+		"suit_type": "better_suit",
+		"suit_value": 2
 	},
 	"jump_suit_item" : {
 		"path": "res://Item-Scenes/jump_suit_item.tscn",
-		"suit_type": "jump_suit"
+		"suit_type": "jump_suit",
+		"suit_value": 3
 	},
 	"virellia_diamond" : {
 		"path" :"res://Item-Scenes/Virellia/Diamond.tscn"

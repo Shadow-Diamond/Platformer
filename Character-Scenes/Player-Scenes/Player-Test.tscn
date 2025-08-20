@@ -611,9 +611,6 @@ size = Vector2(114, 276)
 [node name="Player" type="CharacterBody2D" groups=["PlayerChar", "player"]]
 collision_mask = 5
 script = ExtResource("1_xeemy")
-_speed = 400
-_jump_velocity = 600
-_kill_bounce_decrease = 2
 _mc_left_marg = 0.6
 _mc_top_marg = 0.6
 _mc_right_marg = 0.2

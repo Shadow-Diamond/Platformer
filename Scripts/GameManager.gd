@@ -78,7 +78,6 @@ func _enemy_died():
 
 func _increase_score(value: int):
 	currency += value
-	SignalBus.score_increase.emit(value)
 
 func create_timer(parent: Node, wait: float, callback: Callable):
 	var t := Timer.new()
@@ -93,5 +92,8 @@ func create_timer(parent: Node, wait: float, callback: Callable):
 func _reset():
 	load_scene(current_level)
 
-func _collect(amount):
-	currency += amount
+func _collect(_amount):
+	if _amount is int:
+		currency += _amount
+	else: 
+		player_suit = _amount

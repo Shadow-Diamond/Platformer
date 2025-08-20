@@ -9,5 +9,5 @@ func _ready() -> void:
 
 func _collision(object):
 	if object.is_in_group("player"):
-		SignalBus.collect.emit(10)
+		SignalBus.collect.emit(10, 1)
 		self.queue_free()

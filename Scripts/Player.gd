@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-@export var _speed : int
-@export var _jump_velocity : int
-@export var _kill_bounce_decrease : int
+@export var _speed : float = 400
+@export var _jump_velocity : float = 600
+@export var _kill_bounce_decrease : float = 2
 
-@onready var _main_camera: Camera2D = $Camera2D
+@onready var main_camera: Camera2D = $Camera2D
 @export var _mc_left_marg: float
 @export var _mc_top_marg: float
 @export var _mc_right_marg: float
@@ -22,14 +22,15 @@ extends CharacterBody2D
 # Standard Vars
 var _health : int = 1
 var _active_suit : AnimatedSprite2D
+var _suit_val : int = 1
 var _dead : bool = false
 var _dir : String = "right"
 var _djed : bool = false
-var _anim : String
+var _walking : bool = false
 
 func _physics_process(delta):
 	if not _dead:
-		_horizontal(delta)
+		_horizontal()
 		_vertical(delta)
 	else:
 		velocity += get_gravity() * delta
@@ -44,19 +45,16 @@ func _ready():
 	
 	match(GameManager.player_suit):
 		"basic_suit":
-			_better_suit.hide()
-			_jump_suit.hide()
 			_active_suit = _basic_suit
 		"better_suit":
 			_health = 2
-			_basic_suit.hide()
-			_jump_suit.hide()
 			_active_suit = _better_suit
+			_suit_val = 2
 		"jump_suit":
 			_health = 3
-			_basic_suit.hide()
-			_better_suit.hide()
 			_active_suit = _jump_suit
+			_suit_val = 3
+	_toggle_anims(_active_suit)
 
 func _got_hurt():
 	match(_health):
@@ -66,9 +64,11 @@ func _got_hurt():
 		2:
 			_health-=1
 			_active_suit = _basic_suit
+			_suit_val = 1
 		3:
 			_health-=1
 			_active_suit = _better_suit
+			_suit_val = 2
 
 func _bouncy():
 	velocity.y = -_jump_velocity/_kill_bounce_decrease
@@ -87,8 +87,7 @@ func _vertical(delta):
 		var _jumpAnim = "Jump" + _dir
 		_active_suit.play(_jumpAnim)
 
-var _walking : bool = false
-func _horizontal(delta):
+func _horizontal():
 	var _active_animation
 	if Input.is_action_pressed("Left"):
 		_dir = "left"
@@ -111,7 +110,7 @@ func _horizontal(delta):
 	_active_suit.play(_active_animation)
 
 func _death():
-	SignalBus.player_pos.emit(self._main_camera.get_screen_center_position())
+	SignalBus.player_pos.emit(self.main_camera.get_screen_center_position())
 	GameManager.player_suit = "basic_suit"
 	_active_suit.play("Death")
 	_health = 0
@@ -121,11 +120,40 @@ func _death_timeout():
 	hitbox.queue_free()
 	ground_coll.queue_free()
 	velocity.y = -_jump_velocity/_kill_bounce_decrease
-	_main_camera.enabled = false
+	main_camera.enabled = false
 	GameManager.create_timer(self, 3.0, _restart)
 
 func _restart():
 	SignalBus.emit_signal("reset")
 
-func _collect(amount):
-	pass
+# CHANGE AS SUITS ARE ADDED
+func _collect(_amount, _value):
+	if _amount is int:
+		pass
+	else:
+		if _value <= _suit_val:
+			return
+		else:
+			match(_value):
+				2:
+					_suit_val = 2
+					match(_amount):
+						"better_suit":
+							_active_suit = _better_suit
+				3:
+					_suit_val = 3
+					match(_amount):
+						"jump_suit":
+							_active_suit = _jump_suit
+			_toggle_anims(_active_suit)
+
+func cam_pos():
+	return self.main_camera.get_screen_center_position()
+
+func _toggle_anims(_current):
+	for _child in get_children():
+		if _child is AnimatedSprite2D:
+			if _child == _current:
+				_child.show()
+			else:
+				_child.hide()

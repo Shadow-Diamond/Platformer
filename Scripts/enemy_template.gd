@@ -85,11 +85,13 @@ func _movement():
 		_stuck = _curr_pos.distance_to(_prev_pos) < 0.5
 	var _no_ground = !_ground_detector_1.is_colliding() or !_ground_detector_2.is_colliding()
 	var _should_flip = _no_ground and !_fallable
+	print("No Ground: ", _no_ground,"\nFallable: ",_fallable, "\nShould Flip: ", _should_flip)
 	if (_stuck or _should_flip) and not _flip_delay:
 		_move_flip("move")
 	_prev_pos = _curr_pos
 
 func _move_flip(called):
+	print("flipping")
 	_flip_mult *= -1
 	_flip_val = !_flip_val
 	if called == "move":

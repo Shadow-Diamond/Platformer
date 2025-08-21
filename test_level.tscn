@@ -1,23 +1,16 @@
-[gd_scene load_steps=9 format=4 uid="uid://brpr8d7p0wxfv"]
+[gd_scene load_steps=6 format=4 uid="uid://brpr8d7p0wxfv"]
 
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_f7g2b"]
-[ext_resource type="PackedScene" uid="uid://ybpt61khq1fn" path="res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider_new.tscn" id="3_sb12i"]
 [ext_resource type="PackedScene" uid="uid://caa1vw0im8uy8" path="res://Character-Scenes/Player-Scenes/PlayerNew.tscn" id="4_4ptq8"]
+[ext_resource type="PackedScene" uid="uid://n8w37b6pwmen" path="res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn" id="4_sb12i"]
+[ext_resource type="PackedScene" uid="uid://d3v3ypip54nwr" path="res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler_new.tscn" id="5_gbhdq"]
 [ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/follow_cam.gd" id="5_sb12i"]
-[ext_resource type="PackedScene" uid="uid://cqah8e7vsn7c8" path="res://Item-Scenes/Virellia/Diamond.tscn" id="6_gbhdq"]
-[ext_resource type="PackedScene" uid="uid://lomvjieeudgl" path="res://Item-Scenes/better_suit_item.tscn" id="6_y646j"]
-[ext_resource type="PackedScene" uid="uid://biyod5nxb6fvn" path="res://Item-Scenes/jump_suit_item.tscn" id="7_y646j"]
-[ext_resource type="PackedScene" uid="uid://cmqahtnb45q02" path="res://TileMaps_or_Similar/Virellia/Virellia_Block.tscn" id="8_lnbra"]
 
 [node name="Test Level" type="Node2D"]
 position = Vector2(765, -382)
 
 [node name="VirelliaGround" parent="." instance=ExtResource("1_f7g2b")]
 tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAACAAEAAAAMAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAA=")
-
-[node name="FutureSpider-Test" parent="." instance=ExtResource("3_sb12i")]
-position = Vector2(480, 38)
-_mobile = true
 
 [node name="Player2" parent="." instance=ExtResource("4_4ptq8")]
 position = Vector2(-492, -63)
@@ -26,17 +19,13 @@ _jump_velocity = 960.0
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("5_sb12i")
 
-[node name="Diamond" parent="." instance=ExtResource("6_gbhdq")]
-position = Vector2(142, 141)
+[node name="ShardbackCrawler" parent="." instance=ExtResource("4_sb12i")]
+position = Vector2(-11, 165)
+stationary = false
 
-[node name="Suit_Upgrade" parent="." instance=ExtResource("6_y646j")]
-position = Vector2(1421, 20)
+[node name="ShardbackCrawler2" parent="." instance=ExtResource("5_gbhdq")]
+position = Vector2(863, 181)
+_mobile = true
 
-[node name="Suit_Upgrade2" parent="." instance=ExtResource("7_y646j")]
-position = Vector2(1074, 162)
-suit_value = 3
-
-[node name="VirelliaBlock" parent="." instance=ExtResource("8_lnbra")]
-position = Vector2(-494, -278)
-middle_block = true
-itemName = "future_spider_mobile_fallable"
+[node name="ShardbackCrawler3" parent="." instance=ExtResource("5_gbhdq")]
+position = Vector2(529, -363)

@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c74cjo7h1wy46" path="res://Textures/Virellia/other_textures/Cave_Background.png" id="11_aveq3"]
 [ext_resource type="Texture2D" uid="uid://b1cgkpme7gkxp" path="res://Textures/Virellia/other_textures/Virellia_Background_Gradiant.png" id="12_w8vl7"]
 [ext_resource type="Texture2D" uid="uid://cpvyapimqa8ud" path="res://Textures/Virellia/other_textures/Virellia_Background_Gradiant_transparent.png" id="13_575hq"]
-[ext_resource type="PackedScene" uid="uid://24c8byfyybe" path="res://crystal_spire.tscn" id="14_575hq"]
+[ext_resource type="PackedScene" uid="uid://24c8byfyybe" path="res://TileMaps_or_Similar/Virellia/crystal_spire.tscn" id="14_575hq"]
 [ext_resource type="PackedScene" uid="uid://dn0ix17a3tkkg" path="res://Item-Scenes/Rocket_Finish.tscn" id="14_qdwfm"]
 [ext_resource type="PackedScene" uid="uid://bmuu40tqixmye" path="res://TileMaps_or_Similar/Virellia/virellia_cloud.tscn" id="16_kfj3b"]
 

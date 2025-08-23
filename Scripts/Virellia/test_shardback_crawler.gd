@@ -2,7 +2,7 @@ extends "res://Scripts/enemy_template.gd"
 
 func _ready() -> void:
 	_self_kill_box = null
-	_speed = 10
+	_speed = 30
 
 func _enemy_death(_object): 
 	pass

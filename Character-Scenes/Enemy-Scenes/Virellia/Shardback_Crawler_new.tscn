@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://d3v3ypip54nwr"]
 
-[ext_resource type="Texture2D" uid="uid://di7u3ure5gtnt" path="res://Textures/Virellia/Enemy_Textures/Shardback_Crawler.png" id="2_2xhfw"]
+[ext_resource type="Texture2D" uid="uid://di7u3ure5gtnt" path="res://Textures/Virellia/enemy_textures/Shardback_Crawler.png" id="2_2xhfw"]
 [ext_resource type="Script" uid="uid://yggyeoqboaj6" path="res://Scripts/Virellia/test_shardback_crawler.gd" id="2_8gkbc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55rtx"]

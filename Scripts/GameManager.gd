@@ -92,7 +92,7 @@ func create_timer(parent: Node, wait: float, callback: Callable):
 func _reset():
 	load_scene(current_level)
 
-func _collect(_amount):
+func _collect(_amount, _value):
 	if _amount is int:
 		currency += _amount
 	else: 

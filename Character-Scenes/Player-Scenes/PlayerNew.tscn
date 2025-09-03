@@ -609,6 +609,7 @@ size = Vector2(54, 252)
 size = Vector2(114, 276)
 
 [node name="Player" type="CharacterBody2D" groups=["PlayerChar", "player"]]
+z_index = 7
 collision_mask = 5
 script = ExtResource("1_xeemy")
 _mc_left_marg = 0.6

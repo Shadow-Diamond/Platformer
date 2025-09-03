@@ -295,45 +295,29 @@ position = Vector2(12992, -64)
 z_index = 1
 position = Vector2(13120, -64)
 
-[node name="VirelliaBlock" parent="." instance=ExtResource("7_oayy4")]
-z_index = 5
-position = Vector2(6974, -576)
-middle_block = true
-itemName = "future_spider_mobile_fallable"
-
 [node name="VirelliaBlock7" parent="." instance=ExtResource("7_oayy4")]
 z_index = 5
 position = Vector2(7230, -576)
-middle_block = true
-itemName = "virellia_diamond"
 
 [node name="VirelliaBlock2" parent="." instance=ExtResource("7_oayy4")]
 z_index = 5
 position = Vector2(8766, -704)
-middle_block = true
-itemName = "better_suit_item"
-spawning_suit_power = true
 
 [node name="VirelliaBlock3" parent="." instance=ExtResource("7_oayy4")]
 z_index = 5
 position = Vector2(11326, -832)
-middle_block = true
-itemName = "virellia_diamond"
 
 [node name="VirelliaBlock4" parent="." instance=ExtResource("7_oayy4")]
 z_index = 5
 position = Vector2(14654, -576)
-itemName = "virellia_diamond"
 
 [node name="VirelliaBlock5" parent="." instance=ExtResource("7_oayy4")]
 z_index = 5
 position = Vector2(14782, -576)
-itemName = "virellia_diamond"
 
 [node name="VirelliaBlock6" parent="." instance=ExtResource("7_oayy4")]
 z_index = 5
 position = Vector2(14910, -576)
-itemName = "virellia_diamond"
 
 [node name="ScoreBox" type="TextEdit" parent="."]
 offset_right = 434.0
@@ -458,3 +442,8 @@ position = Vector2(10505, -347)
 
 [node name="FutureSpider" parent="." instance=ExtResource("15_nq3b4")]
 position = Vector2(11555, -474)
+
+[node name="VirelliaBlock" parent="." instance=ExtResource("7_oayy4")]
+position = Vector2(6974, -576)
+_middle_block = true
+_itemName = "future_spider_mobile_fallable"

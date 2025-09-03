@@ -1,0 +1,8 @@
+Background (Solid): 0
+Background (Objects): 1
+Background (Gradient): 2
+Other Background: 3
+Ground/Rocket/Bricks: 4
+Enemies/Currency: 5
+Item Boxes: 6
+Player: 7

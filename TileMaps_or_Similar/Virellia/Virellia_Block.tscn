@@ -89,6 +89,7 @@ size = Vector2(21.3333, 21.3333)
 size = Vector2(68, 8)
 
 [node name="VirelliaBlock" type="CharacterBody2D"]
+z_index = 6
 script = ExtResource("1_qyoe5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -116,10 +117,7 @@ scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_6mesg")
 
 [node name="Player_Detector" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detector"]
 position = Vector2(0, 68)
 shape = SubResource("RectangleShape2D_by8jm")
-
-[connection signal="body_entered" from="Player_Detector" to="." method="_on_player_detector_body_entered"]

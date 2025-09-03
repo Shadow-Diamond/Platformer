@@ -1,90 +1,92 @@
 extends CharacterBody2D
 
-@export var left_block: bool
-@export var middle_block: bool
-@export var right_block: bool
-@export var itemName: String
-@export var spawning_suit_power: bool
+@export var _left_block: bool
+@export var _middle_block: bool
+@export var _right_block: bool
+@export var _itemName: String
 
-@onready var sprite = $AnimatedSprite2D
-@onready var deletion_timer = $DeletionTimer
+@onready var _sprite = $AnimatedSprite2D
 
-@onready var player = $"../Player"
-
-var hit = false
-var time_to_pop_out = 5
+var _hit = false
+var _time_to_pop_out = 5
+var _can_fall = false
+var _can_move = false
 
 func _ready():
-	self.z_index = 5
-
-func _physics_process(_delta):
-	if left_block and right_block or left_block and middle_block or right_block and middle_block or left_block and middle_block and right_block:
-		left_block = false
-		middle_block = false
-		right_block = false
+	$Player_Detector.connect("body_entered", _on_detector_hit)
+	if not _oneSelect():
+		_left_block = false
+		_middle_block = false
+		_right_block = false
 	
-	if left_block:
-		sprite.play("LeftBlock")
-	elif middle_block:
-		sprite.play("MiddleBlock")
-	elif right_block:
-		sprite.play("RightBlock")
+	if _left_block:
+		_sprite.play("LeftBlock")
+	elif _middle_block:
+		_sprite.play("MiddleBlock")
+	elif _right_block:
+		_sprite.play("RightBlock")
 	else:
-		sprite.play("SoloBlock")
+		_sprite.play("SoloBlock")
 	
-	if itemName not in ItemDB.ITEMS:
-		itemName = ""
+	if _itemName not in ItemDB.ITEMS:
+		_itemName = ""
 	
-	if itemName == "":
+	if _itemName == "":
 		self.queue_free()
 
-
-func _on_player_detector_body_entered(body):
-	var item_instance = null
-	var item = null
-	if body == player and not hit:
-		hit = true
-		if GameManager.player_suit == "basic_suit" and spawning_suit_power:
+func _on_detector_hit(_body):
+	if _body.is_in_group("player") and not _hit:
+		_hit = true
+		var _item_instance = null
+		var item = null
+		item = ItemDB.ITEMS[_itemName]
+		if GameManager.player_suit == "basic_suit" and item.has("suit_value"):
 			item = ItemDB.ITEMS["better_suit_item"]
-			var itemScene = load(item["path"])
-			item_instance = itemScene.instantiate()
-		else:
-			item = ItemDB.ITEMS[itemName]
-			var itemScene = load(item["path"])
+			var _item_scene = load(item["path"])
 			print("Item: ", item)
-			print("Path: ", item["path"])
-			print("Loaded: ", itemScene)
-			item_instance = itemScene.instantiate()
-		item_instance.z_as_relative = false
-		item_instance.z_index = -1
-		if "stationary" in item_instance:
-			item_instance.stationary = item["stationary"]
-			if "fallable" in item_instance:
-				item_instance.fallable = item["fallable"]
-			item_instance.behavior = false
-		if "suit_type" in item_instance:
-			item_instance.suit_type = item["suit_type"]
-		if item_instance.has_signal("collected"):
-			item_instance.collected.connect(_on_item_collected)
-		item_instance.global_position = self.global_position
-		get_tree().current_scene.add_child(item_instance)
-		animate_pop_out(item_instance)
+			_item_instance = _item_scene.instantiate()
+		else:
+			var _item_scene = load(item["path"])
+			print("Item: ", item)
+			_item_instance = _item_scene.instantiate()
+		if "fallable" in _item_instance:
+			_can_fall = item["fallable"]
+		if "mobile" in _item_instance:
+			_can_move = item["mobile"]
+		if "suit_type" in _item_instance:
+			_item_instance.suit_type = item["suit_type"]
+			_item_instance.suit_value = item["suit_value"]
+		get_tree().current_scene.add_child(_item_instance)
+		_item_instance.global_position = self.global_position
+		_animate_pop_out(_item_instance)
 		GameManager.create_timer(self, 5, _delete)
+		print(_item_instance._dead, _item_instance.mobile, _item_instance.fallable)
+		print(item["mobile"])
 
 func _delete():
 	self.queue_free()
 
 var tween
-func animate_pop_out(node):
+func _animate_pop_out(node):
 	tween = create_tween()
-	tween.tween_property(node, "global_position", node.global_position + Vector2(0,-128), time_to_pop_out).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(node, "global_position", node.global_position + Vector2(0,-128), _time_to_pop_out).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	await tween.finished
 	if is_instance_valid(node):
-		if node.has_method("start_behavior"):
-			node.start_behavior()
+		node.mobile = _can_move
+		node.fallable = _can_fall
 
 func _on_item_collected():
 	if tween:
 		tween.kill()
 	if is_instance_valid(self):
 		self.queue_free()
+
+func _oneSelect():
+	if _left_block and !_right_block and !_middle_block:
+		return true
+	elif !_left_block and _right_block and !_middle_block:
+		return true
+	elif !_left_block and !_right_block and _middle_block:
+		return true
+	else:
+		return false

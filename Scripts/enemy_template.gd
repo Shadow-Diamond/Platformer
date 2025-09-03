@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var _player_kill_box  : Area2D = $PKillBox
 @onready var _self_kill_box : Area2D = $SKillBox
 
-@export var _mobile : bool = false
-@export var _fallable : bool = false
+@export var mobile : bool = false
+@export var fallable : bool = false
 
 var _speed = 0 # Change in scripts inheriting this file
 
@@ -58,7 +58,7 @@ func _move(delta):
 	if _has_gravity:
 		_fall(delta)
 	
-	if _mobile and !_dead:
+	if mobile and !_dead:
 		_movement()
 	else:
 		_sprite.play("Idle")
@@ -84,18 +84,16 @@ func _movement():
 	if _prev_pos != null:
 		_stuck = _curr_pos.distance_to(_prev_pos) < 0.5
 	var _no_ground = !_ground_detector_1.is_colliding() or !_ground_detector_2.is_colliding()
-	var _should_flip = _no_ground and !_fallable
-	print("No Ground: ", _no_ground,"\nFallable: ",_fallable, "\nShould Flip: ", _should_flip)
+	var _should_flip = _no_ground and !fallable
 	if (_stuck or _should_flip) and not _flip_delay:
 		_move_flip("move")
 	_prev_pos = _curr_pos
 
 func _move_flip(called):
-	print("flipping")
 	_flip_mult *= -1
 	_flip_val = !_flip_val
 	if called == "move":
-		GameManager.create_timer(self, 0.1, _on_flip_delay_timer_timeout)
+		GameManager.create_timer(self, 1, _on_flip_delay_timer_timeout)
 		_flip_delay = true
 
 func _on_self_death_delay_timeout():

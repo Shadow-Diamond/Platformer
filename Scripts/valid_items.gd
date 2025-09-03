@@ -4,16 +4,17 @@ class_name ItemDB
 const ITEMS = {
 	"shardback_crawler_stationary": {
 		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn",
-		"stationary": true
+		"mobile": false,
+		"fallable": false
 	},
 	"shardback_crawler_mobile_fallable": {
 		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn",
-		"stationary": false,
+		"mobile": true,
 		"fallable": true
 	},
 	"shardback_crawler_mobile_not_fallable": {
 		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn",
-		"stationary": false,
+		"mobile": true,
 		"fallable": false
 	},
 	"future_spider_mobile_fallable": {
@@ -23,7 +24,7 @@ const ITEMS = {
 	},
 	"future_spider_mobile_not_fallable": {
 		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider_new.tscn",
-		"stationary": true,
+		"mobile": true,
 		"fallable": false
 	},
 	"better_suit_item" : {

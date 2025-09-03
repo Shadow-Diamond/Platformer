@@ -16,6 +16,8 @@ func _ready() -> void:
 	_detection_area.body_entered.connect(_collision)
 
 func _collision(object):
+	print("Collected")
 	if object.is_in_group("player"):
 		SignalBus.collect.emit(suit_type, suit_value)
+		print(suit_type)
 		self.queue_free()

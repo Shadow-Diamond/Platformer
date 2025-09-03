@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=4 uid="uid://brpr8d7p0wxfv"]
+[gd_scene load_steps=9 format=4 uid="uid://brpr8d7p0wxfv"]
 
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_f7g2b"]
 [ext_resource type="PackedScene" uid="uid://caa1vw0im8uy8" path="res://Character-Scenes/Player-Scenes/PlayerNew.tscn" id="4_4ptq8"]
 [ext_resource type="PackedScene" uid="uid://n8w37b6pwmen" path="res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn" id="4_sb12i"]
 [ext_resource type="PackedScene" uid="uid://d3v3ypip54nwr" path="res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler_new.tscn" id="5_gbhdq"]
 [ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/follow_cam.gd" id="5_sb12i"]
+[ext_resource type="PackedScene" uid="uid://cmqahtnb45q02" path="res://TileMaps_or_Similar/Virellia/Virellia_Block.tscn" id="6_y646j"]
+[ext_resource type="PackedScene" uid="uid://dswg81h0jwfl1" path="res://TileMaps_or_Similar/Virellia/Virellia_Bricks.tscn" id="7_lnbra"]
+[ext_resource type="PackedScene" uid="uid://lomvjieeudgl" path="res://Item-Scenes/better_suit_item.tscn" id="8_lnbra"]
 
 [node name="Test Level" type="Node2D"]
 position = Vector2(765, -382)
 
 [node name="VirelliaGround" parent="." instance=ExtResource("1_f7g2b")]
+z_index = 4
 tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAACAAEAAAAMAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAA=")
 
 [node name="Player2" parent="." instance=ExtResource("4_4ptq8")]
@@ -20,12 +24,20 @@ _jump_velocity = 960.0
 script = ExtResource("5_sb12i")
 
 [node name="ShardbackCrawler" parent="." instance=ExtResource("4_sb12i")]
+z_index = 5
 position = Vector2(-11, 165)
 stationary = false
 
 [node name="ShardbackCrawler2" parent="." instance=ExtResource("5_gbhdq")]
 position = Vector2(863, 181)
-_mobile = true
 
-[node name="ShardbackCrawler3" parent="." instance=ExtResource("5_gbhdq")]
-position = Vector2(529, -363)
+[node name="VirelliaBlock" parent="." instance=ExtResource("6_y646j")]
+position = Vector2(446, -320)
+_middle_block = true
+_itemName = "future_spider_mobile_not_fallable"
+
+[node name="VirelliaBricks" parent="." instance=ExtResource("7_lnbra")]
+z_index = 4
+
+[node name="Suit_Upgrade" parent="." instance=ExtResource("8_lnbra")]
+position = Vector2(-343, -18)

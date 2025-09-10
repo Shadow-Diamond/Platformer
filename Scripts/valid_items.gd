@@ -10,7 +10,8 @@ const ITEMS = {
 	"shardback_crawler_mobile_fallable": {
 		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn",
 		"mobile": true,
-		"fallable": true
+		"fallable": true,
+		
 	},
 	"shardback_crawler_mobile_not_fallable": {
 		"path": "res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn",

@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var _ground_detector_2 : RayCast2D = $GroundDetector2
 @onready var _player_kill_box  : Area2D = $PKillBox
 @onready var _self_kill_box : Area2D = $SKillBox
+@onready var _self_hitbox : CollisionShape2D = $enemy_hit_box
 
 @export var mobile : bool = false
 @export var fallable : bool = false
@@ -20,6 +21,7 @@ var _flip_delay : bool = false
 var _has_gravity : bool = true
 
 func _ready():
+	_self_hitbox.disabled = false
 	# Intra-Script Signals
 	_player_kill_box.body_entered.connect(_attempt_to_hurt_player)
 	_self_kill_box.body_entered.connect(_enemy_death)

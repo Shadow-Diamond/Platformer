@@ -32,7 +32,7 @@ position = Vector2(1613, -227)
 mobile = true
 
 [node name="VirelliaBlock" parent="." instance=ExtResource("6_y646j")]
-position = Vector2(1245, -654)
+position = Vector2(446, -576)
 _middle_block = true
 _itemName = "future_spider_mobile_not_fallable"
 

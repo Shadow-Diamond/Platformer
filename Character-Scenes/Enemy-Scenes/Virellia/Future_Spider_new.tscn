@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://ybpt61khq1fn"]
 
 [ext_resource type="Script" uid="uid://4bin12gq8g5a" path="res://Scripts/Virellia/test_future_spider.gd" id="1_ydbv4"]
-[ext_resource type="Texture2D" uid="uid://c54x45h844ypr" path="res://Textures/Virellia/enemy_textures/Future_Spider.png" id="2_d11ow"]
+[ext_resource type="Texture2D" uid="uid://c54x45h844ypr" path="res://Textures/Virellia/Enemy_Textures/Future_Spider.png" id="2_d11ow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktht0"]
 atlas = ExtResource("2_d11ow")
@@ -153,6 +153,7 @@ frame_progress = 0.181067
 position = Vector2(0, 23.75)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_eh3pj")
+disabled = true
 
 [node name="GroundDetector1" type="RayCast2D" parent="."]
 position = Vector2(60, 32)

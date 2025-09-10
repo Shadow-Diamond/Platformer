@@ -11,6 +11,7 @@ var _hit = false
 var _time_to_pop_out = 5
 var _can_fall = false
 var _can_move = false
+var hitbox = null
 
 func _ready():
 	$Player_Detector.connect("body_entered", _on_detector_hit)
@@ -57,11 +58,12 @@ func _on_detector_hit(_body):
 			_item_instance.suit_type = item["suit_type"]
 			_item_instance.suit_value = item["suit_value"]
 		get_tree().current_scene.add_child(_item_instance)
+		if _item_instance.has_node("enemy_hit_box"):
+			hitbox = _item_instance.get_node("enemy_hit_box")
+		hitbox.disabled = true
 		_item_instance.global_position = self.global_position
 		_animate_pop_out(_item_instance)
 		GameManager.create_timer(self, 5, _delete)
-		print(_item_instance._dead, _item_instance.mobile, _item_instance.fallable)
-		print(item["mobile"])
 
 func _delete():
 	self.queue_free()
@@ -71,6 +73,7 @@ func _animate_pop_out(node):
 	tween = create_tween()
 	tween.tween_property(node, "global_position", node.global_position + Vector2(0,-128), _time_to_pop_out).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	await tween.finished
+	hitbox.disabled = false
 	if is_instance_valid(node):
 		node.mobile = _can_move
 		node.fallable = _can_fall

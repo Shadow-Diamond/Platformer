@@ -10,14 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://lomvjieeudgl" path="res://Item-Scenes/better_suit_item.tscn" id="8_lnbra"]
 
 [node name="Test Level" type="Node2D"]
-position = Vector2(765, -382)
 
 [node name="VirelliaGround" parent="." instance=ExtResource("1_f7g2b")]
 z_index = 4
-tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAACAAEAAAAMAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAABAP7/AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAGAP7/AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAAAAAAAAAALAP7/AAAAAAAAAAAMAP//AAAAAAAAAAA=")
 
 [node name="Player2" parent="." instance=ExtResource("4_4ptq8")]
-position = Vector2(-492, -63)
+position = Vector2(997, -425)
 _jump_velocity = 960.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -25,19 +24,21 @@ script = ExtResource("5_sb12i")
 
 [node name="ShardbackCrawler" parent="." instance=ExtResource("4_sb12i")]
 z_index = 5
-position = Vector2(-11, 165)
+position = Vector2(742, -200)
 stationary = false
 
 [node name="ShardbackCrawler2" parent="." instance=ExtResource("5_gbhdq")]
-position = Vector2(863, 181)
+position = Vector2(1613, -227)
+mobile = true
 
 [node name="VirelliaBlock" parent="." instance=ExtResource("6_y646j")]
-position = Vector2(446, -320)
+position = Vector2(1245, -654)
 _middle_block = true
 _itemName = "future_spider_mobile_not_fallable"
 
 [node name="VirelliaBricks" parent="." instance=ExtResource("7_lnbra")]
 z_index = 4
+tile_map_data = PackedByteArray("AAACAPv/AAAAAAAAAAADAPv/AAAIAAAAAAAEAPv/AAAQAAAAAAA=")
 
 [node name="Suit_Upgrade" parent="." instance=ExtResource("8_lnbra")]
-position = Vector2(-343, -18)
+position = Vector2(2213, -369)

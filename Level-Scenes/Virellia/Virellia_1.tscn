@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b1cgkpme7gkxp" path="res://Textures/Virellia/other_textures/Virellia_Background_Gradiant.png" id="1_0udbm"]
 [ext_resource type="PackedScene" uid="uid://dswg81h0jwfl1" path="res://TileMaps_or_Similar/Virellia/Virellia_Bricks.tscn" id="1_bnbdv"]
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_vupj3"]
-[ext_resource type="Texture2D" uid="uid://buinfsot23wx7" path="res://Textures/Virellia/ground_textures/silver-black_Hex_Floating_Bricks.png" id="2_iqfl5"]
+[ext_resource type="Texture2D" uid="uid://buinfsot23wx7" path="res://Textures/Virellia/Ground_textures/silver-black_Hex_Floating_Bricks.png" id="2_iqfl5"]
 [ext_resource type="Texture2D" uid="uid://cpvyapimqa8ud" path="res://Textures/Virellia/other_textures/Virellia_Background_Gradiant_transparent.png" id="3_f2h58"]
 [ext_resource type="PackedScene" uid="uid://n8w37b6pwmen" path="res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn" id="3_vupj3"]
 [ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/follow_cam.gd" id="4_21lb3"]
@@ -94,7 +94,7 @@ texture = ExtResource("3_f2h58")
 
 [node name="VirelliaBricks" parent="." instance=ExtResource("1_bnbdv")]
 z_index = 2
-tile_map_data = PackedByteArray("AAA2APv/AAAIAAAAAAA3APv/AAAIAAAAAAA1APv/AAAAAAAAAAA4APv/AAAIAAAAAAA5APv/AAAIAAAAAAA6APv/AAAQAAAAAAA9APj/AAAIAAAAAAA+APj/AAAQAAAAAAA8APj/AAAAAAAAAABDAPr/AAAIAAAAAABEAPr/AAAIAAAAAABCAPr/AAAAAAAAAABFAPr/AAAIAAAAAABGAPr/AAAQAAAAAABXAPn/AAAIAAAAAABYAPn/AAAIAAAAAABWAPn/AAAAAAAAAABZAPn/AAAIAAAAAABaAPn/AAAQAAAAAAByAPv/AAAIAAAAAABzAPv/AAAIAAAAAABxAPv/AAAAAAAAAAB0APv/AAAIAAAAAAB1APv/AAAQAAAAAAA=")
+tile_map_data = PackedByteArray("AAA9APj/AAAIAAAAAAA+APj/AAAQAAAAAAA8APj/AAAAAAAAAABDAPr/AAAIAAAAAABEAPr/AAAIAAAAAABCAPr/AAAAAAAAAABFAPr/AAAIAAAAAABGAPr/AAAQAAAAAABXAPn/AAAIAAAAAABYAPn/AAAIAAAAAABWAPn/AAAAAAAAAABZAPn/AAAIAAAAAABaAPn/AAAQAAAAAAByAPv/AAAIAAAAAABzAPv/AAAIAAAAAABxAPv/AAAAAAAAAAB0APv/AAAIAAAAAAB1APv/AAAQAAAAAAA2APv/AAAIAAAAAAA3APv/AAAIAAAAAAA1APv/AAAAAAAAAAA4APv/AAAIAAAAAAA5APv/AAAIAAAAAAA6APv/AAAQAAAAAAA=")
 tile_set = SubResource("TileSet_50bb1")
 
 [node name="VirelliaGround" parent="." instance=ExtResource("1_vupj3")]

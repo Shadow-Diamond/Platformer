@@ -52,7 +52,7 @@ func _enemy_death(object):
 		_dead = true
 		print(self.name, " killed by Player")
 		SignalBus.bounce.emit()
-		SignalBus.e_death.emit()
+		SignalBus.e_death.emit(1)
 		GameManager.create_timer(self, 1, _on_self_death_delay_timeout)
 
 # Calls both falling and movement functions depending on variables

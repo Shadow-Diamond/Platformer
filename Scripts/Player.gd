@@ -27,7 +27,6 @@ var _dead : bool = false
 var _dir : String = "right"
 var _djed : bool = false
 var _walking : bool = false
-var score : int = 0
 var _death_fall : bool = false
 
 func _physics_process(delta):
@@ -42,7 +41,8 @@ func _physics_process(delta):
 
 func _ready():
 	main_camera.make_current()
-	#SignalBus.hurt_player.connect(_got_hurt)
+	SignalBus.hurt_player.connect(_got_hurt)
+	SignalBus.kill_player.connect(_player_death)
 	SignalBus.bounce.connect(_bouncy)
 	SignalBus.collect.connect(_collect)
 	
@@ -167,5 +167,6 @@ func _toggle_anims(_current):
 			else:
 				_child.hide()
 
-func get_score():
-	return score
+func _player_death():
+	_dead = true
+	_death()

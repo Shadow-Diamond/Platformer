@@ -30,8 +30,8 @@ func _ready():
 	
 	# Signals from SignalBus
 	SignalBus.e_death.connect(_enemy_died)
-	SignalBus.collect.connect(_collect)
 	SignalBus.reset.connect(_reset)
+	SignalBus.gm_update_score.connect(_update_score)
 
 func load_scene(scene):
 	if scene == null:
@@ -92,8 +92,5 @@ func create_timer(parent: Node, wait: float, callback: Callable):
 func _reset():
 	load_scene(current_level)
 
-func _collect(_amount, _value):
-	if _amount is int:
-		currency += _amount
-	else: 
-		player_suit = _amount
+func _update_score(amount):
+	currency += amount

@@ -7,6 +7,7 @@ extends Node2D
 @onready var select_button: Button = $SelectButton
 @onready var camera = $Camera2D
 @onready var planets = []
+@onready var num_levels_comp
 @onready var num_levels_per_planet
 @onready var lvl1_button: Button = $Lvl1
 @onready var lvl2_button: Button = $Lvl2
@@ -23,7 +24,8 @@ func _ready():
 	planets.append(Virellia)
 	cur_planet = planets[0]
 	planet_list_size = planets.size()
-	num_levels_per_planet = GameManager.get_num_levels()
+	num_levels_comp = GameManager.get_num_levels_available()
+	num_levels_per_planet = GameManager.get_num_levels_max()
 	
 	for planet in planets:
 		if planet != cur_planet:
@@ -70,7 +72,9 @@ func _on_select_button_pressed():
 		addedDist = distance
 	camera.global_position.y += 1080
 	score_box.global_position.y += 1080
-	num_levels = num_levels_per_planet[str(cur_planet.name)]
+	num_levels = num_levels_comp[str(cur_planet.name)]+1
+	if num_levels > num_levels_per_planet[str(cur_planet.name)]:
+		num_levels = num_levels_per_planet[str(cur_planet.name)]
 	match(num_levels):
 		1:
 			lvl1_button.position = Vector2(-136 + addedDist,1038)

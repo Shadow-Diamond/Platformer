@@ -72,6 +72,7 @@ func _got_hurt():
 			_health-=1
 			_active_suit = _better_suit
 			_suit_val = 2
+	_toggle_anims(_active_suit)
 
 func _bouncy():
 	velocity.y = -_jump_velocity/_kill_bounce_decrease
@@ -146,11 +147,13 @@ func _collect(_amount, _value):
 			match(_value):
 				2:
 					_suit_val = 2
+					_health = 2
 					match(_amount):
 						"better_suit":
 							_active_suit = _better_suit
 				3:
 					_suit_val = 3
+					_health = 3
 					match(_amount):
 						"jump_suit":
 							_active_suit = _jump_suit

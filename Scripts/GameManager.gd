@@ -15,6 +15,10 @@ extends Node
 	"Virellia": 2
 }
 
+@onready var num_levels_comp = {
+	"Virellia": 0
+}
+
 var current_level = null
 var level_num = null
 var level_cat = null
@@ -35,42 +39,48 @@ func _ready():
 
 func load_scene(scene):
 	if scene == null:
-		scene = Levels["Misc"]["MainMenu"]
-	level_num = scene[1]
-	level_cat = scene[0]
+		scene = Levels["Misc"]["LevelSelect"]
+	level_num = scene[-6]
+	level_num = int(level_num)
 	if level_num is not int:
 		level_num = null
+	var first_pos = scene.find("/")
+	first_pos+=1
+	var second_pos = scene.find("/", first_pos+1)
+	var third_pos = scene.find("/", second_pos+1)
+	level_cat = scene.substr(second_pos+1, third_pos-(second_pos+1))
 	current_level = scene
 	var loaded = load(scene)
 	get_tree().change_scene_to_packed(loaded)
 
 func fin_level():
-	var scene = get_next_level()
+	var scene = Levels["Misc"]["LevelSelect"]
+	unlock_levels()
 	load_scene(scene)
 
-func get_next_level():
-	if level_cat == null or level_num == null:
-		return Levels["Misc"]["LevelSelect"]
+func unlock_levels():
+	print("Unlock LVL ", level_num)
+	match(level_num):
+		1:
+			if num_levels_comp[level_cat] <= 0:
+				num_levels_comp[level_cat] = 1
+		2:
+			if num_levels_comp[level_cat] == 1:
+				num_levels_comp[level_cat] = 2
+		3:
+			if num_levels_comp[level_cat] == 2:
+				num_levels_comp[level_cat] = 3
+		4:
+			if num_levels_comp[level_cat] == 3:
+				num_levels_comp[level_cat] = 4
+		5:
+			if num_levels_comp[level_cat] == 4:
+				num_levels_comp[level_cat] = 5
 
-	var remaining = num_levels_remaining()
-	if remaining <= 0:
-		return Levels["Misc"]["LevelSelect"]
+func get_num_levels_available():
+	return num_levels_comp
 
-	var next_level = level_num + 1
-	if Levels[level_cat].has(next_level):
-		return Levels[level_cat][next_level]
-	else:
-		return Levels["Misc"]["LevelSelect"]
-
-func num_levels_remaining():
-	if level_cat == null or level_num == null:
-		return 0
-	if not num_levels_per_planet.has(level_cat):
-		return 0
-	var remaining = num_levels_per_planet[level_cat]
-	return max(0, remaining - level_num)
-
-func get_num_levels():
+func get_num_levels_max():
 	return num_levels_per_planet
 
 func _enemy_died():

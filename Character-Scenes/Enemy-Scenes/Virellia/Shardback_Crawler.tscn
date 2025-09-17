@@ -1,46 +1,46 @@
-[gd_scene load_steps=17 format=3 uid="uid://n8w37b6pwmen"]
+[gd_scene load_steps=17 format=3 uid="uid://d3v3ypip54nwr"]
 
-[ext_resource type="Script" uid="uid://35ffb8r8ldlu" path="res://Scripts/Virellia/shardback_crawler.gd" id="1_vk2dh"]
-[ext_resource type="Texture2D" uid="uid://di7u3ure5gtnt" path="res://Textures/Virellia/Enemy_Textures/Shardback_Crawler.png" id="2_d572j"]
+[ext_resource type="Texture2D" uid="uid://di7u3ure5gtnt" path="res://Textures/Virellia/Enemy_Textures/Shardback_Crawler.png" id="2_2xhfw"]
+[ext_resource type="Script" uid="uid://yggyeoqboaj6" path="res://Scripts/Virellia/shardback_crawler.gd" id="2_8gkbc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55rtx"]
-atlas = ExtResource("2_d572j")
+atlas = ExtResource("2_2xhfw")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddeaf"]
-atlas = ExtResource("2_d572j")
+atlas = ExtResource("2_2xhfw")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hqd1"]
-atlas = ExtResource("2_d572j")
+atlas = ExtResource("2_2xhfw")
 region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j14c8"]
-atlas = ExtResource("2_d572j")
+atlas = ExtResource("2_2xhfw")
 region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vk2dh"]
-atlas = ExtResource("2_d572j")
+atlas = ExtResource("2_2xhfw")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d572j"]
-atlas = ExtResource("2_d572j")
+atlas = ExtResource("2_2xhfw")
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wac4n"]
-atlas = ExtResource("2_d572j")
+atlas = ExtResource("2_2xhfw")
 region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6so4c"]
-atlas = ExtResource("2_d572j")
+atlas = ExtResource("2_2xhfw")
 region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_giyo3"]
-atlas = ExtResource("2_d572j")
+atlas = ExtResource("2_2xhfw")
 region = Rect2(128, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cmo2"]
-atlas = ExtResource("2_d572j")
+atlas = ExtResource("2_2xhfw")
 region = Rect2(160, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wac4n"]
@@ -60,7 +60,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -82,67 +82,66 @@ animations = [{
 "texture": SubResource("AtlasTexture_1cmo2")
 }],
 "loop": true,
-"name": &"Walk",
-"speed": 3.0
+"name": &"Walking",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6so4c"]
 size = Vector2(26, 28.9733)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk2dh"]
-size = Vector2(25.9466, 28.9404)
+size = Vector2(29, 29.9671)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qw1y"]
-size = Vector2(120, 79)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gkbc"]
 
 [node name="ShardbackCrawler" type="CharacterBody2D" groups=["enemies"]]
+z_index = 5
 collision_layer = 2
 collision_mask = 6
-script = ExtResource("1_vk2dh")
+script = ExtResource("2_8gkbc")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="EnemySprite" type="AnimatedSprite2D" parent="."]
+z_index = 5
+z_as_relative = false
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_wac4n")
 animation = &"Idle"
-frame_progress = 0.493093
 
 [node name="enemy_hit_box" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 5.51336)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_6so4c")
 
-[node name="kill_box" type="Area2D" parent="."]
+[node name="PKillBox" type="Area2D" parent="."]
 scale = Vector2(4, 4)
 collision_layer = 2
 collision_mask = 3
 
-[node name="kill_box_collision" type="CollisionShape2D" parent="kill_box"]
-position = Vector2(-1.07068e-06, 1.49692)
+[node name="kill_box_collision" type="CollisionShape2D" parent="PKillBox"]
+position = Vector2(0.5, 0.983544)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_vk2dh")
 
-[node name="delay_timer" type="Timer" parent="."]
-one_shot = true
-
 [node name="GroundDetector1" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(52, 0)
 target_position = Vector2(0, 100)
 collision_mask = 4
 
 [node name="GroundDetector2" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-52, 0)
 target_position = Vector2(0, 100)
 collision_mask = 4
 
-[node name="ground_detector_delay" type="Timer" parent="."]
+[node name="SKillBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 0
 
-[node name="ally_detector" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SKillBox"]
+shape = SubResource("RectangleShape2D_8gkbc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ally_detector"]
-position = Vector2(2, 23.5)
-shape = SubResource("RectangleShape2D_5qw1y")
-
-[connection signal="area_entered" from="kill_box" to="." method="_on_kill_box_area_entered"]
-[connection signal="timeout" from="delay_timer" to="." method="_on_delay_timer_timeout"]
-[connection signal="timeout" from="ground_detector_delay" to="." method="_on_ground_detector_delay_timeout"]
-[connection signal="area_entered" from="ally_detector" to="." method="_on_ally_detector_area_entered"]
+[connection signal="body_entered" from="PKillBox" to="." method="_attempt_to_hurt_player"]
+[connection signal="body_entered" from="SKillBox" to="." method="_enemy_death"]

@@ -50,6 +50,7 @@ func _on_detector_hit(_body):
 			var _item_scene = load(item["path"])
 			print("Item: ", item)
 			_item_instance = _item_scene.instantiate()
+		_item_instance.z_index = 5
 		if "fallable" in _item_instance:
 			_can_fall = item["fallable"]
 		if "mobile" in _item_instance:

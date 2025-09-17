@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://biyod5nxb6fvn"]
 
-[ext_resource type="Script" uid="uid://8ej7m84lmk0s" path="res://Scripts/suit_upgrade.gd" id="1_7g1ys"]
+[ext_resource type="Script" uid="uid://8ej7m84lmk0s" path="res://Scripts/EnemyOrPlayer/suit_upgrade.gd" id="1_7g1ys"]
 [ext_resource type="Texture2D" uid="uid://cw7ta6uucsxff" path="res://Textures/Interplanetary_textures/Jump-Spacesuit-Upgrade.png" id="2_7g1ys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b47bb"]

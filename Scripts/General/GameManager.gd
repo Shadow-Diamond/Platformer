@@ -6,17 +6,31 @@ extends Node
 		"LevelSelect": "res://Level-Scenes/LevelSelect.tscn"
 	},
 	"Virellia": {
-		1: "res://Level-Scenes/Virellia/Virellia_1.tscn",
-		2: "res://Level-Scenes/Virellia/Virellia_2.tscn"
+		1: "res://Level-Scenes/Virellia/Virellia_1.tscn"
+	},
+	"Chromatic_Bonuses": {
+		1: "res://Level-Scenes/Virellia/Virellia_Bonus_Level_6.tscn"
 	}
 }
 
 @onready var num_levels_per_planet = {
-	"Virellia": 2
+	"Virellia": 1,
+	"Chromatic_Bonuses": 1
 }
 
 @onready var num_levels_comp = {
-	"Virellia": 0
+	"Virellia": 0,
+	"Chromatic_Bonuses": 0
+}
+
+@onready var purchased_planet = {
+	"Virellia": true,
+	"Chromatic_Bonuses": true
+}
+
+@onready var purchase_price = {
+	"Virellia": 0,
+	"Chromatic_Bonuses": 0
 }
 
 var current_level = null
@@ -104,3 +118,10 @@ func _reset():
 
 func _update_score(amount):
 	currency += amount
+
+func purchase_planet(planet_name):
+	if currency < purchase_price[planet_name]:
+		return false
+	else:
+		currency -= purchase_price[planet_name]
+		purchased_planet[planet_name] = true

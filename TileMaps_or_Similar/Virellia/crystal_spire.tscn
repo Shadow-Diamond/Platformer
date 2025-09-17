@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://24c8byfyybe"]
 
 [ext_resource type="Texture2D" uid="uid://c6v4a0rt6aj7g" path="res://Textures/Virellia/other_textures/CrystalSpire.png" id="1_eltm3"]
-[ext_resource type="Script" uid="uid://cfnlufjpr270l" path="res://Scripts/spires.gd" id="2_jeygn"]
+[ext_resource type="Script" uid="uid://cfnlufjpr270l" path="res://Scripts/General/spires.gd" id="2_jeygn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jeygn"]
 atlas = ExtResource("1_eltm3")

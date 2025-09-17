@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cqah8e7vsn7c8"]
 
-[ext_resource type="Script" uid="uid://c10uudardip3p" path="res://Scripts/currency.gd" id="1_ggvql"]
+[ext_resource type="Script" uid="uid://c10uudardip3p" path="res://Scripts/General/currency.gd" id="1_ggvql"]
 [ext_resource type="Texture2D" uid="uid://dnogqpmhn7pll" path="res://Textures/Virellia/other_textures/Diamond.png" id="2_mbl21"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwlkx"]

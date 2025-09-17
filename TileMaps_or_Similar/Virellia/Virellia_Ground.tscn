@@ -24,4 +24,5 @@ physics_layer_0/collision_mask = 4
 sources/0 = SubResource("TileSetAtlasSource_uxngc")
 
 [node name="VirelliaGround" type="TileMapLayer"]
+z_index = 4
 tile_set = SubResource("TileSet_1s6x1")

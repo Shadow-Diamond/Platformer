@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cmqahtnb45q02"]
 
-[ext_resource type="Script" uid="uid://cwxep8uhtupih" path="res://Scripts/Blocks.gd" id="1_qyoe5"]
+[ext_resource type="Script" uid="uid://cwxep8uhtupih" path="res://Scripts/General/Blocks.gd" id="1_qyoe5"]
 [ext_resource type="Texture2D" uid="uid://clv5pxecscw54" path="res://Textures/Virellia/Ground_textures/silver-black_Hex_Blinking_Floating_Bricks.png" id="2_8f5qu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mblav"]
@@ -89,6 +89,7 @@ size = Vector2(21.3333, 21.3333)
 size = Vector2(68, 8)
 
 [node name="VirelliaBlock" type="CharacterBody2D"]
+z_index = 6
 script = ExtResource("1_qyoe5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -116,14 +117,7 @@ scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_6mesg")
 
 [node name="Player_Detector" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detector"]
 position = Vector2(0, 68)
 shape = SubResource("RectangleShape2D_by8jm")
-
-[node name="DeletionTimer" type="Timer" parent="."]
-wait_time = 5.0
-
-[connection signal="body_entered" from="Player_Detector" to="." method="_on_player_detector_body_entered"]
-[connection signal="timeout" from="DeletionTimer" to="." method="_on_deletion_timer_timeout"]

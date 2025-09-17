@@ -17,8 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://Scripts/GameManager.gd"
-ValidItems="*res://Scripts/valid_items.gd"
+GameManager="*res://Scripts/General/GameManager.gd"
+ValidItems="*res://Scripts/General/valid_items.gd"
+SignalBus="*res://Scripts/General/signal_bus.gd"
 
 [display]
 
@@ -28,6 +29,7 @@ window/size/viewport_height=1080
 [global_group]
 
 enemies="Enemies for the game"
+player=""
 
 [input]
 

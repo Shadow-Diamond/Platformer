@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6imw6oceduil"
-path="res://.godot/imported/silver-black_Hex_tiles.png-8d04605dadd8e397fc35b3d1dee26b4c.ctex"
+path="res://.godot/imported/silver-black_Hex_tiles.png-22535f42e609ebf799c028bf39f95648.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Virellia/Ground_textures/silver-black_Hex_tiles.png"
-dest_files=["res://.godot/imported/silver-black_Hex_tiles.png-8d04605dadd8e397fc35b3d1dee26b4c.ctex"]
+source_file="res://Textures/Virellia/ground_textures/silver-black_Hex_tiles.png"
+dest_files=["res://.godot/imported/silver-black_Hex_tiles.png-22535f42e609ebf799c028bf39f95648.ctex"]
 
 [params]
 

@@ -41,6 +41,7 @@ func _on_detector_hit(_body):
 		var _item_instance = null
 		var item = null
 		item = ItemDB.ITEMS[_itemName]
+		print(GameManager.player_suit)
 		if GameManager.player_suit == "basic_suit" and item.has("suit_value"):
 			item = ItemDB.ITEMS["better_suit_item"]
 			var _item_scene = load(item["path"])

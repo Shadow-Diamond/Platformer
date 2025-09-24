@@ -29,6 +29,8 @@ var _djed : bool = false
 var _walking : bool = false
 var _death_fall : bool = false
 
+var wind_vector : Vector2 = Vector2.ZERO
+
 func _physics_process(delta):
 	if not _dead:
 		_horizontal()
@@ -38,6 +40,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		_djed = false
 	move_and_slide()
+	wind_vector = Vector2.ZERO
 
 func _ready():
 	main_camera.make_current()
@@ -115,6 +118,7 @@ func _horizontal():
 	else:
 		_active_animation = "Idle" + _dir
 		velocity.x = 0
+	velocity += wind_vector
 	_active_suit.play(_active_animation)
 
 func _death():
@@ -151,12 +155,14 @@ func _collect(_amount, _value):
 					match(_amount):
 						"better_suit":
 							_active_suit = _better_suit
+							GameManager.player_suit = "better_suit"
 				3:
 					_suit_val = 3
 					_health = 3
 					match(_amount):
 						"jump_suit":
 							_active_suit = _jump_suit
+							GameManager.player_suit = "jump_suit"
 			_toggle_anims(_active_suit)
 
 func cam_pos():

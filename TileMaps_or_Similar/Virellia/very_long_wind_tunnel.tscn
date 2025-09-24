@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://u5mjqm6k3b"]
+
+[ext_resource type="Texture2D" uid="uid://rwvpfecnk6p4" path="res://Textures/Virellia/ground_textures/wind_tunnel.png" id="1_47sr4"]
+[ext_resource type="Script" uid="uid://ci7ddx2oiydlm" path="res://Scripts/General/wind_tunnel.gd" id="1_i2vep"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2vep"]
+atlas = ExtResource("1_47sr4")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acyac"]
+atlas = ExtResource("1_47sr4")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbqmk"]
+atlas = ExtResource("1_47sr4")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6fnh"]
+atlas = ExtResource("1_47sr4")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvy5b"]
+atlas = ExtResource("1_47sr4")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbgjv"]
+atlas = ExtResource("1_47sr4")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y80t"]
+atlas = ExtResource("1_47sr4")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyl3o"]
+atlas = ExtResource("1_47sr4")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfrf4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2vep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acyac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbqmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6fnh")
+}],
+"loop": true,
+"name": &"Inward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvy5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbgjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6y80t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyl3o")
+}],
+"loop": true,
+"name": &"Outward",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2vep"]
+size = Vector2(32443, 256)
+
+[node name="WindTunnel" type="Node2D"]
+z_index = 4
+script = ExtResource("1_i2vep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jfrf4")
+animation = &"Inward"
+frame_progress = 0.432423
+
+[node name="WindArea" type="Area2D" parent="."]
+
+[node name="wind_affect_area" type="CollisionShape2D" parent="WindArea"]
+z_index = 4
+position = Vector2(16141.5, 0)
+shape = SubResource("RectangleShape2D_i2vep")

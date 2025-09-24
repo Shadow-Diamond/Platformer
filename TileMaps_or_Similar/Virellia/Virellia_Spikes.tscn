@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://tie7m42q5wke"]
 
 [ext_resource type="Script" uid="uid://bimayh37mqdbu" path="res://Scripts/Virellia/virellia_spikes.gd" id="1_x1215"]
-[ext_resource type="Texture2D" uid="uid://bgb5fhgysfsvf" path="res://Textures/Virellia/Enemy_Textures/VirelliaSpikes.png" id="2_vhs4g"]
+[ext_resource type="Texture2D" uid="uid://bgb5fhgysfsvf" path="res://Textures/Virellia/enemy_textures/VirelliaSpikes.png" id="2_vhs4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnj01"]
 size = Vector2(32, 23)
@@ -10,6 +10,7 @@ size = Vector2(32, 23)
 size = Vector2(32, 2)
 
 [node name="VirelliaSpikes" type="CharacterBody2D"]
+z_index = 4
 scale = Vector2(4, 4)
 script = ExtResource("1_x1215")
 

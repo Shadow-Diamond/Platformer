@@ -47,6 +47,7 @@ animations = [{
 [node name="Suit_Upgrade" type="CharacterBody2D"]
 script = ExtResource("1_7g1ys")
 suit_type = "jump_suit"
+suit_value = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

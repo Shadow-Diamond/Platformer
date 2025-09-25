@@ -6,7 +6,8 @@ extends Node
 		"LevelSelect": "res://Level-Scenes/LevelSelect.tscn"
 	},
 	"Virellia": {
-		1: "res://Level-Scenes/Virellia/Virellia_1.tscn"
+		1: "res://Level-Scenes/Virellia/Virellia_1.tscn",
+		2: "res://Level-Scenes/Virellia/Virellia_2.tscn"
 	},
 	"Chromatic_Bonuses": {
 		1: "res://Level-Scenes/Virellia/Virellia_Bonus_Level_6.tscn"
@@ -14,13 +15,13 @@ extends Node
 }
 
 @onready var num_levels_per_planet = {
-	"Virellia": 1,
+	"Virellia": 2,
 	"Chromatic_Bonuses": 1
 }
 
 @onready var num_levels_comp = {
 	"Virellia": 0,
-	"Chromatic_Bonuses": 0
+	"Chromatic_Bonuses": 1
 }
 
 @onready var purchased_planet = {

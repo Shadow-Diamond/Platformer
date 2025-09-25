@@ -62,20 +62,27 @@ func _ready():
 			_suit_val = 3
 	_toggle_anims(_active_suit)
 
+var _i_frames : bool = false
 func _got_hurt():
-	match(_health):
-		1:
-			_dead = true
-			_death()
-		2:
-			_health-=1
-			_active_suit = _basic_suit
-			_suit_val = 1
-		3:
-			_health-=1
-			_active_suit = _better_suit
-			_suit_val = 2
-	_toggle_anims(_active_suit)
+	if not _i_frames:
+		GameManager.create_timer(self, 1, _i_frames_reset)
+		_i_frames = true
+		match(_health):
+			1:
+				_dead = true
+				_death()
+			2:
+				_health-=1
+				_active_suit = _basic_suit
+				_suit_val = 1
+			3:
+				_health-=1
+				_active_suit = _better_suit
+				_suit_val = 2
+		_toggle_anims(_active_suit)
+
+func _i_frames_reset():
+	_i_frames = false
 
 func _bouncy():
 	velocity.y = -_jump_velocity/_kill_bounce_decrease
@@ -143,7 +150,7 @@ func _restart():
 # CHANGE AS SUITS ARE ADDED
 func _collect(_amount, _value):
 	if _amount is int:
-		pass
+		return
 	else:
 		if _value <= _suit_val:
 			return

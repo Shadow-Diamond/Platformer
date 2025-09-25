@@ -45,6 +45,7 @@ animations = [{
 }]
 
 [node name="Diamond" type="CharacterBody2D"]
+z_index = 5
 script = ExtResource("1_ggvql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

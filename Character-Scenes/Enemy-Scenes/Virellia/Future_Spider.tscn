@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://ybpt61khq1fn"]
 
 [ext_resource type="Script" uid="uid://4bin12gq8g5a" path="res://Scripts/Virellia/future_spider.gd" id="1_ydbv4"]
-[ext_resource type="Texture2D" uid="uid://c54x45h844ypr" path="res://Textures/Virellia/Enemy_Textures/Future_Spider.png" id="2_d11ow"]
+[ext_resource type="Texture2D" uid="uid://c54x45h844ypr" path="res://Textures/Virellia/enemy_textures/Future_Spider.png" id="2_d11ow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktht0"]
 atlas = ExtResource("2_d11ow")
@@ -135,7 +135,7 @@ size = Vector2(30, 19.875)
 size = Vector2(36.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggsoe"]
-size = Vector2(101, 20)
+size = Vector2(118, 20)
 
 [node name="FutureSpider" type="CharacterBody2D" groups=["enemies"]]
 z_index = 5
@@ -183,7 +183,7 @@ visibility_layer = 3
 collision_layer = 2
 
 [node name="death_box_detector" type="CollisionShape2D" parent="SKillBox"]
-position = Vector2(9.5, -26)
+position = Vector2(8, -26)
 shape = SubResource("RectangleShape2D_ggsoe")
 
 [connection signal="body_entered" from="PKillBox" to="." method="_attempt_to_hurt_player"]

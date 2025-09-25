@@ -65,28 +65,23 @@ scale = Vector2(72.4434, 9.29297)
 texture = ExtResource("1_0udbm")
 
 [node name="CrystalSpire" parent="." instance=ExtResource("14_8ddll")]
-z_index = -3
 position = Vector2(1231, -573)
 
 [node name="CrystalSpire2" parent="." instance=ExtResource("14_8ddll")]
-z_index = -3
 position = Vector2(4061, -577)
 animation = &"Spire1"
 
 [node name="CrystalSpire3" parent="." instance=ExtResource("14_8ddll")]
-z_index = -3
 position = Vector2(6239, -572)
 
 [node name="CrystalSpire4" parent="." instance=ExtResource("14_8ddll")]
-z_index = -3
 position = Vector2(9878, -572)
 
 [node name="CrystalSpire5" parent="." instance=ExtResource("14_8ddll")]
-z_index = -3
 position = Vector2(14775, -574)
 
 [node name="VirelliaBackgroundGradiantTransparent" type="Sprite2D" parent="."]
-z_index = 3
+z_index = 2
 position = Vector2(9137.75, -1175.5)
 scale = Vector2(72.443, 9.293)
 texture = ExtResource("3_f2h58")

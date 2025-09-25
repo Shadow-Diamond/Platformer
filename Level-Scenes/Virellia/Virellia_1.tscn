@@ -236,51 +236,39 @@ empty_selection_clipboard_enabled = false
 position = Vector2(16909, -639)
 
 [node name="VirelliaSpikes" parent="." instance=ExtResource("8_50bb1")]
-z_index = 4
 position = Vector2(5248, -64)
 
 [node name="VirelliaSpikes2" parent="." instance=ExtResource("8_50bb1")]
-z_index = 4
 position = Vector2(5376, -64)
 
 [node name="VirelliaSpikes3" parent="." instance=ExtResource("8_50bb1")]
-z_index = 4
 position = Vector2(5504, -64)
 
 [node name="VirelliaSpikes4" parent="." instance=ExtResource("8_50bb1")]
-z_index = 4
 position = Vector2(5633, -64)
 
 [node name="VirelliaSpikes5" parent="." instance=ExtResource("8_50bb1")]
-z_index = 4
 position = Vector2(5760, -64)
 
 [node name="VirelliaSpikes6" parent="." instance=ExtResource("8_50bb1")]
-z_index = 4
 position = Vector2(5888, -64)
 
 [node name="VirelliaSpikes7" parent="." instance=ExtResource("8_50bb1")]
-z_index = 4
 position = Vector2(13376, -64)
 
 [node name="VirelliaSpikes8" parent="." instance=ExtResource("8_50bb1")]
-z_index = 4
 position = Vector2(13248, -64)
 
 [node name="VirelliaSpikes9" parent="." instance=ExtResource("8_50bb1")]
-z_index = 4
 position = Vector2(12736, -64)
 
 [node name="VirelliaSpikes10" parent="." instance=ExtResource("8_50bb1")]
-z_index = 4
 position = Vector2(12864, -64)
 
 [node name="VirelliaSpikes11" parent="." instance=ExtResource("8_50bb1")]
-z_index = 4
 position = Vector2(12992, -64)
 
 [node name="VirelliaSpikes12" parent="." instance=ExtResource("8_50bb1")]
-z_index = 4
 position = Vector2(13120, -64)
 
 [node name="VirelliaBlock7" parent="." instance=ExtResource("7_oayy4")]

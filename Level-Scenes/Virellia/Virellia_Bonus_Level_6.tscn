@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://3vqa1g5upv3h"]
+[gd_scene load_steps=21 format=4 uid="uid://3vqa1g5upv3h"]
 
 [ext_resource type="PackedScene" uid="uid://dswg81h0jwfl1" path="res://TileMaps_or_Similar/Virellia/Virellia_Bricks.tscn" id="1_76bwl"]
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="2_8um8d"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://24c8byfyybe" path="res://TileMaps_or_Similar/Virellia/crystal_spire.tscn" id="14_5oymf"]
 [ext_resource type="PackedScene" uid="uid://bmuu40tqixmye" path="res://TileMaps_or_Similar/Virellia/virellia_cloud.tscn" id="15_m4iej"]
 [ext_resource type="PackedScene" uid="uid://caa1vw0im8uy8" path="res://Character-Scenes/Player-Scenes/Player.tscn" id="16_tr565"]
-[ext_resource type="PackedScene" uid="uid://biyod5nxb6fvn" path="res://Item-Scenes/jump_suit_item.tscn" id="17_8um8d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aveq3"]
 
@@ -628,6 +627,3 @@ drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
-
-[node name="Suit_Upgrade" parent="." instance=ExtResource("17_8um8d")]
-position = Vector2(1732, -338)

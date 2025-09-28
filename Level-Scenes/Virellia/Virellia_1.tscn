@@ -181,18 +181,18 @@ virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
-[node name="food_tut" type="TextEdit" parent="."]
+[node name="item_box_tut_3" type="TextEdit" parent="."]
 z_index = 4
-offset_left = 8389.0
-offset_top = -1268.0
-offset_right = 9148.0
-offset_bottom = -951.0
+offset_left = 6831.0
+offset_top = -486.0
+offset_right = 7725.0
+offset_bottom = -190.0
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wmi34")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_rqiau")
-text = "This Item Will Give You
-One Health Point, 
-Turning Your Suit White"
+text = "These stars are Power Up
+boxes. Hit them from below
+to get a variety of things."
 editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
@@ -204,18 +204,18 @@ virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
-[node name="final_tut" type="TextEdit" parent="."]
+[node name="suit_tut" type="TextEdit" parent="."]
 z_index = 4
-offset_left = 11937.0
-offset_top = -1155.0
-offset_right = 12783.0
-offset_bottom = -863.0
+offset_left = 8389.0
+offset_top = -1268.0
+offset_right = 9148.0
+offset_bottom = -951.0
 theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wmi34")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_rqiau")
-text = "From This Point Onward,
-You Are On Your Own,
-Except For New Power Ups"
+text = "This Item Will Give You
+One Health Point, 
+Turning Your Suit White"
 editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false

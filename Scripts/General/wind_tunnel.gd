@@ -27,7 +27,6 @@ func object_exited_wind_tunnel(_body):
 		_player = null
 
 func _physics_process(delta: float) -> void:
-	print(_direction)
 	_direction = Vector2.RIGHT.rotated(global_rotation)
 	if not _Outward:
 		_direction = -_direction

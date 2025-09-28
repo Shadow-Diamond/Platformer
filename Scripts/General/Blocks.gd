@@ -41,7 +41,6 @@ func _on_detector_hit(_body):
 		var _item_instance = null
 		var item = null
 		item = ItemDB.ITEMS[_itemName]
-		print(GameManager.player_suit)
 		if GameManager.player_suit == "basic_suit" and item.has("suit_value"):
 			item = ItemDB.ITEMS["better_suit_item"]
 			var _item_scene = load(item["path"])
@@ -52,6 +51,8 @@ func _on_detector_hit(_body):
 			print("Item: ", item)
 			_item_instance = _item_scene.instantiate()
 		_item_instance.z_index = 5
+		if "active" in _item_instance:
+			_item_instance.active = false
 		if "fallable" in _item_instance:
 			_can_fall = item["fallable"]
 		if "mobile" in _item_instance:
@@ -78,6 +79,7 @@ func _animate_pop_out(node):
 		if "mobile" in node:
 			node.mobile = _can_move
 			node.fallable = _can_fall
+			node.active = true
 
 func _on_item_collected():
 	if tween:

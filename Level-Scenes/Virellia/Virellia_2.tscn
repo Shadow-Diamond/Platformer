@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cwkxb60cemvpt"]
+[gd_scene load_steps=19 format=4 uid="uid://cwkxb60cemvpt"]
 
 [ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/EnemyOrPlayer/follow_cam.gd" id="1_8tkvh"]
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_sfody"]
@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cmqahtnb45q02" path="res://TileMaps_or_Similar/Virellia/Virellia_Block.tscn" id="6_rf26d"]
 [ext_resource type="PackedScene" uid="uid://tie7m42q5wke" path="res://TileMaps_or_Similar/Virellia/Virellia_Spikes.tscn" id="7_5era0"]
 [ext_resource type="PackedScene" uid="uid://u5mjqm6k3b" path="res://TileMaps_or_Similar/Virellia/very_long_wind_tunnel.tscn" id="8_5wyi3"]
-[ext_resource type="Script" uid="uid://ciwj7xines8od" path="res://Scripts/EnemyOrPlayer/ScoreBox.gd" id="9_1tin7"]
 [ext_resource type="PackedScene" uid="uid://o41ya2scd4mu" path="res://TileMaps_or_Similar/Virellia/medium_wind_tunnel.tscn" id="9_7r6c7"]
+[ext_resource type="PackedScene" uid="uid://k1tholare0j3" path="res://Character-Scenes/Player-Scenes/score_box.tscn" id="9_kfj3b"]
 [ext_resource type="PackedScene" uid="uid://cqah8e7vsn7c8" path="res://Item-Scenes/Virellia/Diamond.tscn" id="10_qdwfm"]
 [ext_resource type="PackedScene" uid="uid://dn0ix17a3tkkg" path="res://Item-Scenes/Rocket_Finish.tscn" id="11_575hq"]
 [ext_resource type="Texture2D" uid="uid://b1cgkpme7gkxp" path="res://Textures/Virellia/other_textures/Virellia_Background_Gradiant.png" id="13_kfj3b"]
@@ -20,10 +20,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7r6c7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1tin7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cw6h2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aveq3"]
 
 [node name="Virellia-LVL2" type="Node2D"]
 
@@ -170,27 +166,7 @@ virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
-[node name="ScoreBox" type="TextEdit" parent="."]
-z_index = 4
-offset_left = 1232.0
-offset_top = 640.0
-offset_right = 1666.0
-offset_bottom = 755.0
-theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxEmpty_cw6h2")
-theme_override_styles/read_only = SubResource("StyleBoxEmpty_aveq3")
-text = "Score: 0"
-editable = false
-context_menu_enabled = false
-emoji_menu_enabled = false
-shortcut_keys_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-empty_selection_clipboard_enabled = false
-script = ExtResource("9_1tin7")
+[node name="ScoreBox" parent="." instance=ExtResource("9_kfj3b")]
 
 [node name="Diamond" parent="." instance=ExtResource("10_qdwfm")]
 position = Vector2(31038, -5305)
@@ -203,10 +179,6 @@ position = Vector2(27971, -4409)
 
 [node name="Rocket" parent="." instance=ExtResource("11_575hq")]
 position = Vector2(34615, -640)
-
-[node name="Player" parent="." instance=ExtResource("3_8tkvh")]
-position = Vector2(415, -330)
-_jump_velocity = 1100.0
 
 [node name="VirelliaBackgroundGradiant" type="Sprite2D" parent="."]
 position = Vector2(17697.5, -3835.5)
@@ -486,3 +458,7 @@ scale = Vector2(16, 16)
 [node name="CrystalSpire8" parent="." instance=ExtResource("16_c62o4")]
 position = Vector2(24411, -130)
 scale = Vector2(16, 16)
+
+[node name="Player" parent="." instance=ExtResource("3_8tkvh")]
+position = Vector2(13091, -691)
+_jump_velocity = 1100.0

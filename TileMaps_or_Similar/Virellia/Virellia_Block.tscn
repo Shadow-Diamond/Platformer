@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cmqahtnb45q02"]
 
 [ext_resource type="Script" uid="uid://cwxep8uhtupih" path="res://Scripts/General/Blocks.gd" id="1_qyoe5"]
-[ext_resource type="Texture2D" uid="uid://clv5pxecscw54" path="res://Textures/Virellia/Ground_textures/silver-black_Hex_Blinking_Floating_Bricks.png" id="2_8f5qu"]
+[ext_resource type="Texture2D" uid="uid://clv5pxecscw54" path="res://Textures/Virellia/ground_textures/silver-black_Hex_Blinking_Floating_Bricks.png" id="2_8f5qu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mblav"]
 atlas = ExtResource("2_8f5qu")

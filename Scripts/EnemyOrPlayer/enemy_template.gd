@@ -19,6 +19,7 @@ var _prev_pos : Vector2 = Vector2.ZERO
 var _flip_mult : int = 1
 var _flip_delay : bool = false
 var _has_gravity : bool = true
+var active : bool = true
 
 func _ready():
 	_self_hitbox.disabled = false
@@ -60,9 +61,10 @@ func _move(delta):
 	if _has_gravity:
 		_fall(delta)
 	
-	if mobile and !_dead:
+	if mobile and !_dead and active:
 		_movement()
 	else:
+		print("hello")
 		_sprite.play("Idle")
 		velocity.x = 0
 	

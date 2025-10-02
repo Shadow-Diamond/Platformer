@@ -38,6 +38,7 @@ extends Node
 var current_level = null
 var level_num = null
 var level_cat = null
+var paused = false
 
 var player_suit = "basic_suit"
 
@@ -45,7 +46,17 @@ var remaining_lives = 3
 
 var currency : int = 0
 
+var _pause_menu_scene = preload("res://Level-Scenes/pause_menu.tscn")
+var _pause_menu
+
 func _ready():
+	set_process_mode(Node.PROCESS_MODE_ALWAYS) 
+	var _canvas = CanvasLayer.new()
+	add_child(_canvas)
+	_pause_menu = _pause_menu_scene.instantiate()
+	_canvas.add_child(_pause_menu)
+	_pause_menu.hide()
+	
 	current_level = Levels["Misc"]["LevelSelect"]
 	
 	# Signals from SignalBus
@@ -127,3 +138,60 @@ func purchase_planet(planet_name):
 	else:
 		currency -= purchase_price[planet_name]
 		purchased_planet[planet_name] = true
+
+func _input(_event):
+	if _event.is_action_pressed("Pause") and current_level != Levels["Misc"]["LevelSelect"]:
+		if get_tree().paused:
+			unpause()
+		else:
+			get_tree().paused = true
+			_pause_menu.show()
+
+func unpause():
+	_pause_menu.hide()
+	get_tree().paused = false
+
+func save_status():
+	var file = FileAccess.open("res://save.dat", FileAccess.WRITE)
+	if file:
+		file.store_var(num_levels_per_planet)
+		file.store_var(num_levels_comp)
+		file.store_var(purchased_planet)
+		file.store_var(purchase_price)
+		file.store_var(currency)
+		file.store_var(player_suit)
+		file.close()
+	else:
+		print("Save failed")
+
+func load_status():
+	var file = FileAccess.open("res://save.dat", FileAccess.READ)
+	if file:
+		var num_levels_dict = {}
+		var num_levels_comp_dict = {}
+		var purchased_dict = {}
+		var costs_dict = {}
+		var money
+		var suit
+		if not file.eof_reached():
+			num_levels_dict = file.get_var()
+			num_levels_comp_dict = file.get_var()
+			purchased_dict = file.get_var()
+			costs_dict = file.get_var()
+			money = file.get_var()
+			suit = file.get_var()
+		file.close()
+		num_levels_per_planet = num_levels_dict
+		num_levels_comp = num_levels_comp_dict
+		purchased_planet = purchased_dict
+		purchase_price = costs_dict
+		currency = money
+		player_suit = suit
+	else:
+		print("Load failed")
+	
+func quit_level():
+	var scene = Levels["Misc"]["LevelSelect"]
+	_pause_menu.hide()
+	get_tree().paused = false
+	load_scene(scene)

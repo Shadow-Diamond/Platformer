@@ -2,7 +2,7 @@ extends Node
 
 @onready var Levels = {
 	"Misc":{
-		"MainMenu": 1,
+		"MainMenu": "res://Level-Scenes/MainMenu.tscn",
 		"LevelSelect": "res://Level-Scenes/LevelSelect.tscn"
 	},
 	"Virellia": {
@@ -57,7 +57,7 @@ func _ready():
 	_canvas.add_child(_pause_menu)
 	_pause_menu.hide()
 	
-	current_level = Levels["Misc"]["LevelSelect"]
+	current_level = Levels["Misc"]["MainMenu"]
 	
 	# Signals from SignalBus
 	SignalBus.e_death.connect(_enemy_died)

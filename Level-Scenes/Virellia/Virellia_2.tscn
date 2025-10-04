@@ -460,5 +460,5 @@ position = Vector2(24411, -130)
 scale = Vector2(16, 16)
 
 [node name="Player" parent="." instance=ExtResource("3_8tkvh")]
-position = Vector2(13091, -691)
+position = Vector2(386, -298)
 _jump_velocity = 1100.0

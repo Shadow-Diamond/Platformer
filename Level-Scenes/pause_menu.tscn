@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvmh2taxlydin"]
+[gd_scene load_steps=4 format=3 uid="uid://dvmh2taxlydin"]
 
 [ext_resource type="Script" uid="uid://c8niws0j835em" path="res://Scripts/MenuSpecific/pause_menu.gd" id="1_732mo"]
+
+[sub_resource type="Theme" id="Theme_732mo"]
+TextEdit/colors/background_color = Color(0, 0, 0, 0.27451)
+TextEdit/colors/font_readonly_color = Color(0.87451, 0.87451, 0.87451, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hmtm8"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -40,11 +46,39 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Save"
 
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Exit Level"
+
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Quit"
+text = "Quit Game"
+
+[node name="DataText" type="TextEdit" parent="."]
+z_index = 4
+layout_mode = 2
+offset_left = 681.0
+offset_top = 752.0
+offset_right = 1235.0
+offset_bottom = 854.0
+theme = SubResource("Theme_732mo")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hmtm8")
+text = "Game Data Saved"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Save" to="." method="_on_save"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_quit_level"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_game"]

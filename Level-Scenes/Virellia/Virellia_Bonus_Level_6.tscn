@@ -600,7 +600,6 @@ empty_selection_clipboard_enabled = false
 script = ExtResource("3_odbrl")
 
 [node name="Player" parent="." instance=ExtResource("16_tr565")]
-z_index = 1
 position = Vector2(217, -463)
 _jump_velocity = 1100.0
 

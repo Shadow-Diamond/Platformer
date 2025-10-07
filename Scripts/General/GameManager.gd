@@ -48,8 +48,10 @@ var currency : int = 0
 
 var _pause_menu_scene = preload("res://Level-Scenes/pause_menu.tscn")
 var _pause_menu
+var osType
 
 func _ready():
+	osType = OS.get_name()
 	set_process_mode(Node.PROCESS_MODE_ALWAYS) 
 	var _canvas = CanvasLayer.new()
 	add_child(_canvas)

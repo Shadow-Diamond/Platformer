@@ -1,13 +1,13 @@
 extends Control
 
-@onready var resume: Button = $MarginContainer/VBoxContainer/Resume
-@onready var save: Button = $MarginContainer/VBoxContainer/Save
-@onready var quit: Button = $MarginContainer/VBoxContainer/Quit
 @onready var dataText = $DataText
+var disable_quit = false
 
 func _ready():
 	set_process_mode(Node.PROCESS_MODE_ALWAYS) 
 	dataText.hide()
+	if GameManager.osType == "Web":
+		disable_quit = true
 
 func _on_resume():
 	GameManager.unpause()
@@ -21,7 +21,8 @@ func _on_quit_level():
 	GameManager.quit_level()
 
 func _on_quit_game():
-	get_tree().quit()
+	if not disable_quit:
+		get_tree().quit()
 
 func _hide_save():
 	dataText.hide()

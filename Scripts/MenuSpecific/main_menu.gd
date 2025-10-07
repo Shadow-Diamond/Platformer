@@ -1,9 +1,12 @@
 extends Node
 
 @onready var dataText = $MainMenuUI/DataText
+var disable_quit = false
 
 func _ready():
 	dataText.hide()
+	if GameManager.osType == "Web":
+		disable_quit = true
 
 func _on_play():
 	var scene = GameManager.Levels["Misc"]["LevelSelect"]
@@ -15,7 +18,8 @@ func _on_load():
 	GameManager.create_timer(self, 2.5, _hide_text)
 
 func _on_quit():
-	get_tree().quit()
+	if not disable_quit:
+		get_tree().quit()
 
 func _hide_text():
 	dataText.hide()

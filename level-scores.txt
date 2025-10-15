@@ -3,5 +3,5 @@ The next level is intended to have a higher max score than the previous level.
 Virellia 1: 53
 Virellia 2: 78
 Virellia 3: 99
-Virellia 4:
+Virellia 4: 50
 Virellia 5:

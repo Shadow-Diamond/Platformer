@@ -64,7 +64,6 @@ func _move(delta):
 	if mobile and !_dead and active:
 		_movement()
 	else:
-		print("hello")
 		_sprite.play("Idle")
 		velocity.x = 0
 	

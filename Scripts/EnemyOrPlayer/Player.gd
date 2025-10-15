@@ -79,6 +79,11 @@ func _got_hurt():
 				_health-=1
 				_active_suit = _better_suit
 				_suit_val = 2
+		var _suit_name = str(_active_suit)
+		var _col_pos = _suit_name.find(":")
+		_suit_name = _suit_name.substr(0, _col_pos)
+		GameManager.player_suit = _suit_name.substr(0, _suit_name.length() - 9) + "suit"
+		print(GameManager.player_suit)
 		_toggle_anims(_active_suit)
 
 func _i_frames_reset():

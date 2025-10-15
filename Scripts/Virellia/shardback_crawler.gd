@@ -15,5 +15,5 @@ func _attempt_to_hurt_player(object):
 	if object.is_in_group("player"):
 		print(self.name, " hit Player")
 		SignalBus.hurt_player.emit()
-	elif object.is_in_group("enemies"):
+	elif object.is_in_group("enemies") and object != self:
 		_move_flip(null)

@@ -242,6 +242,7 @@ empty_selection_clipboard_enabled = false
 
 [node name="DataText" type="TextEdit" parent="MainMenuUI"]
 z_index = 4
+layout_mode = 0
 offset_left = -116.0
 offset_top = 295.0
 offset_right = 437.0

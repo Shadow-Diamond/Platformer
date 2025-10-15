@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=4 uid="uid://ff2rlvdsuib7"]
+
+[ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_k0wlo"]
+[ext_resource type="PackedScene" uid="uid://dswg81h0jwfl1" path="res://TileMaps_or_Similar/Virellia/Virellia_Bricks.tscn" id="2_h37pm"]
+[ext_resource type="PackedScene" uid="uid://d3v3ypip54nwr" path="res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn" id="3_35bwi"]
+[ext_resource type="PackedScene" uid="uid://cmqahtnb45q02" path="res://TileMaps_or_Similar/Virellia/Virellia_Block.tscn" id="4_n765y"]
+[ext_resource type="PackedScene" uid="uid://caa1vw0im8uy8" path="res://Character-Scenes/Player-Scenes/Player.tscn" id="5_ch8l5"]
+[ext_resource type="PackedScene" uid="uid://biyod5nxb6fvn" path="res://Item-Scenes/jump_suit_item.tscn" id="6_44olj"]
+
+[node name="Virellia4" type="Node2D"]
+
+[node name="VirelliaGround" parent="." instance=ExtResource("1_k0wlo")]
+tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAD///z/AAAAAAAAAAD///v/AAAAAAAAAAD///r/AAAAAAAAAAD///n/AAAAAAAAAAD///j/AAAAAAAAAAD///f/AAAAAAAAAAD///b/AAAAAAAAAAD///X/AAAAAAAAAAD///T/AAAAAAAAAAD///P/AAAAAAAAAAD///L/AAAAAAAAAAD///H/AAAAAAAAAAD///D/AAAAAAAAAAD//+//AAAAAAAAAAD//+7/AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAAOAP//AAAAAAAAAAAPAP//AAAAAAAAAAAQAP//AAAAAAAAAAARAP//AAAAAAAAAAAHAP7/AAAAAAAAAAAHAPr/AAAAAAAAAAAHAPn/AAAAAAAAAAAIAPn/AAAAAAAAAAAJAPn/AAAAAAAAAAAKAPn/AAAAAAAAAAALAPn/AAAAAAAAAAAMAPn/AAAAAAAAAAANAPn/AAAAAAAAAAAOAPn/AAAAAAAAAAAPAPn/AAAAAAAAAAAQAPn/AAAAAAAAAAARAPn/AAAAAAAAAAASAP7/AAAAAAAAAAASAP//AAAAAAAAAAATAP//AAAAAAAAAAAUAP//AAAAAAAAAAAVAP//AAAAAAAAAAAWAP//AAAAAAAAAAAXAP//AAAAAAAAAAAYAP//AAAAAAAAAAAYAP7/AAAAAAAAAAAXAP7/AAAAAAAAAAAWAP7/AAAAAAAAAAAVAP7/AAAAAAAAAAAUAP7/AAAAAAAAAAATAP7/AAAAAAAAAAAZAPn/AAAAAAAAAAAZAPr/AAAAAAAAAAAZAPv/AAAAAAAAAAAZAPz/AAAAAAAAAAAZAP3/AAAAAAAAAAAZAP7/AAAAAAAAAAAZAP//AAAAAAAAAAARAPj/AAAAAAAAAAARAPf/AAAAAAAAAAARAPb/AAAAAAAAAAASAPb/AAAAAAAAAAATAPb/AAAAAAAAAAAUAPb/AAAAAAAAAAAVAPb/AAAAAAAAAAAWAPb/AAAAAAAAAAAXAPb/AAAAAAAAAAAYAPb/AAAAAAAAAAAZAPb/AAAAAAAAAAAZAPf/AAAAAAAAAAAZAPj/AAAAAAAAAAA=")
+
+[node name="VirelliaBricks" parent="." instance=ExtResource("2_h37pm")]
+tile_map_data = PackedByteArray("AAAjAPr/AAAQAAAAAAAiAPr/AAAIAAAAAAAhAPr/AAAIAAAAAAAgAPr/AAAIAAAAAAAfAPr/AAAIAAAAAAAeAPr/AAAIAAAAAAAdAPr/AAAAAAAAAAACAPv/AAAAAAAAAAADAPv/AAAIAAAAAAAEAPv/AAAQAAAAAAA=")
+
+[node name="ShardbackCrawler" parent="." instance=ExtResource("3_35bwi")]
+position = Vector2(1646, -222)
+mobile = true
+
+[node name="ShardbackCrawler2" parent="." instance=ExtResource("3_35bwi")]
+position = Vector2(2048, -243)
+mobile = true
+
+[node name="ShardbackCrawler3" parent="." instance=ExtResource("3_35bwi")]
+position = Vector2(2428, -234)
+mobile = true
+
+[node name="ShardbackCrawler4" parent="." instance=ExtResource("3_35bwi")]
+position = Vector2(2794, -228)
+mobile = true
+
+[node name="ShardbackCrawler6" parent="." instance=ExtResource("3_35bwi")]
+position = Vector2(3247, -229)
+mobile = true
+
+[node name="VirelliaBlock" parent="." instance=ExtResource("4_n765y")]
+position = Vector2(3902, -704)
+_middle_block = true
+_itemName = "virellia_diamond"
+
+[node name="VirelliaBlock2" parent="." instance=ExtResource("4_n765y")]
+position = Vector2(4030, -704)
+_middle_block = true
+_itemName = "virellia_diamond"
+
+[node name="VirelliaBlock3" parent="." instance=ExtResource("4_n765y")]
+position = Vector2(4158, -704)
+_middle_block = true
+_itemName = "virellia_diamond"
+
+[node name="VirelliaBlock4" parent="." instance=ExtResource("4_n765y")]
+position = Vector2(4286, -704)
+_middle_block = true
+_itemName = "virellia_diamond"
+
+[node name="VirelliaBlock5" parent="." instance=ExtResource("4_n765y")]
+position = Vector2(4414, -704)
+_middle_block = true
+_itemName = "virellia_diamond"
+
+[node name="Player" parent="." instance=ExtResource("5_ch8l5")]
+position = Vector2(897, -422)
+_jump_velocity = 1100.0
+
+[node name="Suit_Upgrade" parent="." instance=ExtResource("6_44olj")]
+position = Vector2(918, -359)

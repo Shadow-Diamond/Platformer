@@ -87,10 +87,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6so4c"]
-size = Vector2(26, 28.9733)
+size = Vector2(29, 28.9733)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk2dh"]
-size = Vector2(29, 29.9671)
+size = Vector2(34.5, 29.9671)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gkbc"]
 
@@ -108,7 +108,7 @@ sprite_frames = SubResource("SpriteFrames_wac4n")
 animation = &"Idle"
 
 [node name="enemy_hit_box" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5.51336)
+position = Vector2(2, 5.51336)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_6so4c")
 
@@ -118,7 +118,7 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="kill_box_collision" type="CollisionShape2D" parent="PKillBox"]
-position = Vector2(0.5, 0.983544)
+position = Vector2(0.500001, 0.983544)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_vk2dh")
 

@@ -13,9 +13,10 @@ func _on_resume():
 	GameManager.unpause()
 
 func _on_save():
-	GameManager.save_status()
-	dataText.show()
-	GameManager.create_timer(self, 2.5, _hide_save)
+	if not disable_quit:
+		GameManager.save_status()
+		dataText.show()
+		GameManager.create_timer(self, 2.5, _hide_save)
 
 func _on_quit_level():
 	GameManager.quit_level()

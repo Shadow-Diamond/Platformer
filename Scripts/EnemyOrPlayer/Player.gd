@@ -5,11 +5,6 @@ extends CharacterBody2D
 @export var _kill_bounce_decrease : float = 2
 
 @onready var main_camera: Camera2D = $Camera2D
-@export var _mc_left_marg: float
-@export var _mc_top_marg: float
-@export var _mc_right_marg: float
-@export var _mc_bottom_marg: float
-@export var _mc_upper_bound: int = 0
 
 @onready var hitbox = $HurtBox
 @onready var ground_coll = $GroundCollision

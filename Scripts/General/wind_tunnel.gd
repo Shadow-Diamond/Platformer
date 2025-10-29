@@ -5,7 +5,6 @@ extends Node2D
 
 @onready var _windy_area = $WindArea
 @onready var _sprite = $AnimatedSprite2D
-@onready var _wind_coll = $WindArea/wind_affect_area
 
 var _player = null
 var _direction
@@ -26,7 +25,7 @@ func object_exited_wind_tunnel(_body):
 	if _body.is_in_group("player"):
 		_player = null
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	_direction = Vector2.RIGHT.rotated(global_rotation)
 	if not _Outward:
 		_direction = -_direction

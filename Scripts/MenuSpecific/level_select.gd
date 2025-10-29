@@ -20,6 +20,7 @@ extends Node2D
 var cur_planet = null
 var cur_planet_index = 0
 var planet_list_size = null
+var _disable_move = false
 
 
 func _ready():
@@ -42,7 +43,7 @@ func _physics_process(_delta):
 		select_button.text = "Purchase: " + str(GameManager.purchase_price[cur_planet.name])
 	else:
 		select_button.text = "Select"
-	if Input.is_action_just_pressed("Right"):
+	if Input.is_action_just_pressed("Right") and not _disable_move:
 		var newIndex = cur_planet_index + 1
 		if newIndex < planet_list_size:
 			cur_planet.get_node("Background").visible = false
@@ -57,7 +58,7 @@ func _physics_process(_delta):
 			back_button.position.x += distance
 			cur_planet.get_node("Background").visible = true
 			cur_planet.get_node("Background2").visible = true
-	elif Input.is_action_just_pressed("Left"):
+	elif Input.is_action_just_pressed("Left") and not _disable_move:
 		var newIndex = cur_planet_index - 1
 		if newIndex >= 0:
 			cur_planet.get_node("Background").visible = false
@@ -82,6 +83,7 @@ func _on_select_button_pressed():
 			nec_text.visible = true
 			GameManager.create_timer(self, 5, hide_nec)
 	else:
+		_disable_move = true
 		if distance < 0:
 			addedDist = 0
 		else:
@@ -131,20 +133,22 @@ func _on_select_button_pressed():
 
 
 func _on_back_button_pressed() -> void:
+	_disable_move = false
 	camera.global_position.y -= 1080
 	score_box.global_position.y -= 1080
 
 
 func _on_lvl_1_pressed() -> void:
-	print(GameManager.Levels[str(cur_planet.name)][1])
 	GameManager.load_scene((GameManager.Levels[str(cur_planet.name)][1]))
-
 
 func _on_lvl_2_pressed() -> void:
 	GameManager.load_scene((GameManager.Levels[str(cur_planet.name)][2]))
 
 func _on_lvl_3_pressed() -> void:
 	GameManager.load_scene((GameManager.Levels[str(cur_planet.name)][3]))
+
+func _on_lvl_4_pressed() -> void:
+	GameManager.load_scene((GameManager.Levels[str(cur_planet.name)][4]))
 
 func hide_nec():
 	nec_text.visible = false

@@ -9,7 +9,6 @@ extends CharacterBody2D
 @export var suit_value: int = 2
 
 var hit = false
-signal collected
 
 func _ready() -> void:
 	_sprite.play("Idle")

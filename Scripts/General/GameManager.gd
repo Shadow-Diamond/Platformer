@@ -8,7 +8,11 @@ extends Node
 	"Virellia": {
 		1: "res://Level-Scenes/Virellia/Virellia_1.tscn",
 		2: "res://Level-Scenes/Virellia/Virellia_2.tscn",
-		3: "res://Level-Scenes/Virellia/Virellia_3.tscn"
+		3: "res://Level-Scenes/Virellia/Virellia_3.tscn",
+		4: "res://Level-Scenes/Virellia/Virellia_4.tscn"
+	},
+	"Giltera": {
+		
 	},
 	"Chromatic_Bonuses": {
 		1: "res://Level-Scenes/Virellia/Virellia_Bonus_Level_6.tscn"
@@ -16,22 +20,26 @@ extends Node
 }
 
 @onready var num_levels_per_planet = {
-	"Virellia": 3,
+	"Virellia": 4,
+	"Giltera": 0,
 	"Chromatic_Bonuses": 1
 }
 
 @onready var num_levels_comp = {
 	"Virellia": 0,
+	"Giltera": 0,
 	"Chromatic_Bonuses": 1
 }
 
 @onready var purchased_planet = {
 	"Virellia": true,
+	"Giltera": false,
 	"Chromatic_Bonuses": false
 }
 
 @onready var purchase_price = {
 	"Virellia": 0,
+	"Giltera": 100,
 	"Chromatic_Bonuses": 100
 }
 
@@ -41,8 +49,6 @@ var level_cat = null
 var paused = false
 
 var player_suit = "basic_suit"
-
-var remaining_lives = 3
 
 var currency : int = 0
 
@@ -156,7 +162,6 @@ func unpause():
 func save_status():
 	var file = FileAccess.open("res://save.dat", FileAccess.WRITE)
 	if file:
-		file.store_var(num_levels_per_planet)
 		file.store_var(num_levels_comp)
 		file.store_var(purchased_planet)
 		file.store_var(purchase_price)
@@ -169,21 +174,18 @@ func save_status():
 func load_status():
 	var file = FileAccess.open("res://save.dat", FileAccess.READ)
 	if file:
-		var num_levels_dict = {}
 		var num_levels_comp_dict = {}
 		var purchased_dict = {}
 		var costs_dict = {}
 		var money
 		var suit
 		if not file.eof_reached():
-			num_levels_dict = file.get_var()
 			num_levels_comp_dict = file.get_var()
 			purchased_dict = file.get_var()
 			costs_dict = file.get_var()
 			money = file.get_var()
 			suit = file.get_var()
 		file.close()
-		num_levels_per_planet = num_levels_dict
 		num_levels_comp = num_levels_comp_dict
 		purchased_planet = purchased_dict
 		purchase_price = costs_dict

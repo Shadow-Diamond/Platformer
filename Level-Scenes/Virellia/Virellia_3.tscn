@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dosj8ashwaih"]
+[gd_scene load_steps=17 format=4 uid="uid://dosj8ashwaih"]
 
 [ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_57gjp"]
 [ext_resource type="PackedScene" uid="uid://dswg81h0jwfl1" path="res://TileMaps_or_Similar/Virellia/Virellia_Bricks.tscn" id="2_oylqx"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://24c8byfyybe" path="res://TileMaps_or_Similar/Virellia/crystal_spire.tscn" id="11_drd53"]
 [ext_resource type="Texture2D" uid="uid://cpvyapimqa8ud" path="res://Textures/Virellia/other_textures/Virellia_Background_Gradiant_transparent.png" id="12_1anxy"]
 [ext_resource type="PackedScene" uid="uid://bmuu40tqixmye" path="res://TileMaps_or_Similar/Virellia/virellia_cloud.tscn" id="13_drd53"]
+[ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/EnemyOrPlayer/follow_cam.gd" id="14_1anxy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vs07r"]
 
@@ -206,6 +207,34 @@ mobile = true
 position = Vector2(15668, -391)
 mobile = true
 
+[node name="ShardbackCrawler10" parent="." instance=ExtResource("7_hcgff")]
+position = Vector2(15388, -391)
+mobile = true
+
+[node name="ShardbackCrawler11" parent="." instance=ExtResource("7_hcgff")]
+position = Vector2(14796, -391)
+mobile = true
+
+[node name="ShardbackCrawler12" parent="." instance=ExtResource("7_hcgff")]
+position = Vector2(14220, -391)
+mobile = true
+
+[node name="ShardbackCrawler13" parent="." instance=ExtResource("7_hcgff")]
+position = Vector2(13580, -391)
+mobile = true
+
+[node name="ShardbackCrawler14" parent="." instance=ExtResource("7_hcgff")]
+position = Vector2(13012, -391)
+mobile = true
+
+[node name="ShardbackCrawler15" parent="." instance=ExtResource("7_hcgff")]
+position = Vector2(12452, -391)
+mobile = true
+
+[node name="ShardbackCrawler16" parent="." instance=ExtResource("7_hcgff")]
+position = Vector2(11852, -391)
+mobile = true
+
 [node name="VirelliaBlock12" parent="." instance=ExtResource("3_vs07r")]
 position = Vector2(15678, -704)
 _itemName = "jump_suit_item"
@@ -390,3 +419,6 @@ position = Vector2(6883, -2891)
 
 [node name="Cloud51" parent="." instance=ExtResource("13_drd53")]
 position = Vector2(5423, -2124)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("14_1anxy")

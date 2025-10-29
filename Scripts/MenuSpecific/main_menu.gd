@@ -13,9 +13,10 @@ func _on_play():
 	GameManager.load_scene(scene)
 
 func _on_load():
-	dataText.show()
-	GameManager.load_status()
-	GameManager.create_timer(self, 2.5, _hide_text)
+	if not disable_quit:
+		dataText.show()
+		GameManager.load_status()
+		GameManager.create_timer(self, 2.5, _hide_text)
 
 func _on_quit():
 	if not disable_quit:

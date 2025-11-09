@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvvw8nixlox1g"]
+
+[ext_resource type="Texture2D" uid="uid://c8yjjr3sqnqpv" path="res://Textures/Virellia/ground_textures/crystal-tiles_background.png" id="1_366kl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wmhlu"]
+texture = ExtResource("1_366kl")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_31erg"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_wmhlu")
+
+[node name="crystal_tiles_background" type="TileMapLayer"]
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_31erg")

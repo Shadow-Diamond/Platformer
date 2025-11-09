@@ -1,28 +1,107 @@
-[gd_scene load_steps=5 format=4 uid="uid://d1mq3j5dynrpm"]
+[gd_scene load_steps=22 format=4 uid="uid://d1mq3j5dynrpm"]
 
-[ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps/Virellia_Ground.tscn" id="1_vupj3"]
-[ext_resource type="PackedScene" uid="uid://ir14n1jx3qm8" path="res://Character-Scenes/Player-Scenes/Player.tscn" id="3_jpxfj"]
-[ext_resource type="PackedScene" uid="uid://n8w37b6pwmen" path="res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn" id="3_vupj3"]
-[ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/follow_cam.gd" id="4_21lb3"]
+[ext_resource type="Texture2D" uid="uid://b1cgkpme7gkxp" path="res://Textures/Virellia/other_textures/Virellia_Background_Gradiant.png" id="1_0udbm"]
+[ext_resource type="PackedScene" uid="uid://dswg81h0jwfl1" path="res://TileMaps_or_Similar/Virellia/Virellia_Bricks.tscn" id="1_bnbdv"]
+[ext_resource type="PackedScene" uid="uid://crrp8ng8lxo4o" path="res://TileMaps_or_Similar/Virellia/Virellia_Ground.tscn" id="1_vupj3"]
+[ext_resource type="Texture2D" uid="uid://buinfsot23wx7" path="res://Textures/Virellia/ground_textures/silver-black_Hex_Floating_Bricks.png" id="2_iqfl5"]
+[ext_resource type="Texture2D" uid="uid://cpvyapimqa8ud" path="res://Textures/Virellia/other_textures/Virellia_Background_Gradiant_transparent.png" id="3_f2h58"]
+[ext_resource type="Script" uid="uid://bmxq284f3n4f2" path="res://Scripts/EnemyOrPlayer/follow_cam.gd" id="4_21lb3"]
+[ext_resource type="PackedScene" uid="uid://cmqahtnb45q02" path="res://TileMaps_or_Similar/Virellia/Virellia_Block.tscn" id="7_oayy4"]
+[ext_resource type="PackedScene" uid="uid://tie7m42q5wke" path="res://TileMaps_or_Similar/Virellia/Virellia_Spikes.tscn" id="8_50bb1"]
+[ext_resource type="Script" uid="uid://ciwj7xines8od" path="res://Scripts/EnemyOrPlayer/ScoreBox.gd" id="10_wmi34"]
+[ext_resource type="PackedScene" uid="uid://dn0ix17a3tkkg" path="res://Item-Scenes/Rocket_Finish.tscn" id="11_rqiau"]
+[ext_resource type="PackedScene" uid="uid://bmuu40tqixmye" path="res://TileMaps_or_Similar/Virellia/virellia_cloud.tscn" id="13_iqfph"]
+[ext_resource type="PackedScene" uid="uid://24c8byfyybe" path="res://TileMaps_or_Similar/Virellia/crystal_spire.tscn" id="14_8ddll"]
+[ext_resource type="PackedScene" uid="uid://caa1vw0im8uy8" path="res://Character-Scenes/Player-Scenes/Player.tscn" id="15_f2h58"]
+[ext_resource type="PackedScene" uid="uid://ybpt61khq1fn" path="res://Character-Scenes/Enemy-Scenes/Virellia/Future_Spider.tscn" id="15_nq3b4"]
+[ext_resource type="PackedScene" uid="uid://d3v3ypip54nwr" path="res://Character-Scenes/Enemy-Scenes/Virellia/Shardback_Crawler.tscn" id="16_nq3b4"]
 
-[node name="Virellia" type="Node2D"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oayy4"]
+texture = ExtResource("2_iqfl5")
+0:0/size_in_atlas = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -4.06546, -64, 3.99918, -34.0262, 64, 64, 64, 64, -64, -34.0041, -64)
+0:0/0/terrains_peering_bit/right_side = 0
+8:0/size_in_atlas = Vector2i(8, 8)
+8:0/0 = 0
+8:0/0/terrain_set = 0
+8:0/0/terrain = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+8:0/0/terrains_peering_bit/right_side = 0
+8:0/0/terrains_peering_bit/left_side = 0
+16:0/size_in_atlas = Vector2i(8, 8)
+16:0/0 = 0
+16:0/0/terrain_set = 0
+16:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -64, 64, 33.9817, 64, 64, 3.83967, 64, -4.02746, 33.8978, -64)
+16:0/0/terrains_peering_bit/left_side = 0
+24:0/size_in_atlas = Vector2i(8, 8)
+24:0/0 = 0
+24:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -4.03168, -64, 3.99253, -34.054, 64, 34.0148, 64, 64, 4.03168, 64, -4.07082, 34.1169, -64, -34.0148, -64)
+
+[sub_resource type="TileSet" id="TileSet_50bb1"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 5
+physics_layer_0/collision_mask = 4
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Blocks 0"
+terrain_set_0/terrain_0/color = Color(0.694405, 4.33177e-07, 0.401307, 1)
+sources/0 = SubResource("TileSetAtlasSource_oayy4")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wmi34"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rqiau"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0udbm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iqfph"]
+
+[node name="Virellia-LVL1" type="Node2D"]
+
+[node name="VirelliaBackgroundGradiant" type="Sprite2D" parent="."]
+z_as_relative = false
+position = Vector2(9137.75, -1175.5)
+scale = Vector2(72.4434, 9.29297)
+texture = ExtResource("1_0udbm")
+
+[node name="CrystalSpire" parent="." instance=ExtResource("14_8ddll")]
+position = Vector2(1231, -573)
+
+[node name="CrystalSpire2" parent="." instance=ExtResource("14_8ddll")]
+position = Vector2(4061, -577)
+animation = &"Spire1"
+
+[node name="CrystalSpire3" parent="." instance=ExtResource("14_8ddll")]
+position = Vector2(6239, -572)
+
+[node name="CrystalSpire4" parent="." instance=ExtResource("14_8ddll")]
+position = Vector2(9878, -572)
+
+[node name="CrystalSpire5" parent="." instance=ExtResource("14_8ddll")]
+position = Vector2(14775, -574)
+
+[node name="VirelliaBackgroundGradiantTransparent" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(9137.75, -1175.5)
+scale = Vector2(72.443, 9.293)
+texture = ExtResource("3_f2h58")
+
+[node name="VirelliaBricks" parent="." instance=ExtResource("1_bnbdv")]
+tile_map_data = PackedByteArray("AAA9APj/AAAIAAAAAAA+APj/AAAQAAAAAAA8APj/AAAAAAAAAABDAPr/AAAIAAAAAABEAPr/AAAIAAAAAABCAPr/AAAAAAAAAABFAPr/AAAIAAAAAABGAPr/AAAQAAAAAABXAPn/AAAIAAAAAABYAPn/AAAIAAAAAABWAPn/AAAAAAAAAABZAPn/AAAIAAAAAABaAPn/AAAQAAAAAAByAPv/AAAIAAAAAABzAPv/AAAIAAAAAABxAPv/AAAAAAAAAAB0APv/AAAIAAAAAAB1APv/AAAQAAAAAAA2APv/AAAIAAAAAAA3APv/AAAIAAAAAAA1APv/AAAAAAAAAAA4APv/AAAIAAAAAAA5APv/AAAIAAAAAAA6APv/AAAQAAAAAAA=")
+tile_set = SubResource("TileSet_50bb1")
 
 [node name="VirelliaGround" parent="." instance=ExtResource("1_vupj3")]
-tile_map_data = PackedByteArray("AAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAAAAAAGAP//AAAAAAAAAAAFAP//AAAAAAAAAAAEAP//AAAAAAAAAAADAP//AAAAAAAAAAACAP//AAAAAAAAAAABAP//AAAAAAAAAAAAAP//AAAAAAAAAAAJAP//AAAAAAAAAAAJAP7/AAAAAAAAAAAJAP3/AAAAAAAAAAAKAP//AAAAAAAAAAAKAP7/AAAAAAAAAAAKAP3/AAAAAAAAAAAKAPz/AAAAAAAAAAALAP//AAAAAAAAAAALAPv/AAAAAAAAAAALAPz/AAAAAAAAAAALAP3/AAAAAAAAAAALAP7/AAAAAAAAAAAMAPv/AAAAAAAAAAAMAPz/AAAAAAAAAAAMAP3/AAAAAAAAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAANAP7/AAAAAAAAAAANAP3/AAAAAAAAAAANAPz/AAAAAAAAAAANAPv/AAAAAAAAAAAOAPv/AAAAAAAAAAAOAPz/AAAAAAAAAAAOAP3/AAAAAAAAAAAOAP7/AAAAAAAAAAAOAP//AAAAAAAAAAAPAPz/AAAAAAAAAAAPAP3/AAAAAAAAAAAQAP7/AAAAAAAAAAAPAP7/AAAAAAAAAAAPAP//AAAAAAAAAAAQAP//AAAAAAAAAAAQAP3/AAAAAAAAAAARAP7/AAAAAAAAAAARAP//AAAAAAAAAAD/////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAD///z/AAAAAAAAAAD///v/AAAAAAAAAAD///r/AAAAAAAAAAD///n/AAAAAAAAAAD///j/AAAAAAAAAAD///f/AAAAAAAAAAASAP//AAAAAAAAAAATAP//AAAAAAAAAAAUAP//AAAAAAAAAAAVAP//AAAAAAAAAAAWAP//AAAAAAAAAAAXAP//AAAAAAAAAAAYAP//AAAAAAAAAAAZAP//AAAAAAAAAAAaAP//AAAAAAAAAAAbAP//AAAAAAAAAAAcAP//AAAAAAAAAAAdAP//AAAAAAAAAAAeAP//AAAAAAAAAAAfAP//AAAAAAAAAAAgAP//AAAAAAAAAAAhAP//AAAAAAAAAAAiAP//AAAAAAAAAAAjAP//AAAAAAAAAAApAP//AAAAAAAAAAAqAP//AAAAAAAAAAArAP//AAAAAAAAAAAsAP//AAAAAAAAAAAtAP//AAAAAAAAAAAuAP//AAAAAAAAAAAvAP//AAAAAAAAAAAwAP//AAAAAAAAAAAxAP//AAAAAAAAAAAyAP//AAAAAAAAAAAhAP7/AAAAAAAAAAAiAP7/AAAAAAAAAAAiAP3/AAAAAAAAAAAjAP7/AAAAAAAAAAAjAP3/AAAAAAAAAAAjAPz/AAAAAAAAAAApAP7/AAAAAAAAAAAoAP//AAAAAAAAAAAoAP7/AAAAAAAAAAAoAP3/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAAAAAAGAP//AAAAAAAAAAAFAP//AAAAAAAAAAAEAP//AAAAAAAAAAADAP//AAAAAAAAAAACAP//AAAAAAAAAAABAP//AAAAAAAAAAAAAP//AAAAAAAAAAAJAP//AAAAAAAAAAAJAP7/AAAAAAAAAAAJAP3/AAAAAAAAAAAKAP//AAAAAAAAAAAKAP7/AAAAAAAAAAAKAP3/AAAAAAAAAAAKAPz/AAAAAAAAAAALAP//AAAAAAAAAAALAPv/AAAAAAAAAAALAPz/AAAAAAAAAAALAP3/AAAAAAAAAAALAP7/AAAAAAAAAAAMAPv/AAAAAAAAAAAMAPz/AAAAAAAAAAAMAP3/AAAAAAAAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAANAP7/AAAAAAAAAAANAP3/AAAAAAAAAAANAPz/AAAAAAAAAAANAPv/AAAAAAAAAAAOAPv/AAAAAAAAAAAOAPz/AAAAAAAAAAAOAP3/AAAAAAAAAAAOAP7/AAAAAAAAAAAOAP//AAAAAAAAAAAPAPz/AAAAAAAAAAAPAP3/AAAAAAAAAAAQAP7/AAAAAAAAAAAPAP7/AAAAAAAAAAAPAP//AAAAAAAAAAAQAP//AAAAAAAAAAAQAP3/AAAAAAAAAAARAP7/AAAAAAAAAAARAP//AAAAAAAAAAD/////AAAAAAAAAAD///7/AAAAAAAAAAD///3/AAAAAAAAAAD///z/AAAAAAAAAAD///v/AAAAAAAAAAD///r/AAAAAAAAAAD///n/AAAAAAAAAAD///j/AAAAAAAAAAD///f/AAAAAAAAAAASAP//AAAAAAAAAAATAP//AAAAAAAAAAAUAP//AAAAAAAAAAAVAP//AAAAAAAAAAAWAP//AAAAAAAAAAAXAP//AAAAAAAAAAAYAP//AAAAAAAAAAAZAP//AAAAAAAAAAAaAP//AAAAAAAAAAAfAP//AAAAAAAAAAAgAP//AAAAAAAAAAAhAP//AAAAAAAAAAAYAP7/AAAAAAAAAAAZAP7/AAAAAAAAAAAZAP3/AAAAAAAAAAAaAP7/AAAAAAAAAAAaAP3/AAAAAAAAAAAaAPz/AAAAAAAAAAAfAP7/AAAAAAAAAAAfAP3/AAAAAAAAAAAgAP7/AAAAAAAAAAAiAP//AAAAAAAAAAAjAP//AAAAAAAAAAAkAP//AAAAAAAAAAAlAP//AAAAAAAAAAAmAP//AAAAAAAAAAAnAP//AAAAAAAAAAAoAP//AAAAAAAAAAApAP//AAAAAAAAAAAqAP//AAAAAAAAAAArAP//AAAAAAAAAAAsAP//AAAAAAAAAAAtAP//AAAAAAAAAAAuAP//AAAAAAAAAAAvAP//AAAAAAAAAAAwAP//AAAAAAAAAAA4AP//AAAAAAAAAAA5AP//AAAAAAAAAAA6AP//AAAAAAAAAAA7AP//AAAAAAAAAAA8AP//AAAAAAAAAAA9AP//AAAAAAAAAAA+AP7/AAAAAAAAAAA/AP7/AAAAAAAAAABAAP7/AAAAAAAAAABBAP3/AAAAAAAAAAA+AP//AAAAAAAAAAA/AP//AAAAAAAAAABAAP//AAAAAAAAAABBAP//AAAAAAAAAABBAP7/AAAAAAAAAABKAP//AAAAAAAAAABLAP//AAAAAAAAAABMAP//AAAAAAAAAABNAP//AAAAAAAAAABOAP//AAAAAAAAAABPAP//AAAAAAAAAABQAP//AAAAAAAAAAA9AP7/AAAAAAAAAAA8AP7/AAAAAAAAAAA7AP7/AAAAAAAAAAA6AP7/AAAAAAAAAAA5AP7/AAAAAAAAAAA4AP7/AAAAAAAAAABAAP3/AAAAAAAAAAA/AP3/AAAAAAAAAAA+AP3/AAAAAAAAAAA9AP3/AAAAAAAAAAAxAP//AAAAAAAAAAAyAP//AAAAAAAAAAAzAP7/AAAAAAAAAAA0AP7/AAAAAAAAAAA1AP7/AAAAAAAAAAA2AP7/AAAAAAAAAAA3AP7/AAAAAAAAAAA3AP//AAAAAAAAAAA2AP//AAAAAAAAAAA1AP//AAAAAAAAAAA0AP//AAAAAAAAAAAzAP//AAAAAAAAAAA4AP3/AAAAAAAAAAA5AP3/AAAAAAAAAAA6AP3/AAAAAAAAAAA7AP3/AAAAAAAAAAA8AP3/AAAAAAAAAABBAPz/AAAAAAAAAABAAPz/AAAAAAAAAAA/APz/AAAAAAAAAABGAP3/AAAAAAAAAABGAP7/AAAAAAAAAABGAP//AAAAAAAAAABHAP//AAAAAAAAAABHAP7/AAAAAAAAAABIAP//AAAAAAAAAABJAP//AAAAAAAAAABRAP//AAAAAAAAAABSAP//AAAAAAAAAABTAP//AAAAAAAAAABUAP//AAAAAAAAAABVAP//AAAAAAAAAABWAP//AAAAAAAAAABXAP//AAAAAAAAAABYAP//AAAAAAAAAABZAP//AAAAAAAAAABaAP//AAAAAAAAAABaAP7/AAAAAAAAAABaAP3/AAAAAAAAAABaAPz/AAAAAAAAAABaAPv/AAAAAAAAAABaAPr/AAAAAAAAAABaAPn/AAAAAAAAAABaAPj/AAAAAAAAAABaAPf/AAAAAAAAAABbAPf/AAAAAAAAAABcAPf/AAAAAAAAAABdAPf/AAAAAAAAAABeAPf/AAAAAAAAAABfAPf/AAAAAAAAAABfAPj/AAAAAAAAAABeAPj/AAAAAAAAAABdAPj/AAAAAAAAAABcAPj/AAAAAAAAAABbAPj/AAAAAAAAAABbAPn/AAAAAAAAAABcAPn/AAAAAAAAAABdAPn/AAAAAAAAAABeAPn/AAAAAAAAAABfAPn/AAAAAAAAAABfAPr/AAAAAAAAAABeAPr/AAAAAAAAAABdAPr/AAAAAAAAAABcAPr/AAAAAAAAAABbAPr/AAAAAAAAAABbAPv/AAAAAAAAAABcAPv/AAAAAAAAAABdAPv/AAAAAAAAAABeAPv/AAAAAAAAAABfAPv/AAAAAAAAAABfAPz/AAAAAAAAAABeAPz/AAAAAAAAAABdAPz/AAAAAAAAAABcAPz/AAAAAAAAAABbAPz/AAAAAAAAAABbAP3/AAAAAAAAAABcAP3/AAAAAAAAAABdAP3/AAAAAAAAAABeAP3/AAAAAAAAAABfAP3/AAAAAAAAAABfAP7/AAAAAAAAAABeAP7/AAAAAAAAAABdAP7/AAAAAAAAAABcAP7/AAAAAAAAAABbAP7/AAAAAAAAAABbAP//AAAAAAAAAABcAP//AAAAAAAAAABdAP//AAAAAAAAAABeAP//AAAAAAAAAABfAP//AAAAAAAAAAA=")
 
-[node name="Player" parent="." instance=ExtResource("3_jpxfj")]
-position = Vector2(196, -241)
-Jump_Velocity = 960.0
-
-[node name="ShardbackCrawler" parent="." instance=ExtResource("3_vupj3")]
-position = Vector2(2489, -755)
-
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="side_to_side_tut" type="TextEdit" parent="."]
+z_index = 4
 offset_left = 33.0
 offset_top = -619.0
 offset_right = 547.0
 offset_bottom = -417.0
 theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wmi34")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_rqiau")
 text = "A to move Left
 D to move Right"
 editable = false
@@ -36,12 +115,15 @@ virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
-[node name="TextEdit2" type="TextEdit" parent="."]
+[node name="jump_tut" type="TextEdit" parent="."]
+z_index = 4
 offset_left = 1389.0
 offset_top = -602.0
 offset_right = 1903.0
 offset_bottom = -496.0
 theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wmi34")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_rqiau")
 text = "Press W to Jump"
 editable = false
 context_menu_enabled = false
@@ -54,5 +136,300 @@ virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 empty_selection_clipboard_enabled = false
 
+[node name="item_box_tut" type="TextEdit" parent="."]
+z_index = 4
+offset_left = 6229.0
+offset_top = -673.0
+offset_right = 6768.0
+offset_bottom = -463.0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wmi34")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_rqiau")
+text = "Power Up Box
+Hit it from Below"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="item_box_warning_tut" type="TextEdit" parent="."]
+z_index = 4
+offset_left = 6763.0
+offset_top = -966.0
+offset_right = 7633.0
+offset_bottom = -661.0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wmi34")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_rqiau")
+text = "Power Up Boxes May Have
+Enemies Or Items. This Left
+One Holds An Enemy."
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="item_box_tut_3" type="TextEdit" parent="."]
+z_index = 4
+offset_left = 6831.0
+offset_top = -486.0
+offset_right = 7725.0
+offset_bottom = -190.0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wmi34")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_rqiau")
+text = "These stars are Power Up
+boxes. Hit them from below
+to get a variety of things."
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="suit_tut" type="TextEdit" parent="."]
+z_index = 4
+offset_left = 8389.0
+offset_top = -1268.0
+offset_right = 9148.0
+offset_bottom = -951.0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wmi34")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_rqiau")
+text = "This Item Will Give You
+One Health Point, 
+Turning Your Suit White"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="Rocket" parent="." instance=ExtResource("11_rqiau")]
+position = Vector2(16909, -639)
+
+[node name="VirelliaSpikes" parent="." instance=ExtResource("8_50bb1")]
+position = Vector2(5248, -64)
+
+[node name="VirelliaSpikes2" parent="." instance=ExtResource("8_50bb1")]
+position = Vector2(5376, -64)
+
+[node name="VirelliaSpikes3" parent="." instance=ExtResource("8_50bb1")]
+position = Vector2(5504, -64)
+
+[node name="VirelliaSpikes4" parent="." instance=ExtResource("8_50bb1")]
+position = Vector2(5633, -64)
+
+[node name="VirelliaSpikes5" parent="." instance=ExtResource("8_50bb1")]
+position = Vector2(5760, -64)
+
+[node name="VirelliaSpikes6" parent="." instance=ExtResource("8_50bb1")]
+position = Vector2(5888, -64)
+
+[node name="VirelliaSpikes7" parent="." instance=ExtResource("8_50bb1")]
+position = Vector2(13376, -64)
+
+[node name="VirelliaSpikes8" parent="." instance=ExtResource("8_50bb1")]
+position = Vector2(13248, -64)
+
+[node name="VirelliaSpikes9" parent="." instance=ExtResource("8_50bb1")]
+position = Vector2(12736, -64)
+
+[node name="VirelliaSpikes10" parent="." instance=ExtResource("8_50bb1")]
+position = Vector2(12864, -64)
+
+[node name="VirelliaSpikes11" parent="." instance=ExtResource("8_50bb1")]
+position = Vector2(12992, -64)
+
+[node name="VirelliaSpikes12" parent="." instance=ExtResource("8_50bb1")]
+position = Vector2(13120, -64)
+
+[node name="VirelliaBlock7" parent="." instance=ExtResource("7_oayy4")]
+position = Vector2(7230, -576)
+_middle_block = true
+_itemName = "virellia_diamond"
+
+[node name="VirelliaBlock2" parent="." instance=ExtResource("7_oayy4")]
+position = Vector2(8766, -704)
+_middle_block = true
+_itemName = "better_suit_item"
+
+[node name="VirelliaBlock3" parent="." instance=ExtResource("7_oayy4")]
+position = Vector2(11326, -832)
+_middle_block = true
+_itemName = "virellia_diamond"
+
+[node name="VirelliaBlock4" parent="." instance=ExtResource("7_oayy4")]
+position = Vector2(14654, -576)
+_middle_block = true
+_itemName = "virellia_diamond"
+
+[node name="VirelliaBlock5" parent="." instance=ExtResource("7_oayy4")]
+position = Vector2(14782, -576)
+_middle_block = true
+_itemName = "virellia_diamond"
+
+[node name="VirelliaBlock6" parent="." instance=ExtResource("7_oayy4")]
+position = Vector2(14910, -576)
+_middle_block = true
+_itemName = "virellia_diamond"
+
+[node name="ScoreBox" type="TextEdit" parent="."]
+z_index = 4
+offset_right = 434.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0udbm")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_iqfph")
+text = "Score: 0"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+script = ExtResource("10_wmi34")
+
 [node name="Camera2D" type="Camera2D" parent="."]
+z_index = 3
 script = ExtResource("4_21lb3")
+
+[node name="Cloud" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(1064, -1582)
+
+[node name="Cloud2" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(1025, -898)
+
+[node name="Cloud3" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(2376, -1821)
+
+[node name="Cloud4" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(1959, -1193)
+
+[node name="Cloud5" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(3644, -976)
+
+[node name="Cloud6" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(3132, -1393)
+
+[node name="Cloud7" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(4556, -1326)
+
+[node name="Cloud8" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(4033, -1738)
+
+[node name="Cloud9" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(6618, -1021)
+
+[node name="Cloud10" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(5746, -1115)
+
+[node name="Cloud11" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(7291, -1488)
+
+[node name="Cloud12" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(5401, -1693)
+
+[node name="Cloud13" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(8047, -1866)
+
+[node name="Cloud14" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(6346, -1643)
+
+[node name="Cloud15" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(9460, -1221)
+
+[node name="Cloud16" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(8842, -1538)
+
+[node name="Cloud17" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(11105, -1571)
+
+[node name="Cloud18" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(10338, -1771)
+
+[node name="Cloud19" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(10360, -1009)
+
+[node name="Cloud20" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(12162, -2010)
+
+[node name="Cloud21" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(11739, -1343)
+
+[node name="Cloud22" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(12762, -1654)
+
+[node name="Cloud23" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(13463, -1287)
+
+[node name="Cloud24" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(13841, -1949)
+
+[node name="Cloud25" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(14180, -1076)
+
+[node name="Cloud26" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(14330, -1521)
+
+[node name="Cloud27" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(15570, -1560)
+
+[node name="Cloud28" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(16165, -987)
+
+[node name="Cloud29" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(15125, -1243)
+
+[node name="Cloud30" parent="." instance=ExtResource("13_iqfph")]
+position = Vector2(16560, -1510)
+
+[node name="Player" parent="." instance=ExtResource("15_f2h58")]
+position = Vector2(210, -277)
+_jump_velocity = 1100.0
+
+[node name="VirelliaBlock" parent="." instance=ExtResource("7_oayy4")]
+position = Vector2(6974, -576)
+_middle_block = true
+_itemName = "future_spider_mobile_fallable"
+
+[node name="ShardbackCrawler" parent="." instance=ExtResource("16_nq3b4")]
+position = Vector2(2500, -704)
+
+[node name="ShardbackCrawler2" parent="." instance=ExtResource("16_nq3b4")]
+position = Vector2(4129, -201)
+mobile = true
+
+[node name="FutureSpider2" parent="." instance=ExtResource("15_nq3b4")]
+position = Vector2(10432, -341)
+mobile = true
+
+[node name="FutureSpider" parent="." instance=ExtResource("15_nq3b4")]
+position = Vector2(11604, -470)
+mobile = true

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://24c8byfyybe"]
+
+[ext_resource type="Texture2D" uid="uid://c6v4a0rt6aj7g" path="res://Textures/Virellia/other_textures/CrystalSpire.png" id="1_eltm3"]
+[ext_resource type="Script" uid="uid://cfnlufjpr270l" path="res://Scripts/General/spires.gd" id="2_jeygn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeygn"]
+atlas = ExtResource("1_eltm3")
+region = Rect2(0, 0, 48, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxi56"]
+atlas = ExtResource("1_eltm3")
+region = Rect2(48, 0, 48, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ndtg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeygn")
+}],
+"loop": true,
+"name": &"Spire1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxi56")
+}],
+"loop": true,
+"name": &"Spire2",
+"speed": 5.0
+}]
+
+[node name="CrystalSpire" type="AnimatedSprite2D"]
+z_index = 1
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_3ndtg")
+animation = &"Spire2"
+script = ExtResource("2_jeygn")

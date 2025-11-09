@@ -1,26 +1,64 @@
-SPACE THEME
-
-Planet 1: Virellia
-Sky color: Violet
-Ground: Glassy black rock that fractures into hexagonal patterns
-Gravity: .6 times Earth (600*.6+600 = 960)
-Climate/Vegitation: Sparse patches of groves and plants, but otherwise desert-like.
-Background Stuff: Crystalline spires in the background
-
-Enemies: Wanted
-	Shardback Crawler:
-		A stationary enemy that is crab-like. Fused to its shell are translucent crystals that
-		glow blue. These crystals are jagged, and hurt the player when touched.
+Virellia:
+	Planet:
+		A planet with a purple sky,
+		Ground is black with silver hexagons,
+		Crystal-like structures in the background
+	
+		The idea for Virellia was a planet with silver dust settled on the black ground,
+		which is where the hexagon shaped tiles come from. I also loved the idea of a violet sky, which
+		is why Virellia has one.
+	
+	Enemies:
+		Future Spider:
+			Originally called the Future Scarab, I went and changed it to spider due to its 8 legs.
+			This enemy was meant to be the only killable one on Virellia (without power-ups), but
+			was also intended to move quickly. It's colors were to match the ground, except instead
+			of silver it pulses a light blue, similar to the color of the crystals which come out
+			of the ground.
 		
-	Future Scarab:
-		A moving enemy that is about the size of a backpack (probably gonna be bigger).
-		It has a reflective black carapace and is covered in thin glowing lines that pulse as
-		it moves. This enemy is quick, but never intentionally chases the player. It moves in
-		a straight line until it hits something or reaches the edge of a platform, waits a
-		second, then turns around and continues walking.
+		Shardback Crawler:
+			This one kept its original name, but its design was changed. It was meant to originally
+			look similar to a crab with crystals on its back, but since this was my first time doing
+			detailed pixel art I ended up with what I currently have. The crystals on its back
+			stayed, but this enemy is meant to be unkillable for now, as the only way to kill
+			enemies without power-ups is to land on its back, and this one has crystal growths
+			all along its back. The Shardback Crawler was also intended to be slow, because the weight
+			of the crystals would slow down its movement. However, it ended up being faster than I wanted
+			due to coding constraints. Just don't upset the Shardback Queen.
+	
+	Unique Power-Up: Jump Suit
+		Each planet has a unique power-up introduced on it, but will be able to use the previous planet's
+		power-ups. Virellia's power-up is a Jump Suit, which allows the player to do a double-jump to
+		maneuver around the planet in some places.
 
-Enemies: Recieved
-	Shardback Crawler:
-		An enemy that has two modes, Stationary and Moving. It is a turtle-like creature with
-		a purple outer-shell. Blue crystals protrude from the creature's back, making it
-		impossible to kill by landing ontop of it.
+Giltera:
+	Planet:
+		The second planet of the game, this planet is intended to be a forest planet with trees and
+		other plants. It's enemies will also be plants or plant-like. The big difference here is that
+		the plants will not look the same as the ones here on earth. The trees may look similar, but
+		the colors will be different (still deciding on colors as of writing this).
+		Wren suggested Pink and Orange.
+	
+	Enemies:
+		Trap Planet (Working on Name):
+			This plant will sit along the floor of Giltera's forests, and if the player were to walk
+			into the plant's leaves they will fold up and prevent the player from moving. The player
+			will take one hit of damage, but will not take any damage after that from the plant, even
+			if they were to get trapped in the same plant again. The player will have to escape by
+			pressing the jump button a few times, hitting an Area2D. Once the Area2D has detected
+			at least 3 hits it will open the plant, and after a few seconds the plant will reset and
+			be able to trap the player again. The plant will also prevent the player from taking damage
+			from other sources and can not be killed by the player.
+			
+		Plant Man (Name a WIP):
+			A creature that is humanoid but entirely made of plants. I will probably take the player
+			and reskin them into the plant creature, so I don't have to do a completely new walking
+			animation (because I do not feel like putting in 6 hours for one enemy). This enemy will
+			walk around blindly, turning around when it hits objects besides the player. However, if
+			it hits the player once it will start moving faster because it has gotten a taste of blood
+			and it wants more for the nutrients it was provided.
+			This creature can be killed by the player, but has to be hit twice before it dies. The first
+			hit on the top of the creature will open it's flower. When the flower is open, the creature
+			moves faster as a defensive measure, but once the flower is hit the creature will die.
+	
+	Unique Power-Up:

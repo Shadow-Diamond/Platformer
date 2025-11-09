@@ -1,27 +1,19 @@
-extends CharacterBody2D
-
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var player: CharacterBody2D = $"../Player"
-@onready var kill_box: Area2D = $kill_box
-
-@export var stationary: bool = true
-
-var delayed: bool = false
+extends "res://Scripts/EnemyOrPlayer/enemy_template.gd"
 
 func _ready() -> void:
-	sprite.play("Idle")
+	_self_kill_box = null
+	_speed = 30
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
+func _enemy_death(_object): 
+	pass
+
+func _fall(delta):
+	if not is_on_floor() and mobile:
 		velocity += get_gravity() * delta
-		
-	move_and_slide()
-	
-	if !stationary:
-		pass
 
-func _on_kill_box_body_entered(body: CharacterBody2D) -> void:
-	if body == player:
-		print("Enemy damage player signal")
-		player.emit_signal("hit_player")
+func _attempt_to_hurt_player(object):
+	if object.is_in_group("player"):
+		print(self.name, " hit Player")
+		SignalBus.hurt_player.emit()
+	elif object.is_in_group("enemies") and object != self:
+		_move_flip(null)

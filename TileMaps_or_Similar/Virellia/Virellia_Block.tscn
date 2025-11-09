@@ -1,0 +1,123 @@
+[gd_scene load_steps=14 format=3 uid="uid://cmqahtnb45q02"]
+
+[ext_resource type="Script" uid="uid://cwxep8uhtupih" path="res://Scripts/General/Blocks.gd" id="1_qyoe5"]
+[ext_resource type="Texture2D" uid="uid://clv5pxecscw54" path="res://Textures/Virellia/ground_textures/silver-black_Hex_Blinking_Floating_Bricks.png" id="2_8f5qu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mblav"]
+atlas = ExtResource("2_8f5qu")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd01b"]
+atlas = ExtResource("2_8f5qu")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gsvj"]
+atlas = ExtResource("2_8f5qu")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfxrf"]
+atlas = ExtResource("2_8f5qu")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f824o"]
+atlas = ExtResource("2_8f5qu")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxi04"]
+atlas = ExtResource("2_8f5qu")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvhjy"]
+atlas = ExtResource("2_8f5qu")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of23t"]
+atlas = ExtResource("2_8f5qu")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ap0yp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mblav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd01b")
+}],
+"loop": true,
+"name": &"LeftBlock",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gsvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfxrf")
+}],
+"loop": true,
+"name": &"MiddleBlock",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f824o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxi04")
+}],
+"loop": true,
+"name": &"RightBlock",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvhjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of23t")
+}],
+"loop": true,
+"name": &"SoloBlock",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mesg"]
+size = Vector2(21.3333, 21.3333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by8jm"]
+size = Vector2(68, 8)
+
+[node name="VirelliaBlock" type="CharacterBody2D"]
+z_index = 6
+script = ExtResource("1_qyoe5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_ap0yp")
+animation = &"SoloBlock"
+frame_progress = 0.018599
+
+[node name="LeftBlockCollision" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(64, -64, -34, -64, -64, -4, -64, 4, -34, 64, 64, 64)
+
+[node name="RightBlockCollision" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-64, 64, 34, 64, 64, 4, 64, -4, 34, -64, -64, -64)
+
+[node name="SoloBlockCollision" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-34, 64, 34, 64, 64, 4, 64, -4, 34, -64, -34, -64, -64, -4, -64, 4)
+
+[node name="MiddleBlockCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(2.86102e-06, -2.86102e-06)
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_6mesg")
+
+[node name="Player_Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detector"]
+position = Vector2(0, 68)
+shape = SubResource("RectangleShape2D_by8jm")

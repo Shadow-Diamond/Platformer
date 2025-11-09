@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=3 uid="uid://bmuu40tqixmye"]
+
+[ext_resource type="Texture2D" uid="uid://chpk13ei23mtn" path="res://Textures/Virellia/other_textures/clouds/virellia_cloud_1.png" id="1_kwj2j"]
+[ext_resource type="Texture2D" uid="uid://buvvuspq2bybb" path="res://Textures/Virellia/other_textures/clouds/virellia_cloud_2.png" id="2_kpvfa"]
+[ext_resource type="Texture2D" uid="uid://6r22xryg63fh" path="res://Textures/Virellia/other_textures/clouds/virellia_cloud_3.png" id="3_jpgo0"]
+[ext_resource type="Texture2D" uid="uid://r3oga52uvoks" path="res://Textures/Virellia/other_textures/clouds/virellia_cloud_4.png" id="4_k635g"]
+[ext_resource type="Texture2D" uid="uid://37ehb0lp5d5h" path="res://Textures/Virellia/other_textures/clouds/virellia_cloud_5.png" id="5_uw8rl"]
+[ext_resource type="Texture2D" uid="uid://c7ycg8i3msjlg" path="res://Textures/Virellia/other_textures/clouds/virellia_cloud_6.png" id="6_wfeat"]
+[ext_resource type="Script" uid="uid://qjtd4rofuihh" path="res://Scripts/General/clouds.gd" id="7_kpvfa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utrbr"]
+atlas = ExtResource("1_kwj2j")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xchun"]
+atlas = ExtResource("2_kpvfa")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58xv3"]
+atlas = ExtResource("3_jpgo0")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqlcb"]
+atlas = ExtResource("4_k635g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6je4w"]
+atlas = ExtResource("5_uw8rl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulmsv"]
+atlas = ExtResource("6_wfeat")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bdyhk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utrbr")
+}],
+"loop": true,
+"name": &"cloud_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xchun")
+}],
+"loop": true,
+"name": &"cloud_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58xv3")
+}],
+"loop": true,
+"name": &"cloud_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqlcb")
+}],
+"loop": true,
+"name": &"cloud_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6je4w")
+}],
+"loop": true,
+"name": &"cloud_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulmsv")
+}],
+"loop": true,
+"name": &"cloud_6",
+"speed": 5.0
+}]
+
+[node name="Cloud" type="AnimatedSprite2D"]
+z_index = 3
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_bdyhk")
+animation = &"cloud_6"
+script = ExtResource("7_kpvfa")

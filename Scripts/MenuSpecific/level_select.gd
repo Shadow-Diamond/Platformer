@@ -150,5 +150,8 @@ func _on_lvl_3_pressed() -> void:
 func _on_lvl_4_pressed() -> void:
 	GameManager.load_scene((GameManager.Levels[str(cur_planet.name)][4]))
 
+func _on_lvl_5_pressed() -> void:
+	GameManager.load_scene((GameManager.Levels[str(cur_planet.name)][5]))
+
 func hide_nec():
 	nec_text.visible = false

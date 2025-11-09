@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+# Fixed with u/Nkzar's help!
+
 @export var _left_block: bool
 @export var _middle_block: bool
 @export var _right_block: bool

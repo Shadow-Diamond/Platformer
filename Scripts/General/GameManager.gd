@@ -9,7 +9,8 @@ extends Node
 		1: "res://Level-Scenes/Virellia/Virellia_1.tscn",
 		2: "res://Level-Scenes/Virellia/Virellia_2.tscn",
 		3: "res://Level-Scenes/Virellia/Virellia_3.tscn",
-		4: "res://Level-Scenes/Virellia/Virellia_4.tscn"
+		4: "res://Level-Scenes/Virellia/Virellia_4.tscn",
+		5: "res://Level-Scenes/Virellia/Virellia_5.tscn"
 	},
 	"Giltera": {
 		
@@ -20,7 +21,7 @@ extends Node
 }
 
 @onready var num_levels_per_planet = {
-	"Virellia": 4,
+	"Virellia": 5,
 	"Giltera": 0,
 	"Chromatic_Bonuses": 1
 }

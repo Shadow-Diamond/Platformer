@@ -201,3 +201,4 @@ script = ExtResource("3_gy62r")
 [connection signal="pressed" from="Lvl2" to="." method="_on_lvl_2_pressed"]
 [connection signal="pressed" from="Lvl3" to="." method="_on_lvl_3_pressed"]
 [connection signal="pressed" from="Lvl4" to="." method="_on_lvl_4_pressed"]
+[connection signal="pressed" from="Lvl5" to="." method="_on_lvl_5_pressed"]

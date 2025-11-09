@@ -23,6 +23,7 @@ var _dir : String = "right"
 var _djed : bool = false
 var _walking : bool = false
 var _death_fall : bool = false
+var _falling : bool = false
 
 var wind_vector : Vector2 = Vector2.ZERO
 
@@ -98,10 +99,15 @@ func _vertical(delta):
 			velocity.y = -_jump_velocity
 	elif Input.is_action_just_released("Up"):
 		velocity.y *= .5
+		_falling = true
 	elif not is_on_floor():
 		velocity += get_gravity() * delta
+	if Input.is_action_pressed("Up") or (not is_on_floor() and _falling):
 		var _jumpAnim = "Jump" + _dir
 		_active_suit.play(_jumpAnim)
+	
+	if is_on_floor():
+		_falling = false
 
 func _horizontal():
 	if _dead:
@@ -115,7 +121,6 @@ func _horizontal():
 		_walking = true
 	else:
 		_walking = false
-	
 	if _walking:
 		_active_animation = "Walk" + _dir
 		if _dir == "left":

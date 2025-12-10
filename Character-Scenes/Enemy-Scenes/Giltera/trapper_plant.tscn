@@ -1,0 +1,236 @@
+[gd_scene load_steps=23 format=3 uid="uid://d3j5qnnb3hi1t"]
+
+[ext_resource type="Texture2D" uid="uid://d3mtdatdngfud" path="res://Textures/Giltera/enemy_textures/wip.png" id="1_b3l1x"]
+[ext_resource type="Script" uid="uid://bciuyai0wp0n7" path="res://Scripts/Giltera/trapper_plant.gd" id="1_upcks"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w57no"]
+atlas = ExtResource("1_b3l1x")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upcks"]
+atlas = ExtResource("1_b3l1x")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w57no"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w57no")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upcks")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35c6c"]
+atlas = ExtResource("1_b3l1x")
+region = Rect2(144, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0u24"]
+atlas = ExtResource("1_b3l1x")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35c6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35c6c")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0u24")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0a16"]
+atlas = ExtResource("1_b3l1x")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjusq"]
+atlas = ExtResource("1_b3l1x")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0a16"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0a16")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjusq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_heb1a"]
+size = Vector2(10, 2.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heb1a"]
+atlas = ExtResource("1_b3l1x")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5pr5"]
+atlas = ExtResource("1_b3l1x")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_722rs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heb1a")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5pr5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_722rs"]
+atlas = ExtResource("1_b3l1x")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iylmr"]
+atlas = ExtResource("1_b3l1x")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7sgfg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_722rs")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iylmr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upcks"]
+size = Vector2(30.2857, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w57no"]
+size = Vector2(36, 2.85711)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0u24"]
+size = Vector2(6.71429, 48.0714)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35c6c"]
+size = Vector2(42, 4)
+
+[node name="TrapperPlant" type="CharacterBody2D"]
+z_index = 5
+scale = Vector2(7, 7)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_upcks")
+
+[node name="BackArm" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_w57no")
+
+[node name="TopCover" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
+sprite_frames = SubResource("SpriteFrames_35c6c")
+
+[node name="Bottom" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e0a16")
+animation = &"damage"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 21)
+shape = SubResource("RectangleShape2D_heb1a")
+
+[node name="RightArm" type="Node2D" parent="."]
+position = Vector2(22, 18)
+rotation = 1.5708
+
+[node name="RightArmSprite" type="AnimatedSprite2D" parent="RightArm"]
+position = Vector2(-9, -23)
+sprite_frames = SubResource("SpriteFrames_722rs")
+animation = &"damage"
+
+[node name="LeftArm" type="Node2D" parent="."]
+position = Vector2(-22, 18)
+rotation = -1.5708
+
+[node name="LeftArmSprite" type="AnimatedSprite2D" parent="LeftArm"]
+position = Vector2(9, -23)
+sprite_frames = SubResource("SpriteFrames_7sgfg")
+animation = &"damage"
+
+[node name="TrapArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapArea"]
+position = Vector2(8.17435e-07, 8.50002)
+shape = SubResource("RectangleShape2D_upcks")
+
+[node name="ReleaseArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReleaseArea"]
+position = Vector2(-1.08991e-06, -28.5714)
+shape = SubResource("RectangleShape2D_w57no")
+
+[node name="RightWallSB" type="StaticBody2D" parent="."]
+position = Vector2(2.17983e-06, 2.17983e-06)
+collision_layer = 4
+collision_mask = 7
+
+[node name="RightWall" type="CollisionShape2D" parent="RightWallSB"]
+position = Vector2(24.3572, -5.92857)
+shape = SubResource("RectangleShape2D_w0u24")
+
+[node name="LeftWallSB" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="LeftWall" type="CollisionShape2D" parent="LeftWallSB"]
+position = Vector2(-24.3571, -5.96429)
+shape = SubResource("RectangleShape2D_w0u24")
+
+[node name="RoofSB" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="Roof" type="CollisionShape2D" parent="RoofSB"]
+position = Vector2(0, -32)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_35c6c")

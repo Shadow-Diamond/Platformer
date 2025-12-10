@@ -1,0 +1,134 @@
+[gd_scene load_steps=18 format=3 uid="uid://ccflc4gy0mkb6"]
+
+[ext_resource type="Script" uid="uid://cwxep8uhtupih" path="res://Scripts/General/Blocks.gd" id="2_xmwbe"]
+[ext_resource type="Texture2D" uid="uid://biwguyf4450qw" path="res://Textures/Giltera/ground_textures/newHoneyLogs.png" id="3_xmwbe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r11n"]
+atlas = ExtResource("3_xmwbe")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycp4v"]
+atlas = ExtResource("3_xmwbe")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxyvb"]
+atlas = ExtResource("3_xmwbe")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqsk7"]
+atlas = ExtResource("3_xmwbe")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eregk"]
+atlas = ExtResource("3_xmwbe")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqscm"]
+atlas = ExtResource("3_xmwbe")
+region = Rect2(128, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btegi"]
+atlas = ExtResource("3_xmwbe")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcrep"]
+atlas = ExtResource("3_xmwbe")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i67iq"]
+atlas = ExtResource("3_xmwbe")
+region = Rect2(192, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suq8w"]
+atlas = ExtResource("3_xmwbe")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu3sa"]
+atlas = ExtResource("3_xmwbe")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f41l"]
+atlas = ExtResource("3_xmwbe")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxyvb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r11n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycp4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxyvb")
+}],
+"loop": true,
+"name": &"LeftBlock",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqsk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eregk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqscm")
+}],
+"loop": true,
+"name": &"MiddleBlock",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btegi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcrep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i67iq")
+}],
+"loop": true,
+"name": &"RightBlock",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suq8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xu3sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f41l")
+}],
+"loop": true,
+"name": &"SoloBlock",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0200"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmwbe"]
+size = Vector2(64, 8)
+
+[node name="GilteraHoneyLogs" type="CharacterBody2D"]
+z_index = 6
+scale = Vector2(2, 2)
+script = ExtResource("2_xmwbe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uxyvb")
+animation = &"LeftBlock"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g0200")
+
+[node name="Player_Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detector"]
+position = Vector2(0, 36)
+shape = SubResource("RectangleShape2D_xmwbe")

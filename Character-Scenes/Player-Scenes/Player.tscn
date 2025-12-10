@@ -612,10 +612,6 @@ size = Vector2(114, 276)
 z_index = 7
 collision_mask = 5
 script = ExtResource("1_xeemy")
-_mc_left_marg = 0.6
-_mc_top_marg = 0.6
-_mc_right_marg = 0.2
-_mc_bottom_marg = 0.2
 
 [node name="basic_spacesuit" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6, 6)

@@ -1,0 +1,160 @@
+[gd_scene load_steps=18 format=3 uid="uid://dsnyqxkyrtnfs"]
+
+[ext_resource type="Texture2D" uid="uid://42ikg7q4tt3s" path="res://Textures/Giltera/enemy_textures/moss_man.png" id="1_sntie"]
+[ext_resource type="Script" uid="uid://bjtj61kh78s1x" path="res://Scripts/Giltera/moss_creature.gd" id="1_xpik4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpik4"]
+atlas = ExtResource("1_sntie")
+region = Rect2(192, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oteb"]
+atlas = ExtResource("1_sntie")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl7ye"]
+atlas = ExtResource("1_sntie")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw2ei"]
+atlas = ExtResource("1_sntie")
+region = Rect2(96, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh180"]
+atlas = ExtResource("1_sntie")
+region = Rect2(144, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ausao"]
+atlas = ExtResource("1_sntie")
+region = Rect2(0, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsoal"]
+atlas = ExtResource("1_sntie")
+region = Rect2(48, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2bah"]
+atlas = ExtResource("1_sntie")
+region = Rect2(96, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1awnh"]
+atlas = ExtResource("1_sntie")
+region = Rect2(144, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7yuw"]
+atlas = ExtResource("1_sntie")
+region = Rect2(192, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jkt4"]
+atlas = ExtResource("1_sntie")
+region = Rect2(240, 64, 48, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gtej4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpik4")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oteb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl7ye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw2ei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh180")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ausao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsoal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2bah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1awnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7yuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jkt4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuab0"]
+size = Vector2(13, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sntie"]
+size = Vector2(36, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpik4"]
+size = Vector2(118, 15)
+
+[node name="Moss-Creature" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_xpik4")
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_gtej4")
+animation = &"idle"
+
+[node name="enemy_hit_box" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 44)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_wuab0")
+
+[node name="Vision_Ray" type="RayCast2D" parent="."]
+position = Vector2(8, -24)
+target_position = Vector2(61, 1)
+collision_mask = 5
+
+[node name="GroundDetector1" type="RayCast2D" parent="."]
+position = Vector2(28, 120)
+scale = Vector2(4, 4)
+target_position = Vector2(0, 25)
+collision_mask = 4
+
+[node name="GroundDetector2" type="RayCast2D" parent="."]
+position = Vector2(-28, 120)
+scale = Vector2(4, 4)
+target_position = Vector2(0, 25)
+collision_mask = 4
+
+[node name="PKillBox" type="Area2D" parent="."]
+light_mask = 2
+visibility_layer = 3
+collision_layer = 2
+collision_mask = 3
+
+[node name="kill_box_collision" type="CollisionShape2D" parent="PKillBox"]
+position = Vector2(0, 50)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_sntie")
+
+[node name="SKillBox" type="Area2D" parent="."]
+light_mask = 2
+visibility_layer = 3
+collision_layer = 2
+
+[node name="death_box_detector" type="CollisionShape2D" parent="SKillBox"]
+position = Vector2(0, -35)
+shape = SubResource("RectangleShape2D_xpik4")

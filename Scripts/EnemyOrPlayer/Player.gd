@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var _speed : float = 400
-@export var _jump_velocity : float = 600
+@export var _jump_velocity : float = 1100
 @export var _kill_bounce_decrease : float = 2
 
 @onready var main_camera: Camera2D = $Camera2D
@@ -40,6 +40,7 @@ func _physics_process(delta):
 
 func _ready():
 	main_camera.make_current()
+	SignalBus.trapper_plant_snatch.connect(_trapper_damage)
 	SignalBus.hurt_player.connect(_got_hurt)
 	SignalBus.kill_player.connect(_player_death)
 	SignalBus.bounce.connect(_bouncy)
@@ -191,3 +192,7 @@ func _toggle_anims(_current):
 func _player_death():
 	_dead = true
 	_death()
+
+func _trapper_damage(): # The trapper plant only hurts if you have more than a basic suit, and won't kill the player
+	if _health > 1:
+		SignalBus.hurt_player.emit()

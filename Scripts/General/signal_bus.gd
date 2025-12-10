@@ -18,7 +18,8 @@ signal kill_player
 # Signals related to enemies
 @warning_ignore("unused_signal")
 signal e_death
-
+@warning_ignore("unused_signal")
+signal trapper_plant_snatch
 # Other Signals
 @warning_ignore("unused_signal")
 signal reset

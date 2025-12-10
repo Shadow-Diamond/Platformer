@@ -44,5 +44,8 @@ const ITEMS = {
 	},
 	"virellia_diamond" : {
 		"path" :"res://Item-Scenes/Virellia/Diamond.tscn"
+	},
+	"giltera_honeyjar" : {
+		"path":"res://Item-Scenes/Giltera/Honeyjar.tscn"
 	}
 }

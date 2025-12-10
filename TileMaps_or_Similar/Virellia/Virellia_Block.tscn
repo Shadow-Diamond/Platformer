@@ -82,11 +82,10 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mesg"]
-size = Vector2(21.3333, 21.3333)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_by8jm"]
 size = Vector2(68, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clqxf"]
 
 [node name="VirelliaBlock" type="CharacterBody2D"]
 z_index = 6
@@ -98,26 +97,12 @@ sprite_frames = SubResource("SpriteFrames_ap0yp")
 animation = &"SoloBlock"
 frame_progress = 0.018599
 
-[node name="LeftBlockCollision" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PackedVector2Array(64, -64, -34, -64, -64, -4, -64, 4, -34, 64, 64, 64)
-
-[node name="RightBlockCollision" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PackedVector2Array(-64, 64, 34, 64, 64, 4, 64, -4, 34, -64, -64, -64)
-
-[node name="SoloBlockCollision" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PackedVector2Array(-34, 64, 34, 64, 64, 4, 64, -4, 34, -64, -34, -64, -64, -4, -64, 4)
-
-[node name="MiddleBlockCollision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(2.86102e-06, -2.86102e-06)
-scale = Vector2(6, 6)
-shape = SubResource("RectangleShape2D_6mesg")
-
 [node name="Player_Detector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detector"]
-position = Vector2(0, 68)
+position = Vector2(2, 68)
 shape = SubResource("RectangleShape2D_by8jm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_clqxf")

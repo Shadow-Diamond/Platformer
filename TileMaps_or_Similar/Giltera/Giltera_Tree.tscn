@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://idui32rlk1ct"]
+
+[ext_resource type="Texture2D" uid="uid://b634qly8mde51" path="res://Textures/Giltera/ground_textures/newTree.png" id="2_d7t3g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w17f6"]
+texture = ExtResource("2_d7t3g")
+texture_region_size = Vector2i(64, 64)
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/top_side = 0
+0:1/size_in_atlas = Vector2i(3, 1)
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/top_side = 0
+
+[sub_resource type="TileSet" id="TileSet_w17f6"]
+tile_size = Vector2i(64, 64)
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Tree"
+terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 1, 1)
+sources/1 = SubResource("TileSetAtlasSource_w17f6")
+
+[node name="GilteraTree" type="TileMapLayer"]
+z_index = 3
+position = Vector2(0, -32)
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_w17f6")
